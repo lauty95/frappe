@@ -181,7 +181,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-01-18 17:43:39.804765",
+ "modified": "2021-05-12 20:00:25.910543",
  "modified_by": "Administrator",
  "module": "Website",
  "name": "Website Theme",
@@ -204,6 +204,7 @@
    "write": 1
   }
  ],
+ "restrict_to_domain": "Website",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

@@ -82,7 +82,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2020-10-12 13:26:20.277859",
+ "modified": "2021-05-12 20:00:24.645511",
  "modified_by": "Administrator",
  "module": "Website",
  "name": "About Us Settings",
@@ -98,6 +98,7 @@
    "write": 1
   }
  ],
+ "restrict_to_domain": "Website",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

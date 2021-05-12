@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "autoname": "format:GC-{email_id}",
  "creation": "2019-06-14 00:09:39.441961",
  "doctype": "DocType",
@@ -97,7 +98,8 @@
    "label": "Push to Google Contacts"
   }
  ],
- "modified": "2020-09-18 17:26:09.703215",
+ "links": [],
+ "modified": "2021-05-12 20:01:51.253996",
  "modified_by": "Administrator",
  "module": "Integrations",
  "name": "Google Contacts",
@@ -126,6 +128,7 @@
    "write": 1
   }
  ],
+ "restrict_to_domain": "Servicios Google",
  "sort_field": "modified",
  "sort_order": "ASC",
  "track_changes": 1

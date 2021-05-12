@@ -18,55 +18,43 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Merchant ID",
-   "reqd": 1,
-   "show_days": 1,
-   "show_seconds": 1
+   "reqd": 1
   },
   {
    "fieldname": "merchant_key",
    "fieldtype": "Password",
    "in_list_view": 1,
    "label": "Merchant Key",
-   "reqd": 1,
-   "show_days": 1,
-   "show_seconds": 1
+   "reqd": 1
   },
   {
    "default": "0",
    "fieldname": "staging",
    "fieldtype": "Check",
-   "label": "Staging",
-   "show_days": 1,
-   "show_seconds": 1
+   "label": "Staging"
   },
   {
    "depends_on": "eval: !doc.staging",
    "fieldname": "website",
    "fieldtype": "Data",
    "label": "Website",
-   "mandatory_depends_on": "eval: !doc.staging",
-   "show_days": 1,
-   "show_seconds": 1
+   "mandatory_depends_on": "eval: !doc.staging"
   },
   {
    "fieldname": "column_break_4",
-   "fieldtype": "Column Break",
-   "show_days": 1,
-   "show_seconds": 1
+   "fieldtype": "Column Break"
   },
   {
    "depends_on": "eval: !doc.staging",
    "fieldname": "industry_type_id",
    "fieldtype": "Data",
    "label": "Industry Type ID",
-   "mandatory_depends_on": "eval: !doc.staging",
-   "show_days": 1,
-   "show_seconds": 1
+   "mandatory_depends_on": "eval: !doc.staging"
   }
  ],
  "issingle": 1,
  "links": [],
- "modified": "2020-06-08 13:36:09.703143",
+ "modified": "2021-05-12 19:59:44.431221",
  "modified_by": "Administrator",
  "module": "Integrations",
  "name": "Paytm Settings",
@@ -83,6 +71,7 @@
    "write": 1
   }
  ],
+ "restrict_to_domain": "Integrations",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

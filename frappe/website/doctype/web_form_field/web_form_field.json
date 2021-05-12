@@ -146,12 +146,13 @@
  ],
  "istable": 1,
  "links": [],
- "modified": "2021-04-30 12:02:25.422345",
+ "modified": "2021-05-12 20:00:25.310811",
  "modified_by": "Administrator",
  "module": "Website",
  "name": "Web Form Field",
  "owner": "Administrator",
  "permissions": [],
+ "restrict_to_domain": "Website",
  "sort_field": "modified",
  "sort_order": "DESC"
 }

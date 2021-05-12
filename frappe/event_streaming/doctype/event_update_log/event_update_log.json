@@ -51,7 +51,7 @@
  ],
  "in_create": 1,
  "links": [],
- "modified": "2020-09-04 07:31:52.599804",
+ "modified": "2021-05-12 20:01:40.028061",
  "modified_by": "Administrator",
  "module": "Event Streaming",
  "name": "Event Update Log",
@@ -71,6 +71,7 @@
   }
  ],
  "quick_entry": 1,
+ "restrict_to_domain": "Tools",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

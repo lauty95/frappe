@@ -59,7 +59,7 @@
  "idx": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-03-16 20:33:51.400191",
+ "modified": "2021-05-12 20:02:05.837019",
  "modified_by": "Administrator",
  "module": "Custom",
  "name": "Client Script",
@@ -88,6 +88,7 @@
    "write": 1
   }
  ],
+ "restrict_to_domain": "Build",
  "sort_field": "modified",
  "sort_order": "ASC",
  "track_changes": 1

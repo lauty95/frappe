@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "autoname": "field:mapping_name",
  "creation": "2019-09-27 12:45:56.529124",
  "doctype": "DocType",
@@ -45,7 +46,8 @@
    "unique": 1
   }
  ],
- "modified": "2019-10-09 08:36:04.621397",
+ "links": [],
+ "modified": "2021-05-12 20:01:40.247873",
  "modified_by": "Administrator",
  "module": "Event Streaming",
  "name": "Document Type Mapping",
@@ -65,6 +67,7 @@
   }
  ],
  "quick_entry": 1,
+ "restrict_to_domain": "Tools",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

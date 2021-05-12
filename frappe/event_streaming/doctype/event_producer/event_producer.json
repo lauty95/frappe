@@ -70,7 +70,7 @@
   }
  ],
  "links": [],
- "modified": "2020-10-26 13:00:15.361316",
+ "modified": "2021-05-12 20:00:34.588357",
  "modified_by": "Administrator",
  "module": "Event Streaming",
  "name": "Event Producer",
@@ -90,6 +90,7 @@
   }
  ],
  "quick_entry": 1,
+ "restrict_to_domain": "Event Streaming",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

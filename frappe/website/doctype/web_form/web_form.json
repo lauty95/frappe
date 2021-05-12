@@ -361,7 +361,7 @@
  "icon": "icon-edit",
  "is_published_field": "published",
  "links": [],
- "modified": "2020-08-07 13:12:03.945686",
+ "modified": "2021-05-12 20:00:23.371259",
  "modified_by": "Administrator",
  "module": "Website",
  "name": "Web Form",
@@ -377,6 +377,7 @@
    "write": 1
   }
  ],
+ "restrict_to_domain": "Website",
  "sort_field": "modified",
  "sort_order": "DESC",
  "title_field": "title",

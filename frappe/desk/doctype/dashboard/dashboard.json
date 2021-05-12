@@ -67,7 +67,7 @@
   }
  ],
  "links": [],
- "modified": "2020-07-23 11:05:41.890459",
+ "modified": "2021-05-12 20:02:05.576878",
  "modified_by": "Administrator",
  "module": "Desk",
  "name": "Dashboard",
@@ -108,6 +108,7 @@
   }
  ],
  "quick_entry": 1,
+ "restrict_to_domain": "Build",
  "sort_field": "modified",
  "sort_order": "DESC",
  "title_field": "dashboard_name",

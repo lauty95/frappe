@@ -81,7 +81,7 @@
    "link_fieldname": "scheduled_job_type"
   }
  ],
- "modified": "2020-10-07 10:39:24.519460",
+ "modified": "2021-05-12 20:02:06.018008",
  "modified_by": "Administrator",
  "module": "Core",
  "name": "Scheduled Job Type",
@@ -101,6 +101,7 @@
   }
  ],
  "quick_entry": 1,
+ "restrict_to_domain": "Build",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

@@ -112,7 +112,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-10-06 17:25:40.477044",
+ "modified": "2021-05-12 20:01:59.757718",
  "modified_by": "Administrator",
  "module": "Social",
  "name": "Energy Point Log",
@@ -129,6 +129,7 @@
    "role": "All"
   }
  ],
+ "restrict_to_domain": "HR Reclutamiento, Capacitacion y Gastos",
  "sort_field": "modified",
  "sort_order": "DESC",
  "title_field": "user",

@@ -45,7 +45,7 @@
   }
  ],
  "links": [],
- "modified": "2021-04-23 13:25:53.629308",
+ "modified": "2021-05-12 20:00:26.249461",
  "modified_by": "Administrator",
  "module": "Website",
  "name": "Personal Data Deletion Request",
@@ -64,6 +64,7 @@
    "write": 1
   }
  ],
+ "restrict_to_domain": "Website",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

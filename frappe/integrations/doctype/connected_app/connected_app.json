@@ -136,7 +136,7 @@
    "link_fieldname": "connected_app"
   }
  ],
- "modified": "2020-11-16 16:29:50.277405",
+ "modified": "2021-05-12 19:59:43.958336",
  "modified_by": "Administrator",
  "module": "Integrations",
  "name": "Connected App",
@@ -159,6 +159,7 @@
    "role": "All"
   }
  ],
+ "restrict_to_domain": "Integrations",
  "sort_field": "modified",
  "sort_order": "DESC",
  "title_field": "provider_name",

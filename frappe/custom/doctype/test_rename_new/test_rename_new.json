@@ -16,7 +16,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-01-13 12:47:03.572640",
+ "modified": "2021-05-12 20:00:29.885167",
  "modified_by": "Administrator",
  "module": "Custom",
  "name": "Test rename new",
@@ -35,6 +35,7 @@
    "write": 1
   }
  ],
+ "restrict_to_domain": "Custom",
  "route": "test-rename",
  "sort_field": "modified",
  "sort_order": "DESC",

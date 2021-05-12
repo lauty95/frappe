@@ -211,7 +211,7 @@
   }
  ],
  "links": [],
- "modified": "2021-01-12 09:24:49.719611",
+ "modified": "2021-05-12 20:00:31.560887",
  "modified_by": "Administrator",
  "module": "Automation",
  "name": "Auto Repeat",
@@ -254,6 +254,7 @@
    "write": 1
   }
  ],
+ "restrict_to_domain": "Automation",
  "search_fields": "reference_document",
  "sort_field": "modified",
  "sort_order": "DESC",
