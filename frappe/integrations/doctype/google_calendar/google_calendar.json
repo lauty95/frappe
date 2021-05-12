@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "autoname": "field:calendar_name",
  "creation": "2019-07-06 17:54:09.450100",
  "doctype": "DocType",
@@ -108,7 +109,8 @@
    "label": "Push to Google Calendar"
   }
  ],
- "modified": "2019-08-08 15:44:15.798362",
+ "links": [],
+ "modified": "2021-05-12 20:01:51.497514",
  "modified_by": "Administrator",
  "module": "Integrations",
  "name": "Google Calendar",
@@ -140,6 +142,7 @@
    "write": 1
   }
  ],
+ "restrict_to_domain": "Servicios Google",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

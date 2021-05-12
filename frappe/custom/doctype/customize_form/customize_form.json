@@ -305,7 +305,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2021-03-22 12:27:15.462727",
+ "modified": "2021-05-12 20:00:29.387819",
  "modified_by": "Administrator",
  "module": "Custom",
  "name": "Customize Form",
@@ -322,6 +322,7 @@
   }
  ],
  "quick_entry": 1,
+ "restrict_to_domain": "Custom",
  "search_fields": "doc_type",
  "sort_field": "modified",
  "sort_order": "DESC",

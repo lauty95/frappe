@@ -93,7 +93,7 @@
  "index_web_pages_for_search": 1,
  "is_published_field": "published",
  "links": [],
- "modified": "2020-07-21 16:25:18.577325",
+ "modified": "2021-05-12 20:00:18.968317",
  "modified_by": "Administrator",
  "module": "Website",
  "name": "Help Article",
@@ -122,6 +122,7 @@
    "role": "Guest"
   }
  ],
+ "restrict_to_domain": "Website",
  "sort_field": "modified",
  "sort_order": "DESC",
  "title_field": "title",

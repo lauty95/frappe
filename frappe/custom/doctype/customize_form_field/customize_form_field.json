@@ -428,12 +428,13 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2020-10-29 06:11:57.661039",
+ "modified": "2021-05-12 20:00:30.938024",
  "modified_by": "Administrator",
  "module": "Custom",
  "name": "Customize Form Field",
  "owner": "Administrator",
  "permissions": [],
+ "restrict_to_domain": "Custom",
  "sort_field": "modified",
  "sort_order": "ASC"
 }

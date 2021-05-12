@@ -200,7 +200,7 @@
  "is_published_field": "published",
  "links": [],
  "max_attachments": 5,
- "modified": "2020-12-23 14:28:36.311389",
+ "modified": "2021-05-12 20:00:25.571944",
  "modified_by": "Administrator",
  "module": "Website",
  "name": "Blog Post",
@@ -229,6 +229,7 @@
    "write": 1
   }
  ],
+ "restrict_to_domain": "Website",
  "route": "blog",
  "sort_field": "modified",
  "sort_order": "ASC",

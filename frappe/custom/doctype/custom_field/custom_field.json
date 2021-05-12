@@ -417,7 +417,7 @@
  "idx": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-10-29 06:14:43.073329",
+ "modified": "2021-05-12 20:00:30.452684",
  "modified_by": "Administrator",
  "module": "Custom",
  "name": "Custom Field",
@@ -446,6 +446,7 @@
    "write": 1
   }
  ],
+ "restrict_to_domain": "Custom",
  "search_fields": "dt,label,fieldtype,options",
  "sort_field": "modified",
  "sort_order": "ASC",

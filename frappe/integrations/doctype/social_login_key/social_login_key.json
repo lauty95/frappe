@@ -161,7 +161,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-09-30 14:37:13.616002",
+ "modified": "2021-05-12 19:59:43.476863",
  "modified_by": "Administrator",
  "module": "Integrations",
  "name": "Social Login Key",
@@ -180,6 +180,7 @@
    "write": 1
   }
  ],
+ "restrict_to_domain": "Integrations",
  "sort_field": "modified",
  "sort_order": "DESC",
  "title_field": "provider_name",

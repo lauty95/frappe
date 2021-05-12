@@ -26,12 +26,13 @@
  ],
  "istable": 1,
  "links": [],
- "modified": "2020-11-16 15:18:35.887149",
+ "modified": "2021-05-12 19:59:43.236704",
  "modified_by": "Administrator",
  "module": "Integrations",
  "name": "Query Parameters",
  "owner": "Administrator",
  "permissions": [],
+ "restrict_to_domain": "Integrations",
  "sort_field": "modified",
  "sort_order": "DESC"
 }

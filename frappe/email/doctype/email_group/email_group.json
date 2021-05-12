@@ -50,7 +50,7 @@
    "link_fieldname": "email_group"
   }
  ],
- "modified": "2020-09-24 16:41:55.286377",
+ "modified": "2021-05-12 20:01:45.503235",
  "modified_by": "Administrator",
  "module": "Email",
  "name": "Email Group",
@@ -71,6 +71,7 @@
   }
  ],
  "quick_entry": 1,
+ "restrict_to_domain": "Campaigns",
  "show_name_in_global_search": 1,
  "sort_field": "modified",
  "sort_order": "DESC",

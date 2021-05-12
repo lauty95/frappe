@@ -56,7 +56,7 @@
  ],
  "issingle": 1,
  "links": [],
- "modified": "2020-08-06 15:43:36.387050",
+ "modified": "2021-05-12 20:00:23.104095",
  "modified_by": "Administrator",
  "module": "Website",
  "name": "Portal Settings",
@@ -73,6 +73,7 @@
    "write": 1
   }
  ],
+ "restrict_to_domain": "Website",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

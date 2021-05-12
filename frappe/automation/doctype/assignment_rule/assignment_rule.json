@@ -151,7 +151,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-10-20 14:47:20.662954",
+ "modified": "2021-05-12 20:00:32.162277",
  "modified_by": "Administrator",
  "module": "Automation",
  "name": "Assignment Rule",
@@ -170,6 +170,7 @@
    "write": 1
   }
  ],
+ "restrict_to_domain": "Automation",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

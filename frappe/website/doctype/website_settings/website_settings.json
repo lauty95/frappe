@@ -433,7 +433,7 @@
  "issingle": 1,
  "links": [],
  "max_attachments": 10,
- "modified": "2021-04-14 17:39:56.609771",
+ "modified": "2021-05-12 20:00:27.198989",
  "modified_by": "Administrator",
  "module": "Website",
  "name": "Website Settings",
@@ -454,6 +454,7 @@
    "role": "All"
   }
  ],
+ "restrict_to_domain": "Website",
  "sort_field": "modified",
  "sort_order": "ASC",
  "track_changes": 1

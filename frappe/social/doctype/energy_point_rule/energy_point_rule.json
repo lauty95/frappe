@@ -1,4 +1,5 @@
 {
+ "actions": [],
  "autoname": "field:rule_name",
  "creation": "2018-06-20 10:08:36.275253",
  "doctype": "DocType",
@@ -115,7 +116,8 @@
    "label": "Apply Only Once"
   }
  ],
- "modified": "2019-10-28 14:16:09.710167",
+ "links": [],
+ "modified": "2021-05-12 20:01:59.476903",
  "modified_by": "Administrator",
  "module": "Social",
  "name": "Energy Point Rule",
@@ -134,6 +136,7 @@
    "write": 1
   }
  ],
+ "restrict_to_domain": "HR Reclutamiento, Capacitacion y Gastos",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

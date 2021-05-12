@@ -71,7 +71,7 @@
  ],
  "in_create": 1,
  "links": [],
- "modified": "2020-09-08 16:42:39.828085",
+ "modified": "2021-05-12 20:01:39.853912",
  "modified_by": "Administrator",
  "module": "Event Streaming",
  "name": "Event Consumer",
@@ -91,6 +91,7 @@
   }
  ],
  "quick_entry": 1,
+ "restrict_to_domain": "Tools",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

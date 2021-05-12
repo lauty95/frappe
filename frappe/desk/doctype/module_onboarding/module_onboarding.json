@@ -82,7 +82,7 @@
   }
  ],
  "links": [],
- "modified": "2020-06-08 15:36:04.701049",
+ "modified": "2021-05-12 20:02:04.527304",
  "modified_by": "Administrator",
  "module": "Desk",
  "name": "Module Onboarding",
@@ -111,6 +111,7 @@
   }
  ],
  "read_only": 1,
+ "restrict_to_domain": "Build",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

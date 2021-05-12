@@ -84,7 +84,7 @@
  "idx": 1,
  "issingle": 1,
  "links": [],
- "modified": "2020-06-01 15:57:21.564652",
+ "modified": "2021-05-12 20:00:18.671185",
  "modified_by": "Administrator",
  "module": "Website",
  "name": "Blog Settings",
@@ -107,6 +107,7 @@
    "share": 1
   }
  ],
+ "restrict_to_domain": "Website",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

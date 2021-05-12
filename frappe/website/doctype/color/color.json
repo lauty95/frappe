@@ -18,7 +18,7 @@
   }
  ],
  "links": [],
- "modified": "2020-04-19 02:25:47.417772",
+ "modified": "2021-05-12 20:00:17.618036",
  "modified_by": "Administrator",
  "module": "Website",
  "name": "Color",
@@ -38,6 +38,7 @@
   }
  ],
  "quick_entry": 1,
+ "restrict_to_domain": "Website",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1
