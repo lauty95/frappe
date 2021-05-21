@@ -84,7 +84,8 @@ leaderboards = "frappe.desk.leaderboard.get_leaderboards"
 
 on_session_creation = [
 	"frappe.core.doctype.activity_log.feed.login_feed",
-	"frappe.core.doctype.user.user.notify_admin_access_to_system_manager"
+	"frappe.core.doctype.user.user.notify_admin_access_to_system_manager",
+	"frappe.limits.check_if_expired",
 ]
 
 # on_logout = "frappe.core.doctype.session_default_settings.session_default_settings.clear_session_defaults"
@@ -180,6 +181,9 @@ doc_events = {
 	"Page": {
 		"after_insert": "frappe.cache_manager.build_domain_restriced_page_cache",
 		"after_save": "frappe.cache_manager.build_domain_restriced_page_cache",
+	},
+	"Email Group Member": {
+		"validate": "frappe.email.doctype.email_group.email_group.restrict_email_group"
 	}
 }
 

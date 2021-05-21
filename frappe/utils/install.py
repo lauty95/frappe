@@ -228,7 +228,7 @@ def add_standard_navbar_items():
 		{
 			'item_label': 'Información de Uso',
 			'item_type': 'Route',
-			'route': 'app/informacion-de-uso',
+			'route': '/app/informacion-de-uso',
 			'is_standard': 1
 		},
 		{

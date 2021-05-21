@@ -108,3 +108,15 @@ def send_welcome_email(welcome_email, email, email_group):
 
 	message = frappe.render_template(welcome_email.response, args)
 	frappe.sendmail(email, subject=welcome_email.subject, message=message)
+
+
+def restrict_email_group(doc, method):
+	from frappe.limits import get_limits
+
+	email_group_limit = get_limits().get('email_group')
+	if not email_group_limit:
+		return
+
+	email_group = frappe.get_doc("Email Group", doc.email_group)
+	if email_group.get_total_subscribers() >= email_group_limit:
+		frappe.throw(_("Please Upgrade to add more than {0} subscribers").format(email_group_limit))
