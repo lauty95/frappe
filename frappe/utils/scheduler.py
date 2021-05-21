@@ -149,3 +149,10 @@ def activate_scheduler():
 		enable_scheduler()
 	if frappe.conf.pause_scheduler:
 		update_site_config('pause_scheduler', 0)
+
+
+def disable_scheduler_on_expiry():
+	from frappe.limits import has_expired
+
+	if has_expired():
+		disable_scheduler()
