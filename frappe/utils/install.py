@@ -226,6 +226,12 @@ def add_standard_navbar_items():
 			'is_standard': 1
 		},
 		{
+			'item_label': 'Información de Uso',
+			'item_type': 'Route',
+			'route': 'app/informacion-de-uso',
+			'is_standard': 1
+		},
+		{
 			'item_type': 'Separator',
 			'is_standard': 1
 		},
@@ -239,7 +245,7 @@ def add_standard_navbar_items():
 
 	standard_help_items = [
 		{
-			'item_label': 'About',
+			'item_label': 'Acerca de DiamoERP',
 			'item_type': 'Action',
 			'action': 'frappe.ui.toolbar.show_about()',
 			'is_standard': 1
@@ -249,7 +255,17 @@ def add_standard_navbar_items():
 			'item_type': 'Action',
 			'action': 'frappe.ui.toolbar.show_shortcuts(event)',
 			'is_standard': 1
-		}
+		},
+		{
+			'item_type': 'Separator',
+			'is_standard': 1
+		},
+		{
+			'item_label': 'Crear un Ticket',
+			'item_type': 'Route',
+			'route': 'https://soporte.diamo.com.ar',
+			'is_standard': 1
+		},
 	]
 
 	navbar_settings.settings_dropdown = []

@@ -398,6 +398,7 @@ frappe.Application = Class.extend({
 		// toolbar
 		if(frappe.boot && frappe.boot.home_page!=='setup-wizard') {
 			frappe.frappe_toolbar = new frappe.ui.toolbar.Toolbar();
+			$('.dropdown-help a:last-child').css('color', 'var(--primary-color)').css('font-weight', 'bold');
 		}
 
 	},
