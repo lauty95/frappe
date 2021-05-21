@@ -1,0 +1,22 @@
+{
+ "content": null,
+ "creation": "2021-05-21 11:20:30.277200",
+ "docstatus": 0,
+ "doctype": "Page",
+ "idx": 0,
+ "modified": "2021-05-21 11:20:30.277200",
+ "modified_by": "Administrator",
+ "module": "Core",
+ "name": "informacion-de-uso",
+ "owner": "Administrator",
+ "page_name": "Informacion de Uso",
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ],
+ "script": null,
+ "standard": "Yes",
+ "style": null,
+ "system_page": 0
+}

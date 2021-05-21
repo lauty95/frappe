@@ -117,6 +117,7 @@ def get():
 	"""get session boot info"""
 	from frappe.boot import get_bootinfo, get_unseen_notes
 	from frappe.utils.change_log import get_change_log
+	from frappe.limits import get_limits
 
 	bootinfo = None
 	if not getattr(frappe.conf,'disable_session_cache', None):
@@ -158,6 +159,8 @@ def get():
 
 	bootinfo["setup_complete"] = cint(frappe.db.get_single_value('System Settings', 'setup_complete'))
 	bootinfo["is_first_startup"] = cint(frappe.db.get_single_value('System Settings', 'is_first_startup'))
+
+	bootinfo.limits = get_limits()
 
 	return bootinfo
 

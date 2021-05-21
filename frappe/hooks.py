@@ -207,7 +207,9 @@ scheduler_events = {
 		"frappe.deferred_insert.save_to_db",
 		"frappe.desk.form.document_follow.send_hourly_updates",
 		"frappe.integrations.doctype.google_calendar.google_calendar.sync",
-		"frappe.email.doctype.newsletter.newsletter.send_scheduled_email"
+		"frappe.email.doctype.newsletter.newsletter.send_scheduled_email",
+		"frappe.limits.update_space_usage",
+		"frappe.limits.update_site_usage",
 	],
 	"daily": [
 		"frappe.email.queue.set_expiry_for_email_queue",
@@ -284,6 +286,8 @@ setup_wizard_exception = [
 	"frappe.desk.page.setup_wizard.setup_wizard.email_setup_wizard_exception",
 	"frappe.desk.page.setup_wizard.setup_wizard.log_setup_wizard_exception"
 ]
+
+before_write_file = "frappe.limits.validate_space_limit"
 
 before_migrate = ['frappe.patches.v11_0.sync_user_permission_doctype_before_migrate.execute']
 after_migrate = ['frappe.website.doctype.website_theme.website_theme.after_migrate']
