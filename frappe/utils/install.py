@@ -184,43 +184,43 @@ def add_standard_navbar_items():
 
 	standard_navbar_items = [
 		{
-			'item_label': 'My Profile',
+			'item_label': 'Mi Perfil',
 			'item_type': 'Route',
 			'route': '/app/user-profile',
 			'is_standard': 1
 		},
 		{
-			'item_label': 'My Settings',
+			'item_label': 'Mi Configuración',
 			'item_type': 'Action',
 			'action': 'frappe.ui.toolbar.route_to_user()',
 			'is_standard': 1
 		},
 		{
-			'item_label': 'Session Defaults',
+			'item_label': 'Sesiones por Defecto',
 			'item_type': 'Action',
 			'action': 'frappe.ui.toolbar.setup_session_defaults()',
 			'is_standard': 1
 		},
 		{
-			'item_label': 'Reload',
+			'item_label': 'Recargar',
 			'item_type': 'Action',
 			'action': 'frappe.ui.toolbar.clear_cache()',
 			'is_standard': 1
 		},
 		{
-			'item_label': 'View Website',
+			'item_label': 'Ver Sitio Web',
 			'item_type': 'Action',
 			'action': 'frappe.ui.toolbar.view_website()',
 			'is_standard': 1
 		},
 		{
-			'item_label': 'Toggle Full Width',
+			'item_label': 'Cambiar a Ancho Completo',
 			'item_type': 'Action',
 			'action': 'frappe.ui.toolbar.toggle_full_width()',
 			'is_standard': 1
 		},
 		{
-			'item_label': 'Background Jobs',
+			'item_label': 'Trabajos de Segundo Plano',
 			'item_type': 'Route',
 			'route': '/app/background_jobs',
 			'is_standard': 1
@@ -251,7 +251,7 @@ def add_standard_navbar_items():
 			'is_standard': 1
 		},
 		{
-			'item_label': 'Keyboard Shortcuts',
+			'item_label': 'Atajos de Teclado',
 			'item_type': 'Action',
 			'action': 'frappe.ui.toolbar.show_shortcuts(event)',
 			'is_standard': 1
