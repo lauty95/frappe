@@ -156,6 +156,7 @@ def get_usage_info():
         'enabled_users': len(get_enabled_system_users()),
         'emails_sent': get_emails_sent_this_month(),
         'space_usage': limits.space_usage['total'],
+        'enabled_companies': frappe.db.count("Company"),
     })
 
     if limits.expiry:
