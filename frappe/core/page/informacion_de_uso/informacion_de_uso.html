@@ -14,16 +14,30 @@
 
 	{% if limits.users %}
 	    {% var users_percent = ((enabled_users / limits.users) * 100); %}
-	<div class="usage-info-section" style="margin: 30px;">
-		<h4>{{ __("Users") }}</h4>
+		<div class="usage-info-section" style="margin: 30px;">
+			<h4>{{ __("Users") }}</h4>
 
-		<div class="progress" style="margin-bottom: 0;">
-			<div class="progress-bar progress-bar-{%= (users_percent < 75 ? "success" : "warning") %}" style="width: {{ users_percent }}%">
+			<div class="progress" style="margin-bottom: 0;">
+				<div class="progress-bar progress-bar-{%= (users_percent < 75 ? "success" : "warning") %}" style="width: {{ users_percent }}%">
+				</div>
 			</div>
-		</div>
 
-		<p>{%= enabled_users %} out of {%= limits.users %} enabled</p>
-	</div>
+			<p>{%= enabled_users %} out of {%= limits.users %} enabled</p>
+		</div>
+	{% endif %}
+
+	{% if limits.companies %}
+	    {% var users_percent = ((enabled_companies / limits.companies) * 100); %}
+		<div class="usage-info-section" style="margin: 30px;">
+			<h4>{{ "Compañias" }}</h4>
+
+			<div class="progress" style="margin-bottom: 0;">
+				<div class="progress-bar progress-bar-{%= (companies_percent < 75 ? "success" : "warning") %}" style="width: {{ companies_percent }}%">
+				</div>
+			</div>
+
+			<p>{%= enabled_companies %} out of {%= limits.companies %} enabled</p>
+		</div>
 	{% endif %}
 
 	{% if limits.emails %}
