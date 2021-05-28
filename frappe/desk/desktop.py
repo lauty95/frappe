@@ -378,12 +378,13 @@ def get_desk_sidebar_items():
 
 	# don't get domain restricted pages
 	blocked_modules = frappe.get_doc('User', frappe.session.user).get_blocked_modules()
-
+	print(blocked_modules)
 	filters = {
 		'restrict_to_domain': ['in', frappe.get_active_domains()],
 		'extends_another_page': 0,
 		'for_user': '',
-		'module': ['not in', blocked_modules]
+		'module': ['not in', blocked_modules],
+		'name': ['not in', ['Build']]
 	}
 
 	if not frappe.local.conf.developer_mode:
