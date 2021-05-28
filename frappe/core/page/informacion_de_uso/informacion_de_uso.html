@@ -15,7 +15,7 @@
 	{% if limits.users %}
 	    {% var users_percent = ((enabled_users / limits.users) * 100); %}
 		<div class="usage-info-section" style="margin: 30px;">
-			<h4>{{ __("Users") }}</h4>
+			<h4>{{ "Usuarios" }}</h4>
 
 			<div class="progress" style="margin-bottom: 0;">
 				<div class="progress-bar progress-bar-{%= (users_percent < 75 ? "success" : "warning") %}" style="width: {{ users_percent }}%">
@@ -42,7 +42,7 @@
 
 	{% if limits.emails %}
 	<div class="usage-info-section" style="margin: 30px;">
-	    <h4>{{ __("Emails") }}</h4>
+	    <h4>{{ "Emails" }}</h4>
 
 	    {% var email_percent = (( emails_sent / limits.emails ) * 100); %}
 	    {% var emails_remaining = (limits.emails - emails_sent) %}
@@ -52,13 +52,13 @@
 	        </div>
 	    </div>
 
-		<p>{%= emails_sent %} ce {%= limits.emails %} enviados este mes</p>
+		<p>{%= emails_sent %} de {%= limits.emails %} enviados este mes</p>
 	</div>
 	{% endif %}
 
 	{% if limits.space %}
 	<div class="usage-info-section" style="margin: 30px;">
-	    <h4>{{ __("Space") }}</h4>
+	    <h4>{{ "Espacio" }}</h4>
 
 	    <div class="progress" style="margin-bottom: 0;">
 	        <div class="progress-bar" style="width: {%= database_percent %}%; background-color: #5e64ff"></div>
@@ -67,13 +67,13 @@
 	    </div>
 
 		<span class="indicator blue" style="margin-right: 20px;">
-			{{ __("Database Size:") }} {%= limits.space_usage.database_size %} MB
+			{{ "Tamaño de Base de Datos:" }} {%= limits.space_usage.database_size %} MB
 		</span>
 		<span class="indicator purple" style="margin-right: 20px;">
-			{{ __("Files Size:") }} {%= limits.space_usage.files_size %} MB
+			{{ "Tamaño de Archivos:" }} {%= limits.space_usage.files_size %} MB
 		</span>
 		<span class="indicator lightblue" style="margin-right: 20px;">
-			{{ __("Backup Size:") }} {%= limits.space_usage.backup_size %} MB
+			{{ "Tamaño de Backups" }} {%= limits.space_usage.backup_size %} MB
 		</span>
 
 		<p>{{ usage_message }}</p>
