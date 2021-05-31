@@ -625,7 +625,7 @@ class User(Document):
 			total_users += 1
 
 		if total_users > limits.users:
-			frappe.throw('Lo sentimos. Ha alcanzado el límite máximo de <b>usuarios</b> para su suscripción. Puede desactivar un usuario existente o contactar a soporte <a href="https://diamo.com.ar" target="_blank">aquí</a> para que le indiquen como adquirir más <b>usuarios</b>.', MaxUsersReachedError)
+			frappe.throw('Lo sentimos, ha alcanzado el límite máximo de <b>usuarios</b> para su suscripción. Puede desactivar un usuario existente o contactar a <a href="https://diamo.com.ar" target="_blank">soporte</a> para descubrir cómo añadir más <b>usuarios</b>.', MaxUsersReachedError)
 
 @frappe.whitelist()
 def get_timezones():
