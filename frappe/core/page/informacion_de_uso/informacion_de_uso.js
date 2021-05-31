@@ -10,8 +10,6 @@ frappe.pages['informacion-de-uso'].on_page_load = function(wrapper) {
 		callback: function(r) {
 			var usage_info = r.message;
 			if (!usage_info) {
-				// nothing to show
-				// TODO improve this
 				return;
 			}
 
@@ -30,10 +28,10 @@ frappe.pages['informacion-de-uso'].on_page_load = function(wrapper) {
 
 			let usage_message = '';
 			if (limits.space_usage.total > limits.space) {
-				usage_message = __('You have used up all of the space allotted to you. Please buy more space in your subscription.');
+				usage_message = __('Ha utilizado todo el espacio que se le ha asignado. Por favor, compre más espacio en su suscripción.');
 			} else {
 				let available = flt(limits.space - limits.space_usage.total, 2);
-				usage_message = __('{0} available out of {1}', [(available + ' MB').bold(), (limits.space + ' MB').bold()]);
+				usage_message = __('{0} disponible de {1}', [(available + ' MB').bold(), (limits.space + ' MB').bold()]);
 			}
 
 			$(frappe.render_template("informacion_de_uso", Object.assign(usage_info, {
@@ -43,7 +41,7 @@ frappe.pages['informacion-de-uso'].on_page_load = function(wrapper) {
 				usage_message
 			}))).appendTo(page.main);
 
-			var btn_text = usage_info.limits.users == 1 ? __("Upgrade") : __("Renew / Upgrade");
+			var btn_text = usage_info.limits.users == 1 ? __("Ampliar") : __("Renovar / Ampliar");
 			$(page.main).find('.btn-primary').html(btn_text).on('click', () => {
 				window.open(usage_info.upgrade_url);
 			});
