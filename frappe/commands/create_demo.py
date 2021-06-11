@@ -126,12 +126,11 @@ def create_demo():
     setear_fechas('Lead', dates=['contact_date', 'ends_on'])
     setear_fechas('Opportunity', dates=['transaction_date'])
     setear_fechas('Email Campaign', dates=['start_date', 'end_date'])
-    # setear_fechas('Social Media Post', dates=['scheduled_time'])
+    setear_fechas('Social Media Post', dates=['scheduled_time'])
     setear_fechas('Contract', dates=['start_date'])
 
     #  Varios
     setear_fechas('ToDo', dates=['date'])
-    setear_fechas('Notification', dates=['date_changed'])
 
     # Assets
 
