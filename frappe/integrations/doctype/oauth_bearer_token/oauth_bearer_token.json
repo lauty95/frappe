@@ -93,5 +93,5 @@
  ],
  "restrict_to_domain": "Integrations",
  "sort_field": "modified",
- "sort_order": "DESC",
+ "sort_order": "DESC"
 }
