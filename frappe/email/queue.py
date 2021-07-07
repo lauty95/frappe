@@ -256,9 +256,7 @@ def check_email_limit(recipients):
 	# No limit for own email settings
 	smtp_server = SMTPServer()
 
-	if (smtp_server.email_account
-		and getattr(smtp_server.email_account, "from_site_config", False)
-		or frappe.flags.in_test):
+	if (smtp_server.email_account and getattr(smtp_server.email_account, "from_site_config", False) or frappe.flags.in_test):
 
 		monthly_email_limit = frappe.conf.get('limits', {}).get('emails')
 		daily_email_limit = cint(frappe.conf.get('limits', {}).get('daily_emails'))

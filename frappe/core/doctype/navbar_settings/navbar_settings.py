@@ -27,14 +27,16 @@ class NavbarSettings(Document):
 def get_app_logo():
 	app_logo = frappe.db.get_single_value('Navbar Settings', 'app_logo', cache=True)
 	if not app_logo:
-		app_logo = frappe.get_hooks('app_logo_url')[-1]
+		if frappe.get_hooks('app_logo_url_dark'):
+			if frappe.get_value('User', frappe.session.user, "desk_theme") == "Dark":
+				app_logo = frappe.get_hooks('app_logo_url_dark')[-1]
+			else:
+				app_logo = frappe.get_hooks('app_logo_url_light')[-1]
+		else:
+			app_logo = frappe.get_hooks('app_logo_url')[-1]
 
 	return app_logo
 
 def get_navbar_settings():
 	navbar_settings = frappe.get_single('Navbar Settings')
 	return navbar_settings
-
-
-
-
