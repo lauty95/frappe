@@ -252,33 +252,22 @@ def get_email_queue(recipients, sender, subject, **kwargs):
 	return e
 
 def check_email_limit(recipients):
-	# if using settings from site_config.json, check email limit
-	# No limit for own email settings
-	smtp_server = SMTPServer()
+	monthly_email_limit = frappe.conf.get('limits', {}).get('emails')
+	daily_email_limit = cint(frappe.conf.get('limits', {}).get('daily_emails'))
 
-	if (smtp_server.email_account and getattr(smtp_server.email_account, "from_site_config", False) or frappe.flags.in_test):
+	if frappe.flags.in_test:
+		monthly_email_limit = 500
+		daily_email_limit = 50
 
-		monthly_email_limit = frappe.conf.get('limits', {}).get('emails')
-		daily_email_limit = cint(frappe.conf.get('limits', {}).get('daily_emails'))
+	if daily_email_limit:
+		# get count of sent mails in last 24 hours
+		if (get_emails_sent_today() + len(recipients)) > daily_email_limit:
+			frappe.throw('Lo sentimos, ha alcanzado el límite máximo de <b>{} emails</b> diarios para su suscripción. Puede contactar a <a href="https://diamo.com.ar" target="_blank">soporte</a> para descubrir extender el límite.'.format(daily_email_limit), EmailLimitCrossedError)
 
-		if frappe.flags.in_test:
-			monthly_email_limit = 500
-			daily_email_limit = 50
-
-		if daily_email_limit:
-			# get count of sent mails in last 24 hours
-			today = get_emails_sent_today()
-			if (today + len(recipients)) > daily_email_limit:
-				throw('Lo sentimos, ha alcanzado el límite máximo de <b>{} emails</b> diarios para su suscripción. Puede contactar a <a href="https://diamo.com.ar" target="_blank">soporte</a> para descubrir extender el límite.'.format(daily_email_limit), EmailLimitCrossedError)
-
-		if not monthly_email_limit:
-			return
-
+	if monthly_email_limit:
 		# get count of mails sent this month
-		this_month = get_emails_sent_this_month()
-
-		if (this_month + len(recipients)) > monthly_email_limit:
-			throw('Lo sentimos, ha alcanzado el límite máximo de <b>{} emails</b> mensuales para su suscripción. Puede contactar a <a href="https://diamo.com.ar" target="_blank">soporte</a> para descubrir extender el límite.'.format(monthly_email_limit), EmailLimitCrossedError)
+		if (get_emails_sent_this_month() + len(recipients)) > monthly_email_limit:
+			frappe.throw('Lo sentimos, ha alcanzado el límite máximo de <b>{} emails</b> mensuales para su suscripción. Puede contactar a <a href="https://diamo.com.ar" target="_blank">soporte</a> para descubrir extender el límite.'.format(monthly_email_limit), EmailLimitCrossedError)
 
 
 def get_emails_sent_this_month():
