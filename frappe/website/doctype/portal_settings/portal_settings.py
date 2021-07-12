@@ -15,7 +15,7 @@ class PortalSettings(Document):
 				exists[0].role = item.get('role')
 				return True
 		elif not exists:
-			item['enabled'] = 1
+			item['enabled'] = 0
 			self.append('menu', item)
 			return True
 
