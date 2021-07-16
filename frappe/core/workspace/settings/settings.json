@@ -10,6 +10,7 @@
  "hide_custom": 0,
  "icon": "setting",
  "idx": 0,
+ "is_default": 0,
  "is_standard": 1,
  "label": "Settings",
  "links": [
@@ -222,6 +223,15 @@
    "type": "Link"
   },
   {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Global Defaults",
+   "link_to": "Global Defaults",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
    "dependencies": "",
    "hidden": 0,
    "is_query_report": 0,
@@ -336,7 +346,7 @@
    "type": "Link"
   }
  ],
- "modified": "2020-12-01 13:38:40.235323",
+ "modified": "2021-07-16 11:53:34.399414",
  "modified_by": "Administrator",
  "module": "Core",
  "name": "Settings",
