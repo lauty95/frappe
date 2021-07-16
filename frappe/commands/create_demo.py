@@ -90,6 +90,26 @@ def setear_status():
 
 
 def create_demo():
+    import datetime
+
+    try:
+        year = datetime.date.today().year
+        if not frappe.db.exists("Fiscal Year", year):
+            fiscal_year = frappe.new_doc("Fiscal Year")
+            fiscal_year.year = year
+            fiscal_year.year_start_date = f"{year}-01-01"
+            fiscal_year.year_end_date = f"{year}-12-31"
+            fiscal_year.save()
+            frappe.db.commit()
+
+        fiscal_year = frappe.get_doc("Fiscal Year", year)
+        global_defaults = frappe.get_single("Global Defaults")
+        global_defaults.current_fiscal_year = fiscal_year.name
+        global_defaults.save()
+        frappe.db.commit()
+    except Exception as e:
+        print(str(e))
+
     # Stock
     setear_fechas('Stock Entry', dates=['posting_date'], related_doctype='Stock Ledger Entry')
     setear_fechas('Material Request', dates=['transaction_date', 'schedule_date'], child_dates={'Material Request Item': 'schedule_date'})
