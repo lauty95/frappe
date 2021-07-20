@@ -226,12 +226,6 @@ def add_standard_navbar_items():
 			'is_standard': 1
 		},
 		{
-			'item_label': 'Información de Uso',
-			'item_type': 'Route',
-			'route': '/app/informacion-de-uso',
-			'is_standard': 1
-		},
-		{
 			'item_type': 'Separator',
 			'is_standard': 1
 		},
@@ -254,6 +248,12 @@ def add_standard_navbar_items():
 			'item_label': 'Atajos de Teclado',
 			'item_type': 'Action',
 			'action': 'frappe.ui.toolbar.show_shortcuts(event)',
+			'is_standard': 1
+		},
+		{
+			'item_label': 'Información de Uso',
+			'item_type': 'Route',
+			'route': '/app/informacion-de-uso',
 			'is_standard': 1
 		},
 		{
