@@ -176,6 +176,7 @@
    "collapsible": 1,
    "fieldname": "background_workers",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Background Workers"
   },
   {
@@ -224,10 +225,11 @@
    "fieldtype": "Column Break"
   },
   {
-   "default": "0",
+   "default": "1",
    "description": "Note: Multiple sessions will be allowed in case of mobile device",
    "fieldname": "deny_multiple_sessions",
    "fieldtype": "Check",
+   "hidden": 1,
    "label": "Allow only one session per user"
   },
   {
@@ -385,6 +387,7 @@
    "collapsible": 1,
    "fieldname": "chat",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Chat"
   },
   {
@@ -428,6 +431,7 @@
    "default": "0",
    "fieldname": "enable_onboarding",
    "fieldtype": "Check",
+   "hidden": 1,
    "label": "Enable Onboarding"
   },
   {
@@ -454,6 +458,7 @@
    "collapsible": 1,
    "fieldname": "prepared_report_section",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Prepared Report"
   },
   {
@@ -474,7 +479,7 @@
  "icon": "fa fa-cog",
  "issingle": 1,
  "links": [],
- "modified": "2021-03-30 11:47:47.330437",
+ "modified": "2021-07-20 10:50:57.232009",
  "modified_by": "Administrator",
  "module": "Core",
  "name": "System Settings",
