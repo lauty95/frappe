@@ -21,7 +21,7 @@ def setear_fechas(doctype, dates=[], child_dates={}, related_doctype=''):
             old_time = old_date.time()
             old_date = old_date.date()
 
-        fecha_demo = datetime.date(2021, 07, 01)
+        fecha_demo = datetime.date(2021, 7, 1)
         fecha_hoy = datetime.date.today()
         diff = (fecha_demo - old_date).days
         value = fecha_hoy - datetime.timedelta(days=diff)
