@@ -7,10 +7,12 @@ frappe.ui.misc.about = function() {
 		<p>El ERP definitivo</p>  \
 		<p><i class='fa fa-globe fa-fw'></i>\
 			Website: <a href='https://diamo.com.ar' target='_blank'>https://diamo.com.ar</a></p>\
+		<p><i class='fa fa-linkedin fa-fw'></i>\
+			LinkedIn: <a href='https://ar.linkedin.com/company/diamo' target='_blank'>https://ar.linkedin.com/company/diamo</a></p>\
 		<p><i class='fa fa-facebook fa-fw'></i>\
 			Facebook: <a href='https://facebook.com/diamo.argentina' target='_blank'>https://facebook.com/diamo.argentina</a></p>\
 		<p><i class='fa fa-twitter fa-fw'></i>\
-			Twitter: <a href='https://twitter.com/diamo.argentina' target='_blank'>https://twitter.com/diamo,argentina</a></p>\
+			Twitter: <a href='https://twitter.com/DiamoArgentina' target='_blank'>https://twitter.com/DiamoArgentina</a></p>\
 		<hr>\
 		<p class='text-muted'>&copy; Diamo </p> \
 		</div>", frappe.app));

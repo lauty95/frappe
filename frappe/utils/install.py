@@ -263,7 +263,7 @@ def add_standard_navbar_items():
 		{
 			'item_label': 'Crear un Ticket',
 			'item_type': 'Route',
-			'route': 'https://soporte.diamo.com.ar',
+			'route': 'https://diamo.com.ar/soporte?new=1',
 			'is_standard': 1
 		},
 	]
