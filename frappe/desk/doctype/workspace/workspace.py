@@ -40,7 +40,7 @@ class Workspace(Document):
 
 		pages = frappe.get_all("Workspace", fields=["name", "module"], filters=filters, as_list=1)
 
-		return { page[1]: page[0] for page in pages if page[1] }
+		return { page[1]: page[0] for page in pages if page[1] and page[0] != "Retail"}
 
 	def get_link_groups(self):
 		cards = []
