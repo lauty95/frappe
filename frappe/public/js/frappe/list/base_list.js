@@ -744,7 +744,7 @@ class FilterArea {
 						options: options,
 						fieldname: df.fieldname,
 						condition: condition,
-						default: default_value,
+						//default: default_value, Do not set defaults in filters
 						onchange: () => this.refresh_list_view(),
 						ignore_link_validation: fieldtype === "Dynamic Link",
 						is_filter: 1,
