@@ -180,13 +180,13 @@ class Dashboard {
 				this.number_card_group.widgets_list.forEach(card => card.render_card());
 		});
 
-		frappe.db.get_list('Dashboard').then(dashboards => {
-			dashboards.map(dashboard => {
-				let name = dashboard.name;
-				if (name != this.dashboard_name) {
-					this.page.add_menu_item(name, () => frappe.set_route("dashboard-view", name), 1);
-				}
-			});
-		});
+		// frappe.db.get_list('Dashboard').then(dashboards => {
+		// 	dashboards.map(dashboard => {
+		// 		let name = dashboard.name;
+		// 		if (name != this.dashboard_name) {
+		// 			this.page.add_menu_item(name, () => frappe.set_route("dashboard-view", name), 1);
+		// 		}
+		// 	});
+		// });
 	}
 }
