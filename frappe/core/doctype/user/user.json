@@ -62,13 +62,13 @@
   "sb2",
   "defaults",
   "sb3",
-  "simultaneous_sessions",
   "restrict_ip",
   "last_ip",
+  "last_active",
   "column_break1",
   "login_after",
   "user_type",
-  "last_active",
+  "simultaneous_sessions",
   "section_break_63",
   "login_before",
   "bypass_restrict_ip_check_if_2fa_enabled",
@@ -451,7 +451,9 @@
    "default": "1",
    "fieldname": "simultaneous_sessions",
    "fieldtype": "Int",
-   "label": "Simultaneous Sessions"
+   "hidden": 1,
+   "label": "Simultaneous Sessions",
+   "read_only": 1
   },
   {
    "bold": 1,
@@ -670,7 +672,7 @@
   }
  ],
  "max_attachments": 5,
- "modified": "2021-02-02 16:11:06.037543",
+ "modified": "2021-08-06 08:46:38.549138",
  "modified_by": "Administrator",
  "module": "Core",
  "name": "User",
