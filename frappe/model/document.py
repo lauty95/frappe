@@ -867,6 +867,10 @@ class Document(BaseDocument):
 	def run_trigger(self, method, *args, **kwargs):
 		return self.run_method(method, *args, **kwargs)
 
+	def error(self):
+		"""Metodo usado para disparar una notificacion de error"""
+		print("Error")
+
 	def run_notifications(self, method):
 		"""Run notifications for this method"""
 		if (frappe.flags.in_import and frappe.flags.mute_emails) or frappe.flags.in_patch or frappe.flags.in_install:
