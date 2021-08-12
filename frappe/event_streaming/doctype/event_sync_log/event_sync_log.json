@@ -111,10 +111,11 @@
   }
  ],
  "in_create": 1,
- "modified": "2019-10-07 13:22:10.401479",
+ "modified": "2021-08-07 13:22:10.401479",
  "modified_by": "Administrator",
  "module": "Event Streaming",
  "name": "Event Sync Log",
+ "restrict_to_domain": "Tools",
  "owner": "Administrator",
  "permissions": [
   {
