@@ -155,6 +155,16 @@
    "dependencies": "",
    "hidden": 0,
    "is_query_report": 0,
+   "label": "Pagos360",
+   "link_to": "Pagos360 Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
    "label": "Braintree Settings",
    "link_to": "Braintree Settings",
    "link_type": "DocType",
@@ -249,7 +259,7 @@
    "type": "Link"
   }
  ],
- "modified": "2020-12-01 13:38:39.706680",
+ "modified": "2020-12-02 13:38:39.706680",
  "modified_by": "Administrator",
  "module": "Integrations",
  "name": "Integrations",
