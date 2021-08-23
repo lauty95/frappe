@@ -1,0 +1,137 @@
+{
+ "actions": [],
+ "creation": "2021-08-23 10:28:43.617078",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "payment_id",
+  "payment_status",
+  "payment_total_paid_amount",
+  "payment_net_received_amount",
+  "payment_date_created",
+  "payment_date_approved",
+  "payment_order_id",
+  "payment_merchant_order_id",
+  "pagador_section",
+  "payer_id",
+  "payer_nickname",
+  "payer_email",
+  "data_section",
+  "data"
+ ],
+ "fields": [
+  {
+   "fieldname": "payment_id",
+   "fieldtype": "Data",
+   "label": "ID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payment_status",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Estado",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payment_total_paid_amount",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Total Pagado",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payment_net_received_amount",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Neto Recibido",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payment_date_created",
+   "fieldtype": "Data",
+   "label": "Creado",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payment_date_approved",
+   "fieldtype": "Data",
+   "label": "Aprobado",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payment_order_id",
+   "fieldtype": "Data",
+   "label": "ID de la Orden",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payment_merchant_order_id",
+   "fieldtype": "Data",
+   "label": "ID de la Solicitud",
+   "read_only": 1
+  },
+  {
+   "fieldname": "pagador_section",
+   "fieldtype": "Section Break",
+   "label": "Pagador",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payer_id",
+   "fieldtype": "Data",
+   "label": "ID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payer_nickname",
+   "fieldtype": "Data",
+   "label": "Usuario",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payer_email",
+   "fieldtype": "Data",
+   "label": "Email",
+   "read_only": 1
+  },
+  {
+   "fieldname": "data_section",
+   "fieldtype": "Section Break",
+   "label": "Data",
+   "read_only": 1
+  },
+  {
+   "fieldname": "data",
+   "fieldtype": "Data",
+   "label": "Data",
+   "read_only": 1
+  }
+ ],
+ "in_create": 1,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2021-08-23 11:16:19.269433",
+ "modified_by": "Administrator",
+ "module": "Integrations",
+ "name": "Notificacion Pagos360",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "restrict_to_domain": "Pagos360",
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}
