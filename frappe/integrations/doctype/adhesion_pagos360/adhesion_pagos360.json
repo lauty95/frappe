@@ -88,6 +88,7 @@
    "label": "Nombre del titular de la cuenta"
   },
   {
+   "default": "pending_to_sign",
    "fieldname": "estado",
    "fieldtype": "Data",
    "label": "Estado",
@@ -106,7 +107,7 @@
  ],
  "in_create": 1,
  "links": [],
- "modified": "2021-08-23 11:16:26.569924",
+ "modified": "2021-08-23 12:24:13.529717",
  "modified_by": "Administrator",
  "module": "Integrations",
  "name": "Adhesion Pagos360",

@@ -64,9 +64,11 @@ class AdhesionPagos360(Document):
             if subscription.status not in ["Cancelled", "Trialling"]:
                 self.crear(subscription)
 
-    def crear(self, subscription, sandbox=True):
+    def crear(self, subscription):
         from erpnext_argentina.facturacion import pago360_log_error
-        pago360 = Pagos360(get_payment_gateway_controller("Pagos360").api_key, sandbox=True)
+
+        pagos360_settings = get_payment_gateway_controller("Pagos360")
+        pago360 = Pagos360(pagos360_settings.get_password("api_key"), sandbox=pagos360_settings.sandbox)
 
         company = erpnext.get_default_company(frappe.session.user) or ""
 
@@ -116,17 +118,12 @@ class AdhesionPagos360(Document):
 
         data = {nombre_objeto: adhesion}
 
-        if not sandbox:
-            result = {"response": {"id": 123, "state": "signed"}}
-        else:
-            result = method(data)
+        result = method(data)
 
-        if sandbox or result.get("status", "") == 201:
+        if result.get("status", "") == 201:
             frappe.db.set_value('Adhesion Pagos360', self.name, 'id_adhesion', result.get("response", {}).get("id", ""))
-            frappe.db.set_value('Subscription', subscription.name, 'estado', result.get("response", {}).get("state", "error"))
-
-            pago360_log_error({}, data=result, exception=False)
+            frappe.db.set_value('Adhesion Pagos360', self.name, 'estado', result.get("response", {}).get("state", "error"))
         else:
-            pago360_log_error({"error": "Pagos360 devolvio {e}".format(e=result.get("status", ""))}, data=result, exception=True)
+            pago360_log_error("Pagos360 devolvio {e}".format(e=result.get("status", "")), data=result, exception=True)
             frappe.throw("Pagos360 devolvio {e}".format(e=result.get("status", "")))
         frappe.db.commit()

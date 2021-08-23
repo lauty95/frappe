@@ -34,7 +34,7 @@ class Pagos360Settings(Document):
     def validate_pagos360_credentails(self):
         try:
             pagos360_settings = get_payment_gateway_controller("Pagos360")
-            pago360 = Pagos360(pagos360_settings.api_key, pagos360_settings.sandbox)
+            pago360 = Pagos360(pagos360_settings.get_password("api_key"), pagos360_settings.sandbox)
             pago360.get_account()
         except Exception:
             frappe.throw(_("Invalid payment gateway credentials"))
@@ -80,7 +80,7 @@ class Pagos360Settings(Document):
     def solicitar_debito(self, subscription, adhesion, sales_invoice, payment_request):
         from erpnext_argentina.facturacion import pago360_log_error
         pagos360_settings = get_payment_gateway_controller("Pagos360")
-        pago360 = Pagos360(pagos360_settings.api_key, pagos360_settings.sandbox)
+        pago360 = Pagos360(pagos360_settings.get_password("api_key"), pagos360_settings.sandbox)
 
         # Object  NO  Objeto JSON que se puede utilizar para guardar atributos adicionales en la adhesión y poder sincronizar con tus sistemas de backend. Pagos360.com no utiliza este objeto.
         debit_request = {"metadata": {"external_reference": payment_request.name}}
