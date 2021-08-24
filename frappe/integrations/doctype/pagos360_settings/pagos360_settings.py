@@ -126,7 +126,6 @@ class Pagos360Settings(Document):
             return result.get("response", {})
 
         pago360_log_error("El débito no se solicito", result, exception=True)
-        frappe.throw("El debito no se solicito: status {}".format(result.get("status", 0)))
 
     def send_notification_email(self, msg):
         """
