@@ -3,7 +3,7 @@
 
 frappe.ui.form.on("Adhesion Pagos360", {
     refresh: function(frm) {
-    	frm.add_custom_button('Enviar link de adhesión', function() {
+        frm.add_custom_button('Enviar link de adhesión', function() {
             frappe.call({
                 method: "erpnext_argentina.facturacion.enviar_adhesion",
                 args: { subscription: frm.doc.key, is_key: true},
@@ -14,7 +14,7 @@ frappe.ui.form.on("Adhesion Pagos360", {
                 }
             });
         });
-
+	
         frm.add_custom_button('Ir a la Subscripción', function() {
             frappe.call({
                 method: "erpnext_argentina.facturacion.get_subscription_name_from_key",

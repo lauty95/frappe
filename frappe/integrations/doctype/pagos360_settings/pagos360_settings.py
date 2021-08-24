@@ -55,7 +55,7 @@ class Pagos360Settings(Document):
 
         payment_gateway = subscription.get_payment_gateway()
 
-        if getattr(payment_gateway, "gateway", "") != "Pagos360" or not subscription.adhesion_pagos360 or not subscription.id_adhesion:
+        if getattr(payment_gateway, "gateway", "") != "Pagos360" or not subscription.adhesion_pagos360:
             return sales_invoice, subscription, None
 
         adhesion = frappe.get_doc("Adhesion Pagos360", subscription.adhesion_pagos360)
@@ -71,8 +71,8 @@ class Pagos360Settings(Document):
 
         try:
             self.solicitar_debito(subscription, adhesion, sales_invoice, data)
-        except Exception as e:
-            pago360_log_error({"error": e, "metodo": "on_payment_request_submission"}, data, exception=True)
+        except Exception:
+            pago360_log_error("on_payment_request_submission", data.as_json(), exception=True)
 
         # TODO - Ver si hacemos algo con la data del debito automatico
         return False
@@ -90,7 +90,7 @@ class Pagos360Settings(Document):
             method = pago360.create_cbu_debit_request
 
             # Integer SI  ID de la Adhesión asociada a la Solicitud de Débito.
-            debit_request.update({"adhesion_id": int(subscription.id_adhesion)})
+            debit_request.update({"adhesion_id": int(adhesion.id_adhesion)})
             # Date    SI  Fecha de vencimiento de la Solicitud de Débito. Formato: dd-mm-aaaa.
             debit_request.update({"first_due_date": sales_invoice.due_date.strftime("%d-%m-%Y")})
             # Float   SI  Importe a cobrar. Formato: 00000000.00 (hasta 8 enteros y 2 decimales, utilizando punto “.” como separador decimal).
@@ -106,7 +106,7 @@ class Pagos360Settings(Document):
             nombre_objeto = "card_debit_request"
             method = pago360.create_card_debit_request
             # Integer SI  ID de la Adhesión asociada a la Solicitud de Débito en Tarjeta.
-            debit_request.update({"card_adhesion_id": int(subscription.id_adhesion)})
+            debit_request.update({"card_adhesion_id": int(adhesion.id_adhesion)})
             # Integer SI  Mes en el que se ejecuta el Debito Automático. Formato: mm.
             # Integer SI  Año en el que se ejecuta el Debito Automático. Formato: aaaa.
             month = sales_invoice.posting_date.month if sales_invoice.posting_date.day <= 10 else sales_invoice.posting_date.month + 1
@@ -125,7 +125,7 @@ class Pagos360Settings(Document):
         if result.get("status", 0) == 201:
             return result.get("response", {})
 
-        pago360_log_error({"error": "El débito no se solicito"}, result, exception=True)
+        pago360_log_error("El débito no se solicito", result, exception=True)
         frappe.throw("El debito no se solicito: status {}".format(result.get("status", 0)))
 
     def send_notification_email(self, msg):
