@@ -4,6 +4,9 @@
 from json.encoder import JSONEncoder
 import datetime
 import requests
+from datetime import timedelta
+from dateutil import parser
+
 import frappe
 from frappe import _
 from frappe.model.document import Document
@@ -39,9 +42,6 @@ class Pagos360Settings(Document):
         except Exception:
             frappe.throw(_("Invalid payment gateway credentials"))
 
-    def get_recipients(self):
-        return self.recipients.split(",")
-
     def get_parts_from_payment_request(self, payment_request):
         if payment_request.reference_doctype != "Sales Invoice":
             return None, None, None
@@ -67,7 +67,7 @@ class Pagos360Settings(Document):
         sales_invoice, subscription, adhesion = self.get_parts_from_payment_request(data)
 
         if not sales_invoice or not subscription or not adhesion:
-            frappe.throw("La solicitud de pago {} por Pagos360 no pertenece a ninguna suscripcion, no es valida.".format(data.name))
+            frappe.throw(f"La solicitud de pago {data.name} por Pagos360 no pertenece a ninguna suscripcion, no es valida.")
 
         try:
             self.solicitar_debito(subscription, adhesion, sales_invoice, data)
@@ -77,8 +77,26 @@ class Pagos360Settings(Document):
         # TODO - Ver si hacemos algo con la data del debito automatico
         return False
 
+    def get_due_date(self, pago360, sales_invoice):
+        """
+        Busca la primer fecha hábil a partir de los 3 días de la fecha de la factura.
+        """
+        posting_date_3_days = sales_invoice.posting_date + timedelta(days=3)
+        data = {
+            "next_business_day": {
+                "date": posting_date_3_days.strftime("%d-%m-%Y"),
+                "days": 1,
+            }
+        }
+        response = pago360.get_next_business_day(data)
+
+        if response["status"] == 200:
+            return parser.parse(response["response"]).date()
+        return posting_date_3_days
+
     def solicitar_debito(self, subscription, adhesion, sales_invoice, payment_request):
         from erpnext_argentina.facturacion import pago360_log_error
+
         pagos360_settings = get_payment_gateway_controller("Pagos360")
         pago360 = Pagos360(pagos360_settings.get_password("api_key"), pagos360_settings.sandbox)
 
@@ -89,10 +107,15 @@ class Pagos360Settings(Document):
             nombre_objeto = "debit_request"
             method = pago360.create_cbu_debit_request
 
+            try:
+                due_date = self.get_due_date(pago360, sales_invoice)
+            except Exception:
+                due_date = sales_invoice.posting_date + timedelta(days=3)
+
             # Integer SI  ID de la Adhesión asociada a la Solicitud de Débito.
             debit_request.update({"adhesion_id": int(adhesion.id_adhesion)})
             # Date    SI  Fecha de vencimiento de la Solicitud de Débito. Formato: dd-mm-aaaa.
-            debit_request.update({"first_due_date": sales_invoice.due_date.strftime("%d-%m-%Y")})
+            debit_request.update({"first_due_date": due_date.strftime("%d-%m-%Y")})
             # Float   SI  Importe a cobrar. Formato: 00000000.00 (hasta 8 enteros y 2 decimales, utilizando punto “.” como separador decimal).
             debit_request.update({"first_total": '{0:.2f}'.format(payment_request.grand_total)})
             # Date    NO  Fecha de segundo vencimiento de la Solicitud de Débito. Formato: dd-mm-aaaa.
@@ -125,19 +148,15 @@ class Pagos360Settings(Document):
         if result.get("status", 0) == 201:
             return result.get("response", {})
 
-        pago360_log_error("El débito no se solicito", result, exception=True)
+        pago360_log_error("El débito no se solicito", {"request": debit_request, "response": result}, exception=True)
 
-    def send_notification_email(self, msg):
-        """
-        Envia los correos de notificacion
-        msg: Mensaje del correo
-        """
+    def send_notification_email(self, msg, subject='Notificación DiamoERP Pagos360'):
         if not self.recipients:
             return
 
         frappe.sendmail(
-            recipients=self.get_recipients(),
-            subject='Notificación DiamoERP Pagos360',  # TODO
+            recipients=self.recipients.split(","),
+            subject=subject,  # TODO
             message=msg,
         )
 

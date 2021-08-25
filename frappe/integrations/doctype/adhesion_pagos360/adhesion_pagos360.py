@@ -116,14 +116,11 @@ class AdhesionPagos360(Document):
 
             method = pago360.create_cbu_adhesion
 
-        data = {nombre_objeto: adhesion}
-
-        result = method(data)
+        result = method({nombre_objeto: adhesion})
 
         if result.get("status", "") == 201:
             frappe.db.set_value('Adhesion Pagos360', self.name, 'id_adhesion', result.get("response", {}).get("id", ""))
             frappe.db.set_value('Adhesion Pagos360', self.name, 'estado', result.get("response", {}).get("state", "error"))
         else:
-            pago360_log_error("Pagos360 devolvio {e}".format(e=result.get("status", "")), data=result, exception=True)
-            frappe.throw("Pagos360 devolvio {e}".format(e=result.get("status", "")))
+            pago360_log_error("Pagos360 devolvio {}".format(result.get("status", "")), data=result, exception=True)
         frappe.db.commit()
