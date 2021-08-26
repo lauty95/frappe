@@ -123,7 +123,7 @@ class Pagos360Settings(Document):
             # Float   NO  Importe a cobrar pasada la primera fecha de vencimiento. Formato: 00000000.00 (hasta 8 enteros y 2 decimales, utilizando punto “.” como separador decimal). Este campo será requerido si se esta enviando una fecha en second_due_date.
             # debit_request.update({"second_total": 0.0})
             # String  NO  Descripción o concepto de la Solicitud de Débito (hasta 255 caracteres).
-            debit_request.update({"description": 'Suscripción'})  # TODO
+            debit_request.update({"description": f"Suscripción {subscription.company}"})
 
         elif adhesion.tipo == "Crédito":
             nombre_objeto = "card_debit_request"
@@ -132,16 +132,11 @@ class Pagos360Settings(Document):
             debit_request.update({"card_adhesion_id": int(adhesion.id_adhesion)})
             # Integer SI  Mes en el que se ejecuta el Debito Automático. Formato: mm.
             # Integer SI  Año en el que se ejecuta el Debito Automático. Formato: aaaa.
-            month = sales_invoice.posting_date.month if sales_invoice.posting_date.day <= 10 else sales_invoice.posting_date.month + 1
-            year = sales_invoice.posting_date.year
-            if month > 12:
-                month = 1
-                year = year + 1
-            debit_request.update({"month": month, "year": year})
+            debit_request.update({"month": sales_invoice.posting_date.month, "year": sales_invoice.posting_date.year})
             # Float   SI  Importe a ser Debitado Automáticamente. Formato: 00000000.00 (hasta 8 enteros y 2 decimales, utilizando punto “.” como separador decimal).
             debit_request.update({"amount": '{0:.2f}'.format(payment_request.grand_total)})
             # String  NO  Descripción o concepto de la Solicitud de Débito (hasta 255 caracteres).
-            debit_request.update({"description": "Suscripción"})  # TODO
+            debit_request.update({"description": f"Suscripción {subscription.company}"})
 
         result = method({nombre_objeto: debit_request})
 
@@ -150,7 +145,7 @@ class Pagos360Settings(Document):
 
         pago360_log_error("El débito no se solicito", {"request": debit_request, "response": result}, exception=True)
 
-    def send_notification_email(self, msg, subject='Notificación DiamoERP Pagos360'):
+    def send_notification_email(self, subject, msg):
         if not self.recipients:
             return
 

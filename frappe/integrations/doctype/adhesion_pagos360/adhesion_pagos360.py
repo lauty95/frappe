@@ -79,7 +79,7 @@ class AdhesionPagos360(Document):
         adhesion.update({"email": self.email})
 
         # description String  SI  Descripción o concepto de la Adhesión (hasta 255 caracteres).
-        adhesion.update({"description": "Suscripcion a {}".format(company)})
+        adhesion.update({"description": "Suscripción {}".format(company)})
 
         # external_reference  String  SI  Este atributo se puede utilizar como referencia para identificar la Adhesión y sincronizar con tus sistemas de backend el origen de la operación. Algunos valores comúnmente utilizados son: ID de Cliente, DNI, CUIT, ID de venta o Nro. de Factura entre otros (hasta 255 caracteres).
         adhesion.update({"external_reference": subscription.name})
