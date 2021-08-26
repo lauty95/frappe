@@ -70,11 +70,13 @@
   {
    "fieldname": "county",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "County"
   },
   {
    "fieldname": "state",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "State/Province"
   },
   {
@@ -148,7 +150,7 @@
  "icon": "fa fa-map-marker",
  "idx": 5,
  "links": [],
- "modified": "2020-10-21 16:14:37.284830",
+ "modified": "2021-08-26 11:50:29.704753",
  "modified_by": "Administrator",
  "module": "Contacts",
  "name": "Address",
