@@ -38,6 +38,7 @@ def get_default_address_template():
 	return '''{{ address_line1 }}<br>{% if address_line2 %}{{ address_line2 }}<br>{% endif -%}\
 {{ city }}<br>
 {% if state %}{{ state }}<br>{% endif -%}
+{% if jurisdiccion %}{{ jurisdiccion }}<br>{% endif -%}
 {% if pincode %}{{ pincode }}<br>{% endif -%}
 {{ country }}<br>
 {% if phone %}'''+_('Phone')+''': {{ phone }}<br>{% endif -%}
