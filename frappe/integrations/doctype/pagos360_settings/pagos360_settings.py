@@ -37,7 +37,7 @@ class Pagos360Settings(Document):
     def validate_pagos360_credentails(self):
         try:
             pagos360_settings = get_payment_gateway_controller("Pagos360")
-            pago360 = Pagos360(pagos360_settings.get_password("api_key"), pagos360_settings.sandbox)
+            pago360 = Pagos360(pagos360_settings.get_password(fieldname="api_key", raise_exception=False), pagos360_settings.sandbox)
             pago360.get_account()
         except Exception:
             frappe.throw(_("Invalid payment gateway credentials"))
