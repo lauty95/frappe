@@ -55,7 +55,7 @@ class Pagos360Settings(Document):
 
         payment_gateway = subscription.get_payment_gateway()
 
-        if getattr(payment_gateway, "gateway", "") != "Pagos360" or not subscription.adhesion_pagos360:
+        if getattr(payment_gateway, "gateway", "") != "Pagos360" or not subscription.adhesion_pagos360 or not frappe.get_value("Adhesion Pagos360", subscription.adhesion_pagos360, 'id_adhesion'):
             return sales_invoice, subscription, None
 
         adhesion = frappe.get_doc("Adhesion Pagos360", subscription.adhesion_pagos360)

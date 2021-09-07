@@ -66,6 +66,7 @@ class AdhesionPagos360(Document):
 
     def crear(self, subscription):
         from erpnext_argentina.facturacion import pago360_log_error
+        import base64
 
         pagos360_settings = get_payment_gateway_controller("Pagos360")
         pago360 = Pagos360(pagos360_settings.get_password("api_key"), sandbox=pagos360_settings.sandbox)
@@ -92,7 +93,7 @@ class AdhesionPagos360(Document):
 
             # card_number String  SI  Hash en Base64 que contiene la Encriptación del Número de Tarjeta en la que se ejecutarán los débitos automáticos (hasta 19 caracteres).
             # Al parecer no es en Base64... 16 digitos maximo.
-            adhesion.update({"card_number": self.card_number})
+            adhesion.update({"card_number": base64.b64encode(self.card_number.encode('utf8')).decode("utf-8", "ignore")})
 
             # card_holder_name    String  SI  Nombre del titular de la Tarjeta (hasta 255 caracteres).
             adhesion.update({"card_holder_name": self.card_holder_name})
@@ -122,5 +123,5 @@ class AdhesionPagos360(Document):
             frappe.db.set_value('Adhesion Pagos360', self.name, 'id_adhesion', result.get("response", {}).get("id", ""))
             frappe.db.set_value('Adhesion Pagos360', self.name, 'estado', result.get("response", {}).get("state", "error"))
         else:
-            pago360_log_error("Pagos360 devolvio {}".format(result.get("status", "")), data=result, exception=True)
+            pago360_log_error("Pagos360 devolvio {}".format(result.get("status", "")), data={"request": {nombre_objeto: adhesion}, "response": result}, exception=True)
         frappe.db.commit()
