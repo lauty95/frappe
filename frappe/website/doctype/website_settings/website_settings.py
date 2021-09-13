@@ -150,7 +150,7 @@ def get_website_settings(context=None):
 			and isinstance(context[key], (list, tuple)):
 			context[key] = context[key][-1]
 
-	if via_hooks.get('splash_image_dark') and via_hooks.get('favicon_dark'):
+	if type(via_hooks) == dict and via_hooks.get('splash_image_dark') and via_hooks.get('favicon_dark'):
 		if frappe.get_value('User', frappe.session.user, "desk_theme") == "Dark":
 			context['splash_image'] = via_hooks['splash_image_dark'][0]
 			context["favicon"] = via_hooks['favicon_dark'][0]
