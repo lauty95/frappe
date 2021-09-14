@@ -24,27 +24,31 @@
    "fieldname": "reference_name",
    "fieldtype": "Dynamic Link",
    "label": "Reference Name",
-   "options": "reference_doctype"
+   "options": "reference_doctype",
+   "search_index": 1
   },
   {
    "fieldname": "reference_doctype",
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Reference Document Type",
-   "options": "DocType"
+   "options": "DocType",
+   "search_index": 1
   },
   {
    "fieldname": "user",
    "fieldtype": "Link",
    "hidden": 1,
    "label": "User",
-   "options": "User"
+   "options": "User",
+   "search_index": 1
   },
   {
    "fieldname": "workflow_state",
    "fieldtype": "Data",
    "hidden": 1,
-   "label": "Workflow State"
+   "label": "Workflow State",
+   "search_index": 1
   },
   {
    "fieldname": "completed_by",
@@ -54,7 +58,7 @@
   }
  ],
  "links": [],
- "modified": "2021-05-12 20:00:28.337961",
+ "modified": "2021-07-01 09:07:52.848618",
  "modified_by": "Administrator",
  "module": "Workflow",
  "name": "Workflow Action",
