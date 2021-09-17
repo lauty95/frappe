@@ -81,7 +81,7 @@ class Pagos360Settings(Document):
         """
         Busca la primer fecha hábil a partir de los 3 días de la fecha de la factura.
         """
-        posting_date_3_days = sales_invoice.posting_date + timedelta(days=3)
+        posting_date_3_days = sales_invoice.posting_date + timedelta(days=4)
         data = {
             "next_business_day": {
                 "date": posting_date_3_days.strftime("%d-%m-%Y"),
@@ -110,7 +110,7 @@ class Pagos360Settings(Document):
             try:
                 due_date = self.get_due_date(pago360, sales_invoice)
             except Exception:
-                due_date = sales_invoice.posting_date + timedelta(days=3)
+                due_date = sales_invoice.posting_date + timedelta(days=4)
 
             # Integer SI  ID de la Adhesión asociada a la Solicitud de Débito.
             debit_request.update({"adhesion_id": int(adhesion.id_adhesion)})
