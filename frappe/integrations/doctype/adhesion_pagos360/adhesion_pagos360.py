@@ -56,7 +56,11 @@ class AdhesionPagos360(Document):
 
         subscription = frappe.get_doc("Subscription", keydeco)
 
-        if not subscription.adhesion_pagos360:
+        estado_adhesion = ''
+        if subscription.adhesion_pagos360:
+            estado_adhesion = frappe.get_value("Adhesion Pagos360", subscription.adhesion_pagos360, "estado")
+
+        if not subscription.adhesion_pagos360 or estado_adhesion in ["canceled", "error"]:
             subscription.adhesion_pagos360 = self.name
             subscription.save(ignore_permissions=True)
             frappe.db.commit()
@@ -66,7 +70,6 @@ class AdhesionPagos360(Document):
 
     def crear(self, subscription):
         from erpnext_argentina.facturacion import pago360_log_error
-        import base64
 
         pagos360_settings = get_payment_gateway_controller("Pagos360")
         pago360 = Pagos360(pagos360_settings.get_password("api_key"), sandbox=pagos360_settings.sandbox)
