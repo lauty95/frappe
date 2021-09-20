@@ -93,7 +93,8 @@ class AdhesionPagos360(Document):
 
             # card_number String  SI  Hash en Base64 que contiene la Encriptación del Número de Tarjeta en la que se ejecutarán los débitos automáticos (hasta 19 caracteres).
             # Al parecer no es en Base64... 16 digitos maximo.
-            adhesion.update({"card_number": base64.b64encode(self.card_number.encode('utf8')).decode("utf-8", "ignore")})
+            adhesion.update({"card_number": self.card_number})
+            # adhesion.update({"card_number": base64.b64encode(self.card_number.encode('utf8')).decode("utf-8", "ignore")})
 
             # card_holder_name    String  SI  Nombre del titular de la Tarjeta (hasta 255 caracteres).
             adhesion.update({"card_holder_name": self.card_holder_name})
