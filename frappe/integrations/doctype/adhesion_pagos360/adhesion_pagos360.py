@@ -64,9 +64,7 @@ class AdhesionPagos360(Document):
             subscription.adhesion_pagos360 = self.name
             subscription.save(ignore_permissions=True)
             frappe.db.commit()
-
-            if subscription.status not in ["Cancelled", "Trialling"]:
-                self.crear(subscription)
+            self.crear(subscription)
 
     def crear(self, subscription):
         from erpnext_argentina.facturacion import pago360_log_error
