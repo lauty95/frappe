@@ -42,6 +42,74 @@ class Pagos360Settings(Document):
         except Exception:
             frappe.throw(_("Invalid payment gateway credentials"))
 
+    def get_payment_url(self, **kwargs):
+        """
+        Example response:
+
+        {
+            'status': 201,
+            'response': {
+                'id': 7851375,
+                'type': 'payment_request',
+                'state': 'pending',
+                'created_at': '2021-09-28T11:57:50-03:00',
+                'external_reference': 'ACC-PRQ-2021-00013-2',
+                'payer_name': 'Megatone',
+                'payer_email': 'franciscoproldan@gmail.com',
+                'description': 'Payment Request for F-FACTA0040-00000001',
+                'first_due_date': '2021-10-02T00:00:00-03:00',
+                'first_total': 1210,
+                'barcode': '29680000204000078513750012100021275000000000',
+                'checkout_url': 'https://checkout.pagos360.com/payment-request/7386c98a-206c-11ec-bc5a-0e434aab092d',
+                'barcode_url': 'https://api.pagos360.com/payment-request/barcode/7386c98a-206c-11ec-bc5a-0e434aab092d',
+                'pdf_url': 'https://api.pagos360.com/payment-request/pdf/7386c98a-206c-11ec-bc5a-0e434aab092d',
+                'back_url_success': 'http://127.0.0.1:8000',
+                'back_url_pending': 'http://127.0.0.1:8000',
+                'back_url_rejected': 'http://127.0.0.1:8000',
+                'metadata': {'external_reference': 'ACC-PRQ-2021-00013-2'}
+            }
+        }
+
+        """
+        from frappe.utils import get_url
+
+        pagos360_settings = get_payment_gateway_controller("Pagos360")
+        pago360 = Pagos360(pagos360_settings.get_password(fieldname="api_key", raise_exception=False) or self.api_key, pagos360_settings.sandbox)
+
+        payment_request = frappe.get_doc(kwargs["reference_doctype"], kwargs["reference_docname"])
+        sales_invoice = frappe.get_doc(payment_request.reference_doctype, payment_request.reference_name)
+
+        def get_due_date(sales_invoice):
+            """
+            """
+            today = datetime.date.today()
+            if sales_invoice.due_date > today:
+                return sales_invoice.due_date.strftime("%d-%m-%Y")
+            return (today + timedelta(days=4)).strftime("%d-%m-%Y")
+
+        back_url = get_url()
+
+        data = {
+            "payment_request": {
+                "description": kwargs["description"].decode("utf-8"),
+                "first_due_date": get_due_date(sales_invoice),  # TODO logica de fecha
+                "first_total": '{0:.2f}'.format(kwargs['amount']),
+                "payer_name": kwargs["payer_name"].decode("utf-8"),
+                "external_reference": kwargs["reference_docname"],
+                "payer_email": kwargs['payer_email'],
+                "back_url_success": back_url,
+                "back_url_pending": back_url,
+                "back_url_rejected": back_url,
+                "metadata": {"external_reference": kwargs["reference_docname"]}
+            }
+        }
+
+        result = pago360.create_payment_request(data)
+
+        if result.get("status", 0) == 201:
+            return result.get("response", {}).get('checkout_url')
+        return None  # TODO en caso de falla
+
     def get_parts_from_payment_request(self, payment_request):
         if payment_request.reference_doctype != "Sales Invoice":
             return None, None, None
@@ -66,16 +134,14 @@ class Pagos360Settings(Document):
 
         sales_invoice, subscription, adhesion = self.get_parts_from_payment_request(data)
 
-        if not sales_invoice or not subscription or not adhesion:
-            frappe.throw(f"La solicitud de pago {data.name} por Pagos360 no pertenece a ninguna suscripcion, no es valida.")
+        if sales_invoice and subscription and adhesion:
+            try:
+                self.solicitar_debito(subscription, adhesion, sales_invoice, data)
+                # TODO - Ver si hacemos algo con la data del debito automatico
+            except Exception:
+                pago360_log_error("on_payment_request_submission", data.as_json(), exception=True)
 
-        try:
-            self.solicitar_debito(subscription, adhesion, sales_invoice, data)
-        except Exception:
-            pago360_log_error("on_payment_request_submission", data.as_json(), exception=True)
-
-        # TODO - Ver si hacemos algo con la data del debito automatico
-        return False
+        return True
 
     def get_due_date(self, pago360, sales_invoice):
         """
@@ -151,7 +217,7 @@ class Pagos360Settings(Document):
 
         frappe.sendmail(
             recipients=self.recipients.split(","),
-            subject=subject,  # TODO
+            subject=subject,
             message=msg,
         )
 
