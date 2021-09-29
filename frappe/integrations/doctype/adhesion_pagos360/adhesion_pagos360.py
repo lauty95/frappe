@@ -67,7 +67,7 @@ class AdhesionPagos360(Document):
             self.crear(subscription)
 
     def crear(self, subscription):
-        from erpnext_argentina.facturacion import pago360_log_error
+        from erpnext_argentina.pago360 import pago360_log_error
 
         pagos360_settings = get_payment_gateway_controller("Pagos360")
         pago360 = Pagos360(pagos360_settings.get_password("api_key"), sandbox=pagos360_settings.sandbox)

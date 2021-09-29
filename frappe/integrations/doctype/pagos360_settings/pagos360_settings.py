@@ -130,7 +130,7 @@ class Pagos360Settings(Document):
         return sales_invoice, subscription, adhesion
 
     def on_payment_request_submission(self, data):
-        from erpnext_argentina.facturacion import pago360_log_error
+        from erpnext_argentina.pagos360 import pago360_log_error
 
         sales_invoice, subscription, adhesion = self.get_parts_from_payment_request(data)
 
@@ -161,7 +161,7 @@ class Pagos360Settings(Document):
         return posting_date_3_days
 
     def solicitar_debito(self, subscription, adhesion, sales_invoice, payment_request):
-        from erpnext_argentina.facturacion import pago360_log_error
+        from erpnext_argentina.pagos360 import pago360_log_error
 
         pagos360_settings = get_payment_gateway_controller("Pagos360")
         pago360 = Pagos360(pagos360_settings.get_password("api_key"), pagos360_settings.sandbox)

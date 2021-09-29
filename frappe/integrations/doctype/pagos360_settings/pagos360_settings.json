@@ -6,6 +6,7 @@
  "engine": "InnoDB",
  "field_order": [
   "api_key",
+  "adhesion_form_url",
   "sandbox",
   "recipients"
  ],
@@ -28,13 +29,19 @@
    "fieldname": "recipients",
    "fieldtype": "Small Text",
    "label": "Correos de Administraci\u00f3n"
+  },
+  {
+   "description": "Link del Formulario de Adhesi\u00f3n",
+   "fieldname": "adhesion_form_url",
+   "fieldtype": "Data",
+   "label": "Formulario de Adhesi\u00f3n"
   }
  ],
  "in_create": 1,
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2021-08-26 08:38:11.195759",
+ "modified": "2021-09-29 09:03:05.911628",
  "modified_by": "Administrator",
  "module": "Integrations",
  "name": "Pagos360 Settings",
