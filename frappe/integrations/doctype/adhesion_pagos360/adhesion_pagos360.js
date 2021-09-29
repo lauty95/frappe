@@ -6,18 +6,6 @@ frappe.ui.form.on("Adhesion Pagos360", {
         if (!frm.doc.__islocal) {
             set_readonly_all_fields(frm);
         }
-
-        frm.add_custom_button('Enviar link de adhesión', function() {
-            frappe.call({
-                method: "erpnext_argentina.pagos360.enviar_adhesion",
-                args: { subscription: frm.doc.subscription},
-                callback: function(r, rt) {
-                    if (r.message) { 
-                        frappe.msgprint({indicator: 'green', message: r.message,});
-                    }
-                }
-            });
-        });
     },
 });
 
