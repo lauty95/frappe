@@ -46,6 +46,8 @@ class Pagos360Settings(Document):
         """
         Url para solicitudes de pago
         """
+        from erpnext_argentina.pagos360 import pago360_log_error
+        from frappe.utils import validate_email_address
         pagos360_settings = get_payment_gateway_controller("Pagos360")
         pago360 = Pagos360(pagos360_settings.get_password(fieldname="api_key", raise_exception=False) or self.api_key, pagos360_settings.sandbox)
         payment_request = frappe.get_doc(kwargs["reference_doctype"], kwargs["reference_docname"])
@@ -57,19 +59,19 @@ class Pagos360Settings(Document):
                 return sales_invoice.due_date.strftime("%d-%m-%Y")
             return (today + timedelta(days=4)).strftime("%d-%m-%Y")
 
-        data = {
-            "payment_request": {
-                "description": kwargs["description"].decode("utf-8"),
-                "first_due_date": get_due_date(sales_invoice),  # TODO logica de fecha
-                "first_total": '{0:.2f}'.format(kwargs['amount']),
-                "payer_name": kwargs["payer_name"].decode("utf-8"),
-                "external_reference": kwargs["reference_docname"],
-                "payer_email": kwargs['payer_email'],
-                "metadata": {"external_reference": kwargs["reference_docname"]}
-            }
+        payment_request_data = {
+            "description": kwargs["description"].decode("utf-8"),
+            "first_due_date": get_due_date(sales_invoice),  # TODO logica de fecha
+            "first_total": '{0:.2f}'.format(kwargs['amount']),
+            "payer_name": kwargs["payer_name"].decode("utf-8"),
+            "external_reference": kwargs["reference_docname"],
+            "metadata": {"external_reference": kwargs["reference_docname"]}
         }
 
-        result = pago360.create_payment_request(data)
+        if validate_email_address(kwargs.get('payer_email')):
+            payment_request_data.update({"payer_email": kwargs.get('payer_email')})
+
+        result = pago360.create_payment_request({"payment_request": payment_request_data})
 
         if result.get("status", 0) == 201:
             response = result.get("response", {})
@@ -79,7 +81,9 @@ class Pagos360Settings(Document):
             frappe.db.set_value("Payment Request", payment_request.name, "pagos360_pdf_url", response.get("pdf_url"))
             frappe.db.commit()
             return response.get('checkout_url')
-        return None  # TODO en caso de falla
+        else:
+            pago360_log_error("Ocurrió un error en la solicitud de pago", {"request": payment_request_data, "response": result}, exception=True)
+        return None
 
     def get_parts_from_payment_request(self, payment_request):
         if payment_request.reference_doctype != "Sales Invoice":
@@ -100,16 +104,17 @@ class Pagos360Settings(Document):
         adhesion = frappe.get_doc("Adhesion Pagos360", subscription.adhesion_pagos360)
         return sales_invoice, subscription, adhesion
 
-    def on_payment_request_submission(self, data):
+    def on_payment_request_submission(self, payment_request):
         from erpnext_argentina.pagos360 import pago360_log_error
 
-        sales_invoice, subscription, adhesion = self.get_parts_from_payment_request(data)
+        sales_invoice, subscription, adhesion = self.get_parts_from_payment_request(payment_request)
 
         if sales_invoice and subscription and adhesion:
             try:
-                self.solicitar_debito(subscription, adhesion, sales_invoice, data)  # TODO - Ver si hacemos algo con la data del debito automatico
+                self.solicitar_debito(subscription, adhesion, sales_invoice, payment_request)  # TODO - Ver si hacemos algo con la data del debito automatico
             except Exception:
-                pago360_log_error("on_payment_request_submission", data.as_json(), exception=True)
+                pago360_log_error("on_payment_request_submission", payment_request.as_json(), exception=True)
+                return False
         return True
 
     def get_due_date(self, pago360, sales_invoice):
