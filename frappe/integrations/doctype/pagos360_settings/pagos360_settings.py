@@ -51,7 +51,11 @@ class Pagos360Settings(Document):
         pagos360_settings = get_payment_gateway_controller("Pagos360")
         pago360 = Pagos360(pagos360_settings.get_password(fieldname="api_key", raise_exception=False) or self.api_key, pagos360_settings.sandbox)
         payment_request = frappe.get_doc(kwargs["reference_doctype"], kwargs["reference_docname"])
+
         sales_invoice = frappe.get_doc(payment_request.reference_doctype, payment_request.reference_name)
+
+        if sales_invoice.subscription:
+            return None
 
         def get_due_date(sales_invoice):
             today = datetime.date.today()
@@ -114,8 +118,9 @@ class Pagos360Settings(Document):
                 self.solicitar_debito(subscription, adhesion, sales_invoice, payment_request)  # TODO - Ver si hacemos algo con la data del debito automatico
             except Exception:
                 pago360_log_error("on_payment_request_submission", payment_request.as_json(), exception=True)
-                return False
-        return True
+            return False  # No debe enviar email
+
+        return True  # En solicitud de pago comun debe enviar mail
 
     def get_due_date(self, pago360, sales_invoice):
         """
