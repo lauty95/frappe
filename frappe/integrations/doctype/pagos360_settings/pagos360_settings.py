@@ -59,8 +59,9 @@ class Pagos360Settings(Document):
 
         def get_due_date(sales_invoice):
             today = datetime.date.today()
-            if sales_invoice.due_date > today:
-                return sales_invoice.due_date.strftime("%d-%m-%Y")
+            date = getattr(sales_invoice, 'due_date') or getattr(sales_invoice, 'delivery_date') or today
+            if date > today:
+                return sdate.strftime("%d-%m-%Y")
             return (today + timedelta(days=4)).strftime("%d-%m-%Y")
 
         payment_request_data = {
