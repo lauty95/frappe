@@ -88,7 +88,8 @@ class Pagos360Settings(Document):
             return response.get('checkout_url')
         else:
             pago360_log_error("Ocurrió un error en la solicitud de pago", {"request": payment_request_data, "response": result}, exception=True)
-        return None
+            frappe.throw("Ocurrió un error en la pasarela de pago")
+            return None
 
     def get_parts_from_payment_request(self, payment_request):
         if payment_request.reference_doctype != "Sales Invoice":
