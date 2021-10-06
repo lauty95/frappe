@@ -62,7 +62,7 @@ class Pagos360Settings(Document):
             date = getattr(sales_invoice, 'due_date') or getattr(sales_invoice, 'delivery_date') or today
             if date > today:
                 return date.strftime("%d-%m-%Y")
-            return (today + timedelta(days=4)).strftime("%d-%m-%Y")
+            return (today + timedelta(days=7)).strftime("%d-%m-%Y")
 
         payment_request_data = {
             "description": kwargs["description"].decode("utf-8"),
