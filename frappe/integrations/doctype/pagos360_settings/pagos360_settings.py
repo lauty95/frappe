@@ -27,14 +27,14 @@ class Pagos360Settings(Document):
         create_payment_gateway("Pagos360")
         call_hook_method('payment_gateway_enabled', gateway="Pagos360")
         if not self.flags.ignore_mandatory:
-            self.validate_pagos360_credentails()
+            self.validate_pagos360_credentials()
 
     def validate_recipients(self):
         if self.recipients:
             for recipient in self.recipients.split(","):
                 validate_email_address(recipient, True)
 
-    def validate_pagos360_credentails(self):
+    def validate_pagos360_credentials(self):
         try:
             pagos360_settings = get_payment_gateway_controller("Pagos360")
             pago360 = Pagos360(pagos360_settings.get_password(fieldname="api_key", raise_exception=False) or self.api_key, pagos360_settings.sandbox)
@@ -66,7 +66,7 @@ class Pagos360Settings(Document):
 
         payment_request_data = {
             "description": kwargs["description"].decode("utf-8"),
-            "first_due_date": get_due_date(sales_invoice),  # TODO logica de fecha
+            "first_due_date": get_due_date(sales_invoice),
             "first_total": '{0:.2f}'.format(kwargs['amount']),
             "payer_name": kwargs["payer_name"].decode("utf-8"),
             "external_reference": kwargs["reference_docname"],
@@ -117,7 +117,7 @@ class Pagos360Settings(Document):
 
         if sales_invoice and subscription and adhesion:
             try:
-                self.solicitar_debito(subscription, adhesion, sales_invoice, payment_request)  # TODO - Ver si hacemos algo con la data del debito automatico
+                self.solicitar_debito(subscription, adhesion, sales_invoice, payment_request)
             except Exception:
                 pago360_log_error("on_payment_request_submission", payment_request.as_json(), exception=True)
             return False  # No debe enviar email
@@ -181,7 +181,7 @@ class Pagos360Settings(Document):
         if result.get("status", 0) == 201:
             return result.get("response", {})
 
-        pago360_log_error("El débito no se solicito", {"request": debit_request, "response": result}, exception=True)
+        pago360_log_error("El débito no se solicitó", {"request": debit_request, "response": result}, exception=True)
 
     def send_notification_email(self, subject, msg):
         if not self.recipients:
@@ -276,7 +276,7 @@ class Pagos360:
         return self.get("card-debit-request/" + str(id))
 
     def cancel_card_debit_request(self, id):
-        return self.get("card-debit-request/{}/cancel/".format(id))
+        return self.put("card-debit-request/{}/cancel/".format(id))
 
     def create_cbu_debit_request(self, data):
         return self.post("debit-request/", data)
@@ -285,7 +285,7 @@ class Pagos360:
         return self.get("debit-request/" + str(id))
 
     def cancel_cbu_debit_request(self, id):
-        return self.get("debit-request/{}/cancel/".format(id))
+        return self.put("debit-request/{}/cancel/".format(id))
 
     def create_payment_request(self, data):
         return self.post("payment-request/", data)
