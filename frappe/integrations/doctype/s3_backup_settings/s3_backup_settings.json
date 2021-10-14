@@ -129,7 +129,7 @@
  "hide_toolbar": 1,
  "issingle": 1,
  "links": [],
- "modified": "2021-05-12 19:59:42.924964",
+ "modified": "2021-10-14 12:40:44.737906",
  "modified_by": "Administrator",
  "module": "Integrations",
  "name": "S3 Backup Settings",
@@ -147,7 +147,7 @@
   }
  ],
  "quick_entry": 1,
- "restrict_to_domain": "Integrations",
+ "restrict_to_domain": "Thrash",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

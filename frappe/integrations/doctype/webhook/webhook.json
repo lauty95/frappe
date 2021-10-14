@@ -166,7 +166,7 @@
   }
  ],
  "links": [],
- "modified": "2021-05-25 11:11:28.555291",
+ "modified": "2021-10-14 12:58:38.425911",
  "modified_by": "Administrator",
  "module": "Integrations",
  "name": "Webhook",
@@ -185,7 +185,7 @@
    "write": 1
   }
  ],
- "restrict_to_domain": "Integrations",
+ "restrict_to_domain": "Thrash",
  "sort_field": "modified",
  "sort_order": "DESC",
  "title_field": "webhook_doctype",

@@ -99,7 +99,7 @@
   }
  ],
  "links": [],
- "modified": "2021-05-12 20:01:51.253996",
+ "modified": "2021-10-14 12:50:14.606585",
  "modified_by": "Administrator",
  "module": "Integrations",
  "name": "Google Contacts",
@@ -128,7 +128,7 @@
    "write": 1
   }
  ],
- "restrict_to_domain": "Servicios Google",
+ "restrict_to_domain": "Thrash",
  "sort_field": "modified",
  "sort_order": "ASC",
  "track_changes": 1

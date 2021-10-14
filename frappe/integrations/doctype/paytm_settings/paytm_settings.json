@@ -54,7 +54,7 @@
  ],
  "issingle": 1,
  "links": [],
- "modified": "2021-05-12 19:59:44.431221",
+ "modified": "2021-10-14 12:58:11.242881",
  "modified_by": "Administrator",
  "module": "Integrations",
  "name": "Paytm Settings",
@@ -71,7 +71,7 @@
    "write": 1
   }
  ],
- "restrict_to_domain": "Integrations",
+ "restrict_to_domain": "Thrash",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

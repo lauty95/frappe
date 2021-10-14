@@ -110,7 +110,7 @@
   }
  ],
  "links": [],
- "modified": "2021-05-12 20:01:51.497514",
+ "modified": "2021-10-14 12:50:52.063352",
  "modified_by": "Administrator",
  "module": "Integrations",
  "name": "Google Calendar",
@@ -142,7 +142,7 @@
    "write": 1
   }
  ],
- "restrict_to_domain": "Servicios Google",
+ "restrict_to_domain": "Thrash",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1
