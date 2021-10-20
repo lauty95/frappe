@@ -60,6 +60,13 @@ def setear_fechas(doctype, dates=[], child_dates={}, related_doctype=''):
         frappe.db.commit()
 
         doc = frappe.get_doc(doctype, doc_data['name'])
+
+        if doctype == 'Issue':
+            try:
+                update_issue(doc)
+            except Exception as e:
+                print(e)
+
         try:
             doc.set_status()
             frappe.db.set_value(doctype, doc_data['name'], 'status', doc.status)
@@ -68,25 +75,12 @@ def setear_fechas(doctype, dates=[], child_dates={}, related_doctype=''):
             print(e)
 
 
-def setear_status():
-    import frappe
-
-    doctypes = [doctype['name'] for doctype in frappe.get_all('DocType', {'issingle': 0})]
-
-    for doctype in doctypes:
-        try:
-            all_documents = [dt['name'] for dt in frappe.get_all(doctype)]
-        except Exception:
-            continue
-
-        for dn in all_documents:
-            doc = frappe.get_doc(doctype, dn)
-            try:
-                doc.set_status()
-                frappe.db.set_value(doctype, dn, 'status', doc.status)
-                frappe.db.commit()
-            except Exception:
-                break
+def update_issue(doc):
+    set_resolution_time(issue=doc)
+    set_user_resolution_time(issue=doc)
+    doc.update_status()
+    doc.save()
+    frappe.db.commit()
 
 
 def create_demo():
@@ -152,10 +146,5 @@ def create_demo():
     #  Varios
     setear_fechas('ToDo', dates=['date'])
 
-    # Assets
-
-    # Proyects
-
     # Support
-
-    # WebSite
+    setear_fechas('Issue', dates=['opening_date', 'creation', 'resolution_date', 'first_responded_on', 'response_by', 'resolution_by'])
