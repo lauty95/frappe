@@ -7,7 +7,7 @@ frappe.provide('frappe.views');
 
 frappe.views.ReportView = class ReportView extends frappe.views.ListView {
 	get view_name() {
-		return 'Report';
+		return __('Report');
 	}
 
 	render_header() {

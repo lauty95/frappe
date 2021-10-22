@@ -2,7 +2,7 @@ frappe.provide('frappe.views');
 
 frappe.views.GanttView = class GanttView extends frappe.views.ListView {
 	get view_name() {
-		return 'Gantt';
+		return __('Gantt');
 	}
 
 	setup_defaults() {

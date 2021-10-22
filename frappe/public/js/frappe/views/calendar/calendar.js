@@ -21,7 +21,7 @@ frappe.views.CalendarView = class CalendarView extends frappe.views.ListView {
 	toggle_result_area() {}
 
 	get view_name() {
-		return 'Calendar';
+		return __('Calendar');
 	}
 
 	setup_defaults() {
