@@ -160,8 +160,7 @@ For e.g. 1 USD = 100 Cent",
 			<td>Get value from another document.</td>
 		</tr>
 	</tbody>
-</table>
-",
+</table>",
 "<h4>Default Template</h4>
 <p>Uses <a href=""http://jinja.pocoo.org/docs/templates/"">Jinja Templating</a> and all the fields of Address (including Custom Fields if any) will be available</p>
 <pre><code>{{ address_line1 }}&lt;br&gt;
@@ -196,8 +195,7 @@ For e.g. 1 USD = 100 Cent",
 </pre>
 ","<p><strong>Condition Examples:</strong></p>
 <pre>doc.status==""Open""<br>doc.due_date==nowdate()<br>doc.total &gt; 40000
-</pre>
-",
+</pre>",
 "<p>Set context before rendering a template. Example:</p><p>
 </p><div><pre><code>
 context.project = frappe.get_doc(""Project"", frappe.form_dict.name)
@@ -1131,7 +1129,7 @@ Department,Departamento,
 Dependencies,Dependencias,
 Depends On,Depende de,
 Descendants Of,Descendientes De,
-Description,Description,
+Description,Descripción,
 "Description for listing page, in plain text, only a couple of lines. (max 200 characters)","Descripción de la página de listado, en texto plano, solo un par de líneas. (máximo 200 caracteres)",
 Description to inform the user about any action that is going to be performed,Description to inform the user about any action that is going to be performed,
 Designation,Puesto,
@@ -1217,7 +1215,7 @@ Document States,Estados del Documento,
 Document Status,Estado del Documento,
 Document Tag,Etiqueta de documento,
 Document Title,Titulo del documento,
-Document Type,Document Type,
+Document Type,Tipo de documento,
 Document Type Field Mapping,Tipo de documento Asignación de campo,
 Document Type Mapping,Asignación de tipo de documento,
 Document Type is not importable,El tipo de documento no es importable,
@@ -1588,7 +1586,7 @@ Find {0} in {1},Encontrar {0} en {1},
 Finished,Terminado,
 First,primero,
 First Level,Primer nivel,
-First Name,First Name,
+First Name,Nombre,
 First Success Message,Primer Mensaje de Éxito,
 First Transaction,Primera Transacción,
 First data column must be blank.,La primera columna de datos debe estar en blanco.,
@@ -1881,8 +1879,7 @@ If non standard port (e.g. 587),Si el puerto no es estándar (por ejemplo 587 ),
 "If non-standard port (e.g. POP3: 995/110, IMAP: 993/143)","Si no es un puerto estándar (por ejemplo, POP3: 995/110, IMAP: 993/143)",
 "If not set, the currency precision will depend on number format","Si no se establece, la precisión de la moneda dependerá del formato numérico",
 "If the condition is satisfied user will be rewarded with the points. eg. doc.status == 'Closed'
-","If the condition is satisfied user will be rewarded with the points. eg. doc.status == 'Closed'
-",
+",If the condition is satisfied user will be rewarded with the points. eg. doc.status == 'Closed',
 If the document has different field names on the Producer and Consumer's end check this and set up the Mapping,"Si el documento tiene diferentes nombres de campo en el extremo del Productor y del Consumidor, verifique esto y configure la asignación",
 "If the user has any role checked, then the user becomes a ""System User"". ""System User"" has access to the desktop","Si el usuario tiene algún rol asignado, entonces el usuario se convierte en un ""Usuario del Sistema"". Los ""Usuarios del sistema"" tienen acceso al escritorio",
 "If these instructions where not helpful, please add in your suggestions on GitHub Issues.","Si estas instrucciones no son útiles, por favor, añadir sus sugerencias en GitHub .",
@@ -2646,7 +2643,7 @@ Note: Changing the Page Name will break previous URL to this page.,Nota: Cambiar
 "Note: For best results,  images must be of the same size and width must be greater than height.","Nota: Para obtener mejores resultados, las imágenes deben ser del mismo tamaño y el ancho debe ser mayor que la altura.",
 Note: Multiple sessions will be allowed in case of mobile device,Nota: Varias sesiones serán permitidas en el caso de dispositivos móviles,
 Notes,Notas,
-Notes:,Notas:,
+Notes:,Notes:,
 Nothing to show,Nada para mostrar,
 Nothing to update,Nada que actualizar,
 Notification,Notificación,
@@ -2792,8 +2789,7 @@ Page Title,Page Title,
 Page has expired!,La página ha expirado!,
 Page not found,Página no encontrada,
 "Page to show on the website
-","Page to show on the website
-",
+",Page to show on the website,
 Page {0} of {1},Página {0} de {1},
 Parameter,Parámetro,
 Parent,Principal,
@@ -3258,7 +3254,7 @@ Reset Password Key,Restablecer contraseña/clave,
 Reset Permissions for {0}?,¿Restablecer los permisos para {0}?,
 Reset to defaults,Restablecer predeterminados,
 Reset your password,Restablecer su Contraseña,
-Response,Respuesta,
+Response,Response,
 Response Type,Tipo de respuesta,
 Rest of the day,Resto del día,
 Restore,Restaurar,
@@ -4570,7 +4566,7 @@ comment,comentario,
 commented,commented,
 comments,comentarios,
 count,count,
-d,re,Days (Field: Duration)
+d,d,Days (Field: Duration)
 danger,peligro,
 darkgrey,gris oscuro,
 dashboard,tablero,
@@ -4646,7 +4642,7 @@ list,lista,
 list-alt,Listado,
 lock,bloquear,
 logged in,conectado,
-m,metro,Minutes (Field: Duration)
+m,m,Minutes (Field: Duration)
 magnet,imán,
 map-marker,mapa del marcador,
 merged {0} into {1},fusionado {0} en {1},
