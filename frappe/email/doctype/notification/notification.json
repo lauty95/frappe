@@ -80,7 +80,7 @@
   },
   {
    "depends_on": "eval: in_list(['Email', 'Slack', 'System Notification'], doc.channel)",
-   "description": "To add dynamic subject, use jinja tags like\n\n<div><pre><code>{{ doc.name }} Delivered</code></pre></div>",
+   "description": "Para agregar un asunto din\u00e1mico, utilizar etiquetas jinja:\n\n<div><pre><code>{{ doc.name }} Enviado</code></pre></div>",
    "fieldname": "subject",
    "fieldtype": "Data",
    "ignore_xss_filter": 1,
@@ -225,7 +225,7 @@
    "label": "Message"
   },
   {
-   "default": "Add your message here",
+   "default": "Añade tu mensaje aquí",
    "fieldname": "message",
    "fieldtype": "Code",
    "ignore_xss_filter": 1,
@@ -235,7 +235,7 @@
    "fieldname": "message_examples",
    "fieldtype": "HTML",
    "label": "Message Examples",
-   "options": "<h5>Message Example</h5>\n\n<pre>&lt;h3&gt;Order Overdue&lt;/h3&gt;\n\n&lt;p&gt;Transaction {{ doc.name }} has exceeded Due Date. Please take necessary action.&lt;/p&gt;\n\n&lt;!-- show last comment --&gt;\n{% if comments %}\nLast comment: {{ comments[-1].comment }} by {{ comments[-1].by }}\n{% endif %}\n\n&lt;h4&gt;Details&lt;/h4&gt;\n\n&lt;ul&gt;\n&lt;li&gt;Customer: {{ doc.customer }}\n&lt;li&gt;Amount: {{ doc.grand_total }}\n&lt;/ul&gt;\n</pre>"
+   "options": "<h5>Ejemplos de mensaje</h5>\n\n<pre>&lt;h3&gt;Orden Vencida&lt;/h3&gt;\n\n&lt;p&gt; La transacción {{ doc.name }} ha excedido la Fecha de Vencimiento. Por favor, realizar las acciones necesarias.&lt;/p&gt;\n\n&lt;!-- mostrar último comentario --&gt;\n{% if comments %}\nÚltimo comentario: {{ comments[-1].comment }} por {{ comments[-1].by }}\n{% endif %}\n\n&lt;h4&gt;Detalles&lt;/h4&gt;\n\n&lt;ul&gt;\n&lt;li&gt;Cliente: {{ doc.customer }}\n&lt;li&gt;Monto: {{ doc.grand_total }}\n&lt;/ul&gt;\n</pre>"
   },
   {
    "fieldname": "view_properties",
@@ -281,7 +281,7 @@
  "icon": "fa fa-envelope",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-11-24 14:25:43.245677",
+ "modified": "2021-10-28 08:30:01.383348",
  "modified_by": "Administrator",
  "module": "Email",
  "name": "Notification",
