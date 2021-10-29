@@ -34,7 +34,7 @@ class PersonalDataDownloadRequest(Document):
 		host_name = frappe.local.site
 		frappe.sendmail(
 			recipients=self.user,
-			subject=_("Download Your Data"),
+			subject=_("Descargar datos"),
 			template="download_data",
 			args={
 				'user': self.user,
@@ -42,7 +42,7 @@ class PersonalDataDownloadRequest(Document):
 				'link': file_link,
 				'host_name': host_name
 			},
-			header=[_("Download Your Data"), "green"]
+			header=[_("Descargar datos"), "green"]
 		)
 
 def get_user_data(user):
