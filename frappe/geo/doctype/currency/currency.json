@@ -42,7 +42,7 @@
    "label": "Fraction"
   },
   {
-   "description": "1 Currency = [?] Fraction\nFor e.g. 1 USD = 100 Cent",
+   "description": "1 Unidad = [?] Fracci\u00f3n, por ejemplo: 1 ARS = 100 Centavos",
    "fieldname": "fraction_units",
    "fieldtype": "Int",
    "in_list_view": 1,
@@ -75,7 +75,7 @@
  "idx": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-10-29 06:33:12.879978",
+ "modified": "2021-10-29 12:38:48.831325",
  "modified_by": "Administrator",
  "module": "Geo",
  "name": "Currency",

@@ -15,6 +15,8 @@
 0 - Draft; 1 - Submitted; 2 - Cancelled,0 - Borrador; 1 - Enviado; 2 - Cancelado,
 0 is highest,0 es más alto,
 "1 Currency = [?] Fraction\nFor e.g. 1 USD = 100 Cent","1 Unidad = [?] Fracción, por ejemplo: 1 ARS = 100 Centavos",
+"1 Currency = [?] Fraction\n","1 Unidad = [?] Fracción",
+"For e.g. 1 USD = 100 Cent","por ejemplo: 1 ARS = 100 Centavos",
 1 Google Calendar Event synced.,1 evento de Google Calendar sincronizado.,
 1 Report,1 informe,
 1 comment,1 comentario,
