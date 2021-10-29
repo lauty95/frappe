@@ -4965,3 +4965,4 @@ Uses the Email Address mentioned in this Account as the Sender for all emails se
 "Amended document gets the name of the original document if enabled and will be applicable to all submittable doctypes. This is a nonreversible operation. ","Documentos corregidos tendrán el mismo nombre que los originales, aplica también para documentos validables. Esta operación no se puede deshacer.",
 Allow Consecutive Login Attempts ,Permitir intentos de inicio de sesión consecutivos,
 You can also copy-paste this link in your browser,También se puede copiar y pegar este Enlace de descarga en el navegador.,
+Show Users,Mostrar usuarios,
