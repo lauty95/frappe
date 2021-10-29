@@ -73,17 +73,17 @@ export default class WebForm extends frappe.ui.FieldGroup {
 	}
 
 	setup_primary_action() {
-		this.add_button_to_header(this.button_label || "Save", "primary", () =>
+		this.add_button_to_header(this.button_label || __("Save"), "primary", () =>
 			this.save()
 		);
 
-		this.add_button_to_footer(this.button_label || "Save", "primary", () =>
+		this.add_button_to_footer(this.button_label || __("Save"), "primary", () =>
 			this.save()
 		);
 	}
 
 	setup_cancel_button() {
-		this.add_button_to_header(__("Cancel"), "light", () => this.cancel());
+		this.add_button_to_header("Cancelar", "light", () => this.cancel());
 	}
 
 	setup_delete_button() {
@@ -191,7 +191,7 @@ export default class WebForm extends frappe.ui.FieldGroup {
 		}
 
 		const success_dialog = new frappe.ui.Dialog({
-			title: __("Saved Successfully"),
+			title: "Guardado exitosamente",
 			secondary_action: () => {
 				if (this.success_url) {
 					window.location.href = this.success_url;
