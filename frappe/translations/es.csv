@@ -4968,3 +4968,6 @@ Uses the Email Address mentioned in this Account as the Sender for all emails se
 Allow Consecutive Login Attempts ,Permitir intentos de inicio de sesión consecutivos,
 You can also copy-paste this link in your browser,También se puede copiar y pegar este Enlace de descarga en el navegador.,
 Show Users,Mostrar usuarios,
+Submited,Validó,
+{0} created this {1},{0} creó esto {1},
+{0} edited this {1},{0} editó esto {1},
