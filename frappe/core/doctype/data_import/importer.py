@@ -233,7 +233,7 @@ class Importer:
 			return updated_doc
 		else:
 			# throw if no changes
-			frappe.throw("No changes to update")
+			frappe.throw(_("No changes to update"))
 
 	def get_eta(self, current, total, processing_time):
 		self.last_eta = getattr(self, "last_eta", 0)
