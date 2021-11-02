@@ -20,7 +20,6 @@
    "label": "Country",
    "options": "Country",
    "reqd": 1,
-   "search_index": 1,
    "unique": 1
   },
   {
@@ -32,7 +31,7 @@
    "label": "Is Default"
   },
   {
-   "description": "<h4>Default Template</h4>\n<p>Uses <a href=\"http://jinja.pocoo.org/docs/templates/\">Jinja Templating</a> and all the fields of Address (including Custom Fields if any) will be available</p>\n<pre><code>{{ address_line1 }}&lt;br&gt;\n{% if address_line2 %}{{ address_line2 }}&lt;br&gt;{% endif -%}\n{{ city }}&lt;br&gt;\n{% if state %}{{ state }}&lt;br&gt;{% endif -%}\n{% if pincode %} PIN:  {{ pincode }}&lt;br&gt;{% endif -%}\n{{ country }}&lt;br&gt;\n{% if phone %}Phone: {{ phone }}&lt;br&gt;{% endif -%}\n{% if fax %}Fax: {{ fax }}&lt;br&gt;{% endif -%}\n{% if email_id %}Email: {{ email_id }}&lt;br&gt;{% endif -%}\n</code></pre>",
+   "description": "<h4>Plantilla predeterminada</h4>\n<p>Usa <a href=\"http://jinja.pocoo.org/docs/templates/\">Plantilla Jinja</a> y todos los campos de Direcci\u00f3n (incluyendo campos personalizados sin los hubiera) est\u00e1n habilitados</p>\n<pre><code>\n{{ address_line1 }}<br>{% if address_line2 %}{{ address_line2 }}<br>{% endif -%}{{ city }}<br>\n{% if state %}{{ state }}<br>{% endif -%}\n{% if jurisdiccion %}{{ jurisdiccion }}<br>{% endif -%}\n{% if pincode %}{{ pincode }}<br>{% endif -%}\n{{ country }}<br>\n{% if phone %}Tel\u00e9fono: {{ phone }}<br>{% endif -%}\n{% if fax %}Fax: {{ fax }}<br>{% endif -%}\n{% if email_id %}Correo electr\u00f3nico: {{ email_id }}<br>{% endif -%}\"\n</code></pre>",
    "fieldname": "template",
    "fieldtype": "Code",
    "label": "Template"
@@ -40,7 +39,7 @@
  ],
  "icon": "fa fa-map-marker",
  "links": [],
- "modified": "2021-08-26 11:48:51.806164",
+ "modified": "2021-11-02 10:59:36.280527",
  "modified_by": "Administrator",
  "module": "Contacts",
  "name": "Address Template",
