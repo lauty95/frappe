@@ -5,11 +5,11 @@
  "docstatus": 0,
  "doctype": "Print Style",
  "idx": 1,
- "modified": "2020-11-10 13:59:09.976381",
+ "modified": "2020-11-19 13:59:09.976381",
  "modified_by": "Administrator",
- "name": "Modern",
+ "name": "Moderno",
  "owner": "Administrator",
  "preview": "/assets/frappe/images/help/print-style-modern.png",
- "print_style_name": "Modern",
+ "print_style_name": "Moderno",
  "standard": 1
 }

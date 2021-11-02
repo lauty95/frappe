@@ -535,9 +535,9 @@ class Row:
 		if len_row != len_columns:
 			less_than_columns = len_row < len_columns
 			message = (
-				"Row has less values than columns"
+				"Hay columnas sin valor en este fila"
 				if less_than_columns
-				else "Row has more values than columns"
+				else "Columna tiene mas valores que columnas"
 			)
 			self.warnings.append(
 				{"row": self.row_number, "message": message,}
@@ -914,7 +914,7 @@ class Column:
 					{
 						"col": self.column_number,
 						"message": (
-							"The following values do not exist for {}: {}".format(
+							"Los siguientes valores no existen para {}: {}".format(
 								self.df.options, missing_values
 							)
 						),
@@ -945,8 +945,7 @@ class Column:
 						{
 							"col": self.column_number,
 							"message": (
-								"The following values are invalid: {0}. Values must be"
-								" one of {1}".format(invalid_values, valid_values)
+								"Los siguientes valores son inválidos: {0}. Deben ser uno de los siguientes {1}".format(invalid_values, valid_values)
 							),
 						}
 					)
