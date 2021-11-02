@@ -59,8 +59,7 @@ class SystemSettings(Document):
 				self.has_value_changed('use_original_name_for_amended_document'):
 			rename_fun = 'frappe.model.utils.rename_cancelled_docs.rename_cancelled_docs'
 			frappe.enqueue(rename_fun)
-			frappe.msgprint(_("preparing the system to use original names for amended docs."
-				"System might be a little slow for a few seconds as it gets ready."))
+			frappe.msgprint(_("preparing the system to use original names for amended docs. System might be a little slow for a few seconds as it gets ready."))
 
 def update_last_reset_password_date():
 	frappe.db.sql(""" UPDATE `tabUser`
