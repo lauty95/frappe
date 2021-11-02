@@ -48,7 +48,7 @@
    "fieldname": "email_reply_help",
    "fieldtype": "HTML",
    "label": "Email Reply Help",
-   "options": "<h4>Email Reply Example</h4>\n\n<pre>Order Overdue\n\nTransaction {{ name }} has exceeded Due Date. Please take necessary action.\n\nDetails\n\n- Customer: {{ customer }}\n- Amount: {{ grand_total }}\n</pre>\n\n<h4>How to get fieldnames</h4>\n\n<p>The fieldnames you can use in your email template are the fields in the document from which you are sending the email. You can find out the fields of any documents via Setup &gt; Customize Form View and selecting the document type (e.g. Sales Invoice)</p>\n\n<h4>Templating</h4>\n\n<p>Templates are compiled using the Jinja Templating Language. To learn more about Jinja, <a class=\"strong\" href=\"http://jinja.pocoo.org/docs/dev/templates/\">read this documentation.</a></p>\n"
+   "options": "<h4>Ejemplo de respuesta de correo electr\u00f3nico</h4>\n\n<pre>Orden atrasada\n\nLa transacci\u00f3n {{ name }} ha excedido su fecha de pago/vencimiento. Por favor realizar las acciones necesarias.\n\nDetalles\n\n- Cliente: {{ customer }}\n- Importe: {{ grand_total }}\n</pre>\n\n<h4>Obtenci\u00f3n del nombre de los campos</h4>\n\n<p>El fieldname que se puede usar en la plantilla son los campos del documento sobre el cual se est\u00e1 trabajando.</p>\n\n<h4>Plantillas</h4>\n\n<p>Las plantillas son generadas usando el lenguaje Jinja. Leer la <a class=\"strong\" href=\"http://jinja.pocoo.org/docs/dev/templates/\">documentaci\u00f3n</a> para saber m\u00e1s al respecto.</p>"
   },
   {
    "default": "0",
@@ -66,7 +66,7 @@
  ],
  "icon": "fa fa-comment",
  "links": [],
- "modified": "2020-11-30 14:12:50.321633",
+ "modified": "2021-11-02 11:44:35.495002",
  "modified_by": "Administrator",
  "module": "Email",
  "name": "Email Template",
