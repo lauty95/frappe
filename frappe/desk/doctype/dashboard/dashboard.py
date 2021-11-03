@@ -69,6 +69,7 @@ def get_permitted_charts(dashboard_name):
 		if frappe.has_permission('Dashboard Chart', doc=chart.chart):
 			chart_dict = frappe._dict()
 			chart_dict.update(chart.as_dict())
+			chart_dict['label'] = _(chart_dict['chart'])
 
 			if dashboard.get('chart_options'):
 				chart_dict.custom_options = dashboard.get('chart_options')
