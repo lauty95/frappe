@@ -1,0 +1,86 @@
+{
+ "actions": [],
+ "creation": "2021-08-18 12:08:10.918586",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "api_key",
+  "adhesion_form_url",
+  "sandbox",
+  "recipients"
+ ],
+ "fields": [
+  {
+   "fieldname": "api_key",
+   "fieldtype": "Password",
+   "in_list_view": 1,
+   "label": "API Key",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "sandbox",
+   "fieldtype": "Check",
+   "label": "Sandbox"
+  },
+  {
+   "description": "Emails separados por coma que recibir\u00e1n notificaciones referidas a Pagos360",
+   "fieldname": "recipients",
+   "fieldtype": "Small Text",
+   "label": "Correos de Administraci\u00f3n"
+  },
+  {
+   "description": "Link del Formulario de Adhesi\u00f3n",
+   "fieldname": "adhesion_form_url",
+   "fieldtype": "Data",
+   "label": "Formulario de Adhesi\u00f3n"
+  }
+ ],
+ "in_create": 1,
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2021-09-29 09:03:05.911628",
+ "modified_by": "Administrator",
+ "module": "Integrations",
+ "name": "Pagos360 Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Accounts User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "read_only": 1,
+ "restrict_to_domain": "Pagos360",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}
