@@ -18,7 +18,7 @@ def install():
 
 @frappe.whitelist()
 def update_genders():
-	default_genders = ["Masculino", "Femenino", "Otros", "Transgénero", "Genderqueen", "No binario","Prefiero no decir"]
+	default_genders = ["Masculino", "Femenino", "Otros", "Transgénero", "Genderqueer", "No binario", "Prefiero no decir"]
 	records = [{'doctype': 'Gender', 'gender': d} for d in default_genders]
 	for record in records:
 		frappe.get_doc(record).insert(ignore_permissions=True, ignore_if_duplicate=True)
