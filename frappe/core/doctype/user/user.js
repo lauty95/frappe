@@ -1,3 +1,4 @@
+// __("Profile") (for translations)
 frappe.ui.form.on('User', {
 	before_load: function(frm) {
 		var update_tz_select = function(user_language) {

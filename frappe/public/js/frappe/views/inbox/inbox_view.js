@@ -27,7 +27,7 @@ frappe.views.InboxView = class InboxView extends frappe.views.ListView {
 	}
 
 	get view_name() {
-		return 'Inbox';
+		return __('Inbox');
 	}
 
 	show() {

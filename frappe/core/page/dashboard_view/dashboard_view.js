@@ -1,6 +1,5 @@
 // Copyright (c) 2019, Frappe Technologies Pvt. Ltd. and Contributors
 // MIT License. See license.txt
-
 frappe.provide('frappe.dashboards');
 frappe.provide('frappe.dashboards.chart_sources');
 
@@ -64,7 +63,7 @@ class Dashboard {
 			let title = this.dashboard_name;
 			if (!this.dashboard_name.toLowerCase().includes(__('dashboard'))) {
 				// ensure dashboard title has "dashboard"
-				title = __('{0} Dashboard', [title]);
+				title = __('{0} Dashboard', [__(title)]);
 			}
 			this.page.set_title(title);
 			this.set_dropdown();
@@ -96,7 +95,7 @@ class Dashboard {
 					charts.map(chart => {
 						return {
 							chart_name: chart.chart,
-							label: chart.chart,
+							label: chart.label || chart.chart,
 							chart_settings: chart_config[chart.chart] || {},
 							...chart
 						}
@@ -132,6 +131,7 @@ class Dashboard {
 				cards.map(card => {
 					return {
 						name: card.card,
+
 					};
 				});
 
@@ -180,11 +180,12 @@ class Dashboard {
 				this.number_card_group.widgets_list.forEach(card => card.render_card());
 		});
 
+		// Evitamos que puedan ver otros dashboard
 		// frappe.db.get_list('Dashboard').then(dashboards => {
 		// 	dashboards.map(dashboard => {
 		// 		let name = dashboard.name;
 		// 		if (name != this.dashboard_name) {
-		// 			this.page.add_menu_item(name, () => frappe.set_route("dashboard-view", name), 1);
+		// 			this.page.add_menu_item(__(name), () => frappe.set_route("dashboard-view", name), 1);
 		// 		}
 		// 	});
 		// });

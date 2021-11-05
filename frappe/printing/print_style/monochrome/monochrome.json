@@ -5,11 +5,11 @@
  "docstatus": 0, 
  "doctype": "Print Style", 
  "idx": 0, 
- "modified": "2017-08-18 00:44:25.023898", 
+ "modified": "2017-08-19 00:44:25.023898", 
  "modified_by": "Administrator", 
- "name": "Monochrome", 
+ "name": "Monocromático", 
  "owner": "Administrator", 
  "preview": "/assets/frappe/images/help/print-style-monochrome.png", 
- "print_style_name": "Monochrome", 
+ "print_style_name": "Monocromático", 
  "standard": 1
 }

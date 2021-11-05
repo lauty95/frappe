@@ -23,7 +23,7 @@ frappe.views.KanbanView = class KanbanView extends frappe.views.ListView {
 	}
 
 	get view_name() {
-		return 'Kanban';
+		return __('Kanban');
 	}
 
 	setup_defaults() {

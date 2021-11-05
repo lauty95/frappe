@@ -4,7 +4,7 @@
 frappe.ui.form.on('Data Export', {
 	refresh: frm => {
 		frm.disable_save();
-		frm.page.set_primary_action('Export', () => {
+		frm.page.set_primary_action(__('Export'), () => {
 			can_export(frm) ? export_data(frm) : null;
 		});
 	},

@@ -2,7 +2,7 @@ frappe.provide('frappe.views');
 
 frappe.views.DashboardView = class DashboardView extends frappe.views.ListView {
 	get view_name() {
-		return 'Dashboard';
+		return __('Dashboard');
 	}
 
 	setup_defaults() {

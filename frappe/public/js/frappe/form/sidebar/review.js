@@ -28,9 +28,7 @@ frappe.ui.form.Review = class Review {
 			review_button.popover({
 				trigger: 'hover',
 				content: () => {
-					return `<div class="text-medium">
-						${__('You do not have enough review points')}
-					</div>`;
+					return `<div class="text-medium">${__('You do not have enough review points')}</div>`;
 				},
 				html: true
 			});

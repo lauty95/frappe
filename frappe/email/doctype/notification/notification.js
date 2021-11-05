@@ -95,41 +95,41 @@ frappe.notification = {
 	setup_example_message: function(frm) {
 		let template = '';
 		if (frm.doc.channel === 'Email') {
-			template = `<h5>Message Example</h5>
+			template = `<h5>Ejemplos de mensaje</h5>
 
-<pre>&lt;h3&gt;Order Overdue&lt;/h3&gt;
+<pre>&lt;h3&gt;Orden Vencida&lt;/h3&gt;
 
-&lt;p&gt;Transaction {{ doc.name }} has exceeded Due Date. Please take necessary action.&lt;/p&gt;
+&lt;p&gt;La transacción {{ doc.name }} ha excedido la Fecha de Vencimiento. Por favor, realizar las acciones necesarias.&lt;/p&gt;
 
-&lt;!-- show last comment --&gt;
+&lt;!-- mostrar último comentario --&gt;
 {% if comments %}
-Last comment: {{ comments[-1].comment }} by {{ comments[-1].by }}
+Último comentario: {{ comments[-1].comment }} por {{ comments[-1].by }}
 {% endif %}
 
-&lt;h4&gt;Details&lt;/h4&gt;
+&lt;h4&gt;Detalles&lt;/h4&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Customer: {{ doc.customer }}
-&lt;li&gt;Amount: {{ doc.grand_total }}
+&lt;li&gt;Cliente: {{ doc.customer }}
+&lt;li&gt;Monto: {{ doc.grand_total }}
 &lt;/ul&gt;
 </pre>
 			`;
 		} else if (in_list(['Slack', 'System Notification', 'SMS'], frm.doc.channel)) {
 			template = `<h5>Message Example</h5>
 
-<pre>*Order Overdue*
+<pre>*Orden Vencida*
 
-Transaction {{ doc.name }} has exceeded Due Date. Please take necessary action.
+La transacción {{ doc.name }} ha excedido la Fecha de Vencimiento. Por favor, realizar las acciones necesarias.
 
-<!-- show last comment -->
+<!-- mostrar último comentario -->
 {% if comments %}
-Last comment: {{ comments[-1].comment }} by {{ comments[-1].by }}
+Último comentario: {{ comments[-1].comment }} por {{ comments[-1].by }}
 {% endif %}
 
-*Details*
+*Detalles*
 
-• Customer: {{ doc.customer }}
-• Amount: {{ doc.grand_total }}
+• Cliente: {{ doc.customer }}
+• Monto: {{ doc.grand_total }}
 </pre>`;
 		}
 		if (template) {

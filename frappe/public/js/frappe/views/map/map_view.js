@@ -6,7 +6,7 @@ frappe.provide("frappe.views");
 
 frappe.views.MapView = class MapView extends frappe.views.ListView {
 	get view_name() {
-		return 'Map';
+		return __('Map');
 	}
 
 	setup_defaults() {
