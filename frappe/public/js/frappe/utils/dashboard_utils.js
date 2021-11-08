@@ -49,7 +49,8 @@ frappe.dashboard_utils = {
 				if ($el.attr('data-value')) {
 					selected_item = $el.attr('data-value');
 				}
-				$el.parents(`.${button_class}`).find('.filter-label').text(selected_item);
+				const selected_label = $el.text();
+				$el.parents(`.${button_class}`).find('.filter-label').text(selected_label);
 				filter.action(selected_item, fieldname);
 			});
 		});
