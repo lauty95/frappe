@@ -537,7 +537,7 @@ class Row:
 			message = (
 				"Hay columnas sin valor en este fila"
 				if less_than_columns
-				else "Columna tiene mas valores que columnas"
+				else "La fila tiene más valores que columnas"
 			)
 			self.warnings.append(
 				{"row": self.row_number, "message": message,}
