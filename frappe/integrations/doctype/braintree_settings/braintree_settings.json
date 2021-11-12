@@ -234,7 +234,7 @@
  "issingle": 0, 
  "istable": 0, 
  "max_attachments": 0, 
- "modified": "2018-02-05 14:33:06.050377", 
+ "modified": "2021-10-14 12:56:02.903982", 
  "modified_by": "Administrator", 
  "module": "Integrations", 
  "name": "Braintree Settings", 
@@ -263,6 +263,7 @@
   }
  ], 
  "quick_entry": 1, 
+ "restrict_to_domain": "Thrash", 
  "read_only": 0, 
  "read_only_onload": 0, 
  "show_name_in_global_search": 0, 

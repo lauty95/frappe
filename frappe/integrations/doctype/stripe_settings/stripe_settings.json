@@ -62,7 +62,7 @@
   }
  ],
  "links": [],
- "modified": "2021-05-12 19:59:47.049506",
+ "modified": "2021-10-14 12:57:45.618629",
  "modified_by": "Administrator",
  "module": "Integrations",
  "name": "Stripe Settings",
@@ -80,7 +80,7 @@
   }
  ],
  "quick_entry": 1,
- "restrict_to_domain": "Integrations",
+ "restrict_to_domain": "Thrash",
  "sort_field": "modified",
  "sort_order": "DESC"
 }

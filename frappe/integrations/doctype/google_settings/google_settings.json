@@ -51,7 +51,7 @@
  ],
  "issingle": 1,
  "links": [],
- "modified": "2021-05-12 20:01:51.048012",
+ "modified": "2021-10-14 12:49:48.508736",
  "modified_by": "Administrator",
  "module": "Integrations",
  "name": "Google Settings",
@@ -79,7 +79,7 @@
   }
  ],
  "quick_entry": 1,
- "restrict_to_domain": "Servicios Google",
+ "restrict_to_domain": "Thrash",
  "sort_field": "modified",
  "sort_order": "ASC",
  "track_changes": 1

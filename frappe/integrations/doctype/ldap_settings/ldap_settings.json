@@ -266,7 +266,7 @@
  "in_create": 1,
  "issingle": 1,
  "links": [],
- "modified": "2021-07-27 11:51:43.328271",
+ "modified": "2021-10-14 12:52:03.544207",
  "modified_by": "Administrator",
  "module": "Integrations",
  "name": "LDAP Settings",
@@ -285,7 +285,7 @@
   }
  ],
  "read_only": 1,
- "restrict_to_domain": "Integrations",
+ "restrict_to_domain": "Thrash",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

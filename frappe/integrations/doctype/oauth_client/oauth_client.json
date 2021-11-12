@@ -117,7 +117,7 @@
   }
  ],
  "links": [],
- "modified": "2021-05-12 19:59:45.550141",
+ "modified": "2021-10-14 12:52:48.639266",
  "modified_by": "Administrator",
  "module": "Integrations",
  "name": "OAuth Client",
@@ -136,7 +136,7 @@
    "write": 1
   }
  ],
- "restrict_to_domain": "Integrations",
+ "restrict_to_domain": "Thrash",
  "sort_field": "modified",
  "sort_order": "DESC",
  "title_field": "app_name",

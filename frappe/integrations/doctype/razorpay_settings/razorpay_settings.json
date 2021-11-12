@@ -35,7 +35,7 @@
  "in_create": 1,
  "issingle": 1,
  "links": [],
- "modified": "2021-05-12 19:59:48.305614",
+ "modified": "2021-10-14 12:57:11.879289",
  "modified_by": "Administrator",
  "module": "Integrations",
  "name": "Razorpay Settings",
@@ -54,7 +54,7 @@
   }
  ],
  "read_only": 1,
- "restrict_to_domain": "Integrations",
+ "restrict_to_domain": "Thrash",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

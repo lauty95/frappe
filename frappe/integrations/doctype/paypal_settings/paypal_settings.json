@@ -51,7 +51,7 @@
  "in_create": 1,
  "issingle": 1,
  "links": [],
- "modified": "2021-05-12 19:59:48.510174",
+ "modified": "2021-10-14 12:56:41.672815",
  "modified_by": "Administrator",
  "module": "Integrations",
  "name": "PayPal Settings",
@@ -70,7 +70,7 @@
   }
  ],
  "read_only": 1,
- "restrict_to_domain": "Integrations",
+ "restrict_to_domain": "Thrash",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

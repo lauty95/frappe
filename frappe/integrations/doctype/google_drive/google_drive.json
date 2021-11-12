@@ -102,7 +102,7 @@
  ],
  "issingle": 1,
  "links": [],
- "modified": "2021-05-12 20:01:51.774382",
+ "modified": "2021-10-14 12:48:11.245182",
  "modified_by": "Administrator",
  "module": "Integrations",
  "name": "Google Drive",
@@ -129,7 +129,7 @@
    "write": 1
   }
  ],
- "restrict_to_domain": "Servicios Google",
+ "restrict_to_domain": "Thrash",
  "sort_field": "modified",
  "sort_order": "ASC",
  "track_changes": 1

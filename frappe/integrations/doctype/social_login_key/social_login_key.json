@@ -161,7 +161,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-05-12 19:59:43.476863",
+ "modified": "2021-10-14 12:51:28.696782",
  "modified_by": "Administrator",
  "module": "Integrations",
  "name": "Social Login Key",
@@ -180,7 +180,7 @@
    "write": 1
   }
  ],
- "restrict_to_domain": "Integrations",
+ "restrict_to_domain": "Thrash",
  "sort_field": "modified",
  "sort_order": "DESC",
  "title_field": "provider_name",

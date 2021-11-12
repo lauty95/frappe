@@ -35,7 +35,7 @@
   }
  ],
  "links": [],
- "modified": "2021-05-12 18:24:37.810235",
+ "modified": "2021-10-14 12:59:06.304078",
  "modified_by": "Administrator",
  "module": "Integrations",
  "name": "Slack Webhook URL",
@@ -55,7 +55,7 @@
   }
  ],
  "quick_entry": 1,
- "restrict_to_domain": "Integrations",
+ "restrict_to_domain": "Thrash",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

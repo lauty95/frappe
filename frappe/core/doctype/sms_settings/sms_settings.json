@@ -60,7 +60,7 @@
  "idx": 1,
  "issingle": 1,
  "links": [],
- "modified": "2021-05-12 20:01:46.722016",
+ "modified": "2021-10-14 14:03:41.035975",
  "modified_by": "Administrator",
  "module": "Core",
  "name": "SMS Settings",
@@ -74,7 +74,7 @@
    "write": 1
   }
  ],
- "restrict_to_domain": "Campaigns",
+ "restrict_to_domain": "Thrash",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1
