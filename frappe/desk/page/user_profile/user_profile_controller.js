@@ -180,8 +180,14 @@ class UserProfile {
 	create_line_chart_filters() {
 		let filters = [
 			{
-				label: 'All',
-				options: ['All', 'Auto', 'Criticism', 'Appreciation', 'Revert'],
+				label: __('All'),
+				options: [
+					{label: __('All'), value: 'All'},
+					{label: __('Auto'), value: 'Auto'},
+					{label: __('Criticism'), value: 'Criticism'},
+					{label: __('Appreciation'), value: 'Appreciation'},
+					{label: __('Revert'), value: 'Revert'}
+				],
 				action: (selected_item) => {
 					if (selected_item === 'All') {
 						this.line_chart_filters = [
@@ -195,16 +201,25 @@ class UserProfile {
 				}
 			},
 			{
-				label: 'Last Month',
-				options: ['Last Week', 'Last Month', 'Last Quarter', 'Last Year'],
+				label: __('Last Month'),
+				options: [
+					{label: __('Last Week'), value: 'Last Week'},
+					{label: __('Last Month'), value: 'Last Month'},
+					{label: __('Last Quarter'), value: 'Last Quarter'},
+					{label: __('Last Year'), value: 'Last Year'}
+				],
 				action: (selected_item) => {
 					this.line_chart_config.timespan = selected_item;
 					this.update_line_chart_data();
 				}
 			},
 			{
-				label: 'Daily',
-				options: ['Daily', 'Weekly', 'Monthly'],
+				label: __('Daily'),
+				options: [
+					{label: __('Daily'), value: 'Daily'},
+					{label: __('Weekly'), value: 'Weekly'},
+					{label: __('Monthly'), value: 'Monthly'}
+				],
 				action: (selected_item) => {
 					this.line_chart_config.time_interval = selected_item;
 					this.update_line_chart_data();
@@ -217,11 +232,15 @@ class UserProfile {
 	create_percentage_chart_filters() {
 		let filters = [
 			{
-				label: 'Type',
-				options: ['Type', 'Reference Doctype', 'Rule'],
+				label: __('Type'),
+				options: [
+					{label: __('Type'), value: 'Type'},
+					{label: __('Reference Doctype'), value: 'Reference Doctype'},
+					{label: __('Rule'), value: 'Rule'}
+				],
 				fieldnames: ['type', 'reference_doctype', 'rule'],
 				action: (selected_item, fieldname) => {
-					let title = selected_item + ' Distribution';
+					let title = __('{0} Distribution', [__(selected_item)]);
 					this.render_percentage_chart(fieldname, title);
 				}
 			},
@@ -250,12 +269,12 @@ class UserProfile {
 				{
 					fieldtype: 'Attach Image',
 					fieldname: 'user_image',
-					label: 'Profile Image',
+					label: __('Profile Image'),
 				},
 				{
 					fieldtype: 'Data',
 					fieldname: 'interest',
-					label: 'Interests',
+					label: __('Interests'),
 				},
 				{
 					fieldtype: 'Column Break'
@@ -263,16 +282,16 @@ class UserProfile {
 				{
 					fieldtype: 'Data',
 					fieldname: 'location',
-					label: 'Location',
+					label: __('Location'),
 				},
 				{
 					fieldtype: 'Section Break',
-					fieldname: 'Interest',
+					fieldname: __('Interest'),
 				},
 				{
 					fieldtype: 'Small Text',
 					fieldname: 'bio',
-					label: 'Bio',
+					label: __('Bio'),
 				}
 			],
 			primary_action: values => {

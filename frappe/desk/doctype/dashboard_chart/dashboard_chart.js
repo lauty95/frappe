@@ -28,7 +28,7 @@ frappe.ui.form.on('Dashboard Chart', {
 			frm.disable_form();
 		}
 
-		frm.add_custom_button('Add Chart to Dashboard', () => {
+		frm.add_custom_button(__('Add Chart to Dashboard'), () => {
 			const dialog = frappe.dashboard_utils.get_add_to_dashboard_dialog(
 				frm.doc.name,
 				'Dashboard Chart',
@@ -185,12 +185,32 @@ frappe.ui.form.on('Dashboard Chart', {
 
 	timespan: function(frm) {
 		const time_interval_options = {
-			"Select Date Range": ["Quarterly", "Monthly", "Weekly", "Daily"],
-			"All Time": ["Yearly", "Monthly"],
-			"Last Year": ["Quarterly", "Monthly", "Weekly", "Daily"],
-			"Last Quarter": ["Monthly", "Weekly", "Daily"],
-			"Last Month": ["Weekly", "Daily"],
-			"Last Week": ["Daily"]
+			"Select Date Range": [
+				{"label": __("Quarterly"), "value": "Quarterly"},
+				{"label": __("Monthly"), "value": "Monthly"},
+				{"label": __("Weekly"), "value": "Weekly"},
+				{"label": __("Daily"), "value": "Daily"}
+			],
+			"All Time": [
+				{"label": __("Yearly"), "value": "Yearly"},
+				{"label": __("Monthly"), "value": "Monthly"}
+			],
+			"Last Year": [
+				{"label": __("Quarterly"), "value": "Quarterly"},
+				{"label": __("Monthly"), "value": "Monthly"},
+				{"label": __("Weekly"), "value": "Weekly"},
+				{"label": __("Daily"), "value": "Daily"}
+			],
+			"Last Quarter": [
+				{"label": __("Monthly"), "value": "Monthly"},
+				{"label": __("Weekly"), "value": "Weekly"},
+				{"label": __("Daily"), "value": "Daily"}
+			],
+			"Last Month": [
+				{"label": __("Weekly"), "value": "Weekly"},
+				{"label": __("Daily"), "value": "Daily"}
+			],
+			"Last Week": [{"label": __("Daily"), "value": "Daily"}]
 		};
 		if (frm.doc.timespan) {
 			frm.set_df_property('time_interval', 'options', time_interval_options[frm.doc.timespan]);
@@ -204,7 +224,7 @@ frappe.ui.form.on('Dashboard Chart', {
 			{label: __('Last Modified On'), value: 'modified'}
 		];
 		let value_fields = [];
-		let group_by_fields = [{label: 'Created By', value: 'owner'}];
+		let group_by_fields = [{label: __('Created By'), value: 'owner'}];
 		let aggregate_function_fields = [];
 		let update_form = function() {
 			// update select options
@@ -300,9 +320,9 @@ frappe.ui.form.on('Dashboard Chart', {
 				filters.forEach( filter => {
 					const filter_row =
 						$(`<tr>
-							<td>${filter[1]}</td>
-							<td>${filter[2] || ""}</td>
-							<td>${filter[3]}</td>
+							<td>${__(filter[1])}</td>
+							<td>${__(filter[2]) || ""}</td>
+							<td>${__(filter[3])}</td>
 						</tr>`);
 
 					table.find('tbody').append(filter_row);
@@ -317,9 +337,9 @@ frappe.ui.form.on('Dashboard Chart', {
 					let condition = '=';
 					const filter_row =
 						$(`<tr>
-							<td>${f.label}</td>
-							<td>${condition}</td>
-							<td>${filters[f.fieldname] || ""}</td>
+							<td>${__(f.label)}</td>
+							<td>${__(condition)}</td>
+							<td>${__(filters[f.fieldname]) || ""}</td>
 						</tr>`);
 
 					table.find('tbody').append(filter_row);
@@ -357,7 +377,7 @@ frappe.ui.form.on('Dashboard Chart', {
 						}
 					}
 				},
-				primary_action_label: "Set"
+				primary_action_label: __("Set")
 			});
 			frappe.dashboards.filters_dialog = dialog;
 
@@ -438,7 +458,7 @@ frappe.ui.form.on('Dashboard Chart', {
 					}
 					frm.trigger('set_dynamic_filters_in_table');
 				},
-				primary_action_label: "Set"
+				primary_action_label: __("Set")
 			});
 
 			dialog.show();
@@ -462,7 +482,7 @@ frappe.ui.form.on('Dashboard Chart', {
 					filter_rows +=
 						`<tr>
 							<td>${filter[1]}</td>
-							<td>${filter[2] || ""}</td>
+							<td>${__(filter[2]) || ""}</td>
 							<td>${filter[3]}</td>
 						</tr>`;
 				});
@@ -472,7 +492,7 @@ frappe.ui.form.on('Dashboard Chart', {
 					filter_rows +=
 						`<tr>
 							<td>${key}</td>
-							<td>${condition}</td>
+							<td>${__(condition)}</td>
 							<td>${val || ""}</td>
 						</tr>`
 					;

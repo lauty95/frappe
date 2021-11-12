@@ -140,7 +140,13 @@ export default class ChartWidget extends Widget {
 			filters = [
 				{
 					label: this.chart_settings.time_interval || this.chart_doc.time_interval,
-					options: ["Yearly", "Quarterly", "Monthly", "Weekly", "Daily"],
+					options: [
+						{"label": __("Yearly"), "value": "Yearly"},
+						{"label": __("Quarterly"), "value": "Quarterly"},
+						{"label": __("Monthly"), "value": "Monthly"},
+						{"label": __("Weekly"), "value": "Weekly"},
+						{"label": __("Daily"), "value": "Daily"}
+					],
 					icon: 'calendar',
 					class: 'time-interval-filter',
 					action: selected_item => {
@@ -152,11 +158,11 @@ export default class ChartWidget extends Widget {
 				{
 					label: this.chart_settings.timespan || this.chart_doc.timespan,
 					options: [
-						"Select Date Range",
-						"Last Year",
-						"Last Quarter",
-						"Last Month",
-						"Last Week"
+						{"label": __("Select Date Range"), "value": "Select Date Range"},
+						{"label": __("Last Year"), "value": "Last Year"},
+						{"label": __("Last Quarter"), "value": "Last Quarter"},
+						{"label": __("Last Month"), "value": "Last Month"},
+						{"label": __("Last Week"), "value": "Last Week"}
 					],
 					class: 'timespan-filter',
 					action: selected_item => {
@@ -414,7 +420,7 @@ export default class ChartWidget extends Widget {
 					me.fetch_and_update_chart();
 				}
 			},
-			primary_action_label: "Set"
+			primary_action_label: __("Set")
 		});
 
 		dialog.show();

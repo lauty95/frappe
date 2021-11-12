@@ -9,8 +9,7 @@ import datetime
 import json
 from frappe.utils.dashboard import cache_source
 from frappe.utils import nowdate, getdate, get_datetime, cint, now_datetime
-from frappe.utils.dateutils import\
-	get_period, get_period_beginning, get_from_date_from_timespan, get_dates_from_timegrain
+from frappe.utils.dateutils import get_period, get_period_beginning, get_from_date_from_timespan, get_dates_from_timegrain
 from frappe.model.naming import append_number_if_name_exists
 from frappe.boot import get_allowed_reports
 from frappe.config import get_modules_from_all_apps_for_user
