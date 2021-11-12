@@ -76,6 +76,7 @@ def setear_fechas(doctype, dates=[], child_dates={}, related_doctype=''):
 
 
 def update_issue(doc):
+    from erpnext.support.doctype.issue.issue import set_resolution_time, set_user_resolution_time
     set_resolution_time(issue=doc)
     set_user_resolution_time(issue=doc)
     doc.update_status()
