@@ -47,7 +47,8 @@ class Leaderboard {
 			// For translation. Do not remove this
 			// __("This Week"), __("This Month"), __("This Quarter"), __("This Year"),
 			//	__("Last Week"), __("Last Month"), __("Last Quarter"), __("Last Year"),
-			//	__("All Time"), __("Select From Date")
+			//	__("All Time"), __("Select From Date"), __("Total Sales Amount"), __("Total Qty Sold")
+			// __("Total Purchase Amount"), __("Total Qty Purchased"), __("Available Stock Qty"), __("Available Stock Value")
 			this.timespans = [
 				"This Week", "This Month", "This Quarter", "This Year",
 				"Last Week", "Last Month", "Last Quarter", "Last Year",
@@ -141,7 +142,7 @@ class Leaderboard {
 	}
 
 	create_date_range_field() {
-		let timespan_field = $(this.parent).find(`.frappe-control[data-original-title=${__('Timespan')}]`);
+		let timespan_field = $(this.parent).find(`.frappe-control[data-original-title="${__('Timespan')}"]`);
 		this.date_range_field = $(`<div class="from-date-field"></div>`).insertAfter(timespan_field).hide();
 
 		let date_field = frappe.ui.form.make_control({
