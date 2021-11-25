@@ -119,7 +119,7 @@ def create_demo():
     setear_fechas('Item', dates=['end_of_life'])
 
     # Accounting
-    setear_fechas('Sales Invoice', dates=['posting_date', 'due_date', 'po_date'], child_dates={'Payment Schedule': 'due_date', 'Sales Invoice Payment': 'clearance_date'}, related_doctype='GL Entry')
+    setear_fechas('Sales Invoice', dates=['posting_date', 'due_date', 'po_date', 'fecha_de_servicio_desde', 'fecha_de_servicio_hasta'], child_dates={'Payment Schedule': 'due_date', 'Sales Invoice Payment': 'clearance_date'}, related_doctype='GL Entry')
     setear_fechas('Journal Entry', dates=['posting_date', 'clearance_date', 'bill_date', 'bill_date', 'due_date'])
     setear_fechas('Purchase Invoice', dates=['posting_date', 'due_date', 'bill_date'], child_dates={'Payment Schedule': 'due_date'}, related_doctype='GL Entry')
     setear_fechas('Period Closing Voucher', dates=['transaction_date', 'posting_date'])
