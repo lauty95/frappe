@@ -16,7 +16,7 @@
   {
    "description": "Eg. smsgateway.com/api/send_sms.cgi",
    "fieldname": "sms_gateway_url",
-   "fieldtype": "Data",
+   "fieldtype": "Small Text",
    "in_list_view": 1,
    "label": "SMS Gateway URL",
    "reqd": 1

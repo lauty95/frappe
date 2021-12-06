@@ -54,12 +54,12 @@ class Pagos360Settings(Document):
 
         sales_invoice = frappe.get_doc(payment_request.reference_doctype, payment_request.reference_name)
 
-        if sales_invoice.subscription:
+        if hasattr(sales_invoice, 'subscription') and sales_invoice.subscription:
             return None
 
         def get_due_date(sales_invoice):
             today = datetime.date.today()
-            date = getattr(sales_invoice, 'due_date') or getattr(sales_invoice, 'delivery_date') or today
+            date = getattr(sales_invoice, 'due_date', None) or getattr(sales_invoice, 'delivery_date', None) or today
             if date > today:
                 return date.strftime("%d-%m-%Y")
             return (today + timedelta(days=7)).strftime("%d-%m-%Y")

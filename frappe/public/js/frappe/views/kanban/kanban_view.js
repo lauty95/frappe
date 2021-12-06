@@ -261,7 +261,7 @@ frappe.views.KanbanView.show_kanban_dialog = function (doctype, show_existing) {
 
 		let primary_action = () => {
 			const values = dialog.get_values();
-			if (!values.selected_kanban || values.selected_kanban == 'Create New Board') {
+			if (!values.selected_kanban || values.selected_kanban == 'Crear nuevo Tablero') {
 				make_kanban_board(values.board_name, values.field_name, values.project)
 					.then(() => dialog.hide(), (err) => frappe.msgprint(err));
 			} else {
@@ -279,7 +279,7 @@ frappe.views.KanbanView.show_kanban_dialog = function (doctype, show_existing) {
 	}
 
 	function get_fields_for_dialog(kanban_options, show_existing = false) {
-		kanban_options.push('Create New Board');
+		kanban_options.push('Crear nuevo Tablero');
 
 		let fields = [
 			{
@@ -294,13 +294,13 @@ frappe.views.KanbanView.show_kanban_dialog = function (doctype, show_existing) {
 			{
 				fieldname: 'new_kanban_board_sb',
 				fieldtype: 'Section Break',
-				depends_on: `eval: !${show_existing} || doc.selected_kanban == "Create New Board"`,
+				depends_on: `eval: !${show_existing} || doc.selected_kanban == "Crear nuevo Tablero"`,
 			},
 			{
 				fieldtype: 'Data',
 				fieldname: 'board_name',
 				label: __('Kanban Board Name'),
-				mandatory_depends_on: 'eval: doc.selected_kanban == "Create New Board"',
+				mandatory_depends_on: 'eval: doc.selected_kanban == "Crear nuevo Tablero"',
 				description: ['Note', 'ToDo'].includes(doctype) ?
 					__('This Kanban Board will be private') : ''
 			}
@@ -329,7 +329,7 @@ frappe.views.KanbanView.show_kanban_dialog = function (doctype, show_existing) {
 				label: __('Columns based on'),
 				options: select_fields.map(df => ({ label: df.label, value: df.fieldname })),
 				default: select_fields[0],
-				mandatory_depends_on: 'eval: doc.selected_kanban == "Create New Board"',
+				mandatory_depends_on: 'eval: doc.selected_kanban == "Crear nuevo Tablero"',
 			});
 		} else {
 			fields = [{

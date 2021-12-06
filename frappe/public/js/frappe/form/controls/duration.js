@@ -1,3 +1,4 @@
+// __("days") __("minutes") __("seconds")
 frappe.ui.form.ControlDuration = frappe.ui.form.ControlData.extend({
 	make_input: function() {
 		this._super();
