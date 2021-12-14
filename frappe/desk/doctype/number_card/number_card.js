@@ -2,6 +2,17 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Number Card', {
+	setup: function(frm) {
+		frm.set_query('document_type', function() {
+			return {
+				filters: {
+					'issingle': false,
+					'restrict_to_domain': ['in', frappe.boot.active_domains],
+					'module': ['not in', ["Healthcare", "Manufacturing", "Education", "Payroll", "HR", "Agriculture", "Non Profit"]]
+				}
+			};
+		});
+	},
 	refresh: function(frm) {
 		if (!frappe.boot.developer_mode && frm.doc.is_standard) {
 			frm.disable_form();
@@ -18,6 +29,10 @@ frappe.ui.form.on('Number Card', {
 			frm.trigger('set_report_filters');
 		}
 
+		if (!frappe.user.has_role('Administrator')) {
+			frm.set_df_property('type', 'options', ['Document Type', 'Report']);
+		}
+
 		if (frm.doc.type == 'Custom') {
 			if (!frappe.boot.developer_mode) {
 				frm.disable_form();
@@ -31,7 +46,7 @@ frappe.ui.form.on('Number Card', {
 	},
 
 	create_add_to_dashboard_button: function(frm) {
-		frm.add_custom_button('Add Card to Dashboard', () => {
+		frm.add_custom_button(__('Add Card to Dashboard'), () => {
 			const dialog = frappe.dashboard_utils.get_add_to_dashboard_dialog(
 				frm.doc.name,
 				'Number Card',
@@ -131,13 +146,6 @@ frappe.ui.form.on('Number Card', {
 	},
 
 	document_type: function(frm) {
-		frm.set_query('document_type', function() {
-			return {
-				filters: {
-					'issingle': false
-				}
-			};
-		});
 		frm.set_value('filters_json', '[]');
 		frm.set_value('dynamic_filters_json', '[]');
 		frm.set_value('aggregate_function_based_on', '');
@@ -310,7 +318,7 @@ frappe.ui.form.on('Number Card', {
 						frm.trigger('render_filters_table');
 					}
 				},
-				primary_action_label: "Set"
+				primary_action_label: __("Set")
 			});
 
 			if (is_document_type) {

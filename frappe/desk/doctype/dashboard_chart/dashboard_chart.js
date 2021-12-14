@@ -49,9 +49,11 @@ frappe.ui.form.on('Dashboard Chart', {
 		frm.set_query('document_type', function() {
 			return {
 				filters: {
-					'issingle': false
+					'issingle': false,
+					'restrict_to_domain': ['in', frappe.boot.active_domains],
+					'module': ['not in', ["Healthcare", "Manufacturing", "Education", "Payroll", "HR", "Agriculture", "Non Profit"]]
 				}
-			}
+			};
 		});
 		frm.trigger('update_options');
 		frm.trigger('set_heatmap_year_options');

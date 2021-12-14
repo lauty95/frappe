@@ -61,6 +61,10 @@ class DomainSettings(Document):
 					inactive_domain.setup_data()
 					inactive_domain.remove_custom_field()
 
+			if 'remove_dashboard' in data:
+				if domain not in active_domains:
+					frappe.get_attr(data.remove_dashboard)()
+
 def get_active_domains():
 	""" get the domains set in the Domain Settings as active domain """
 	def _get_active_domains():
