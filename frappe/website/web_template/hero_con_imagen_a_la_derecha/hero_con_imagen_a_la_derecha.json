@@ -1,5 +1,5 @@
 {
- "creation": "2020-04-19 15:26:23.140620",
+ "creation": "2020-04-17 12:18:04.376273",
  "docstatus": 0,
  "doctype": "Web Template",
  "fields": [
@@ -13,6 +13,18 @@
    "fieldname": "subtitle",
    "fieldtype": "Text",
    "label": "Subtítulo",
+   "reqd": 0
+  },
+  {
+   "fieldname": "image",
+   "fieldtype": "Attach Image",
+   "label": "Imagen",
+   "reqd": 0
+  },
+  {
+   "fieldname": "contain_image",
+   "fieldtype": "Check",
+   "label": "Restringir imagen dentro del contenedor",
    "reqd": 0
   },
   {
@@ -38,21 +50,12 @@
    "fieldtype": "Data",
    "label": "URL de acción secundaria",
    "reqd": 0
-  },
-  {
-   "default": "Left",
-   "fieldname": "align",
-   "fieldtype": "Select",
-   "label": "Alinear",
-   "options": "Left\nCenter",
-   "reqd": 0
   }
  ],
  "idx": 0,
- "modified": "2020-10-27 17:39:56.959008",
+ "modified": "2020-09-19 12:43:00.556847",
  "modified_by": "Administrator",
- "module": "Website",
- "name": "Hero",
+ "name": "Hero con imagen a la derecha",
  "owner": "Administrator",
  "standard": 1,
  "template": "",

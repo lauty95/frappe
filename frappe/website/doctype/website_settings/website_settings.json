@@ -131,7 +131,7 @@
    "label": "Brand Image"
   },
   {
-   "description": "Brand is what appears on the top-left of the toolbar. If it is an image, make sure it\nhas a transparent background and use the &lt;img /&gt; tag. Keep size as 200px x 30px",
+   "description": "La Marca aparece arriba a la derecha. Si es una imagen, debe tener fondo transparente y se debe usar la etiqueta &lt;img&gt. Mantener el tama\u00f1o en 200px x 30 px.",
    "fieldname": "brand_html",
    "fieldtype": "Code",
    "label": "Brand HTML",
@@ -268,6 +268,7 @@
    "collapsible": 1,
    "fieldname": "section_break_39",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Chat"
   },
   {
@@ -383,7 +384,7 @@
    "options": "JSON"
   },
   {
-   "depends_on": "eval:doc.navbar_template && doc.navbar_template !== 'Standard Navbar'",
+   "depends_on": "eval:doc.navbar_template && doc.navbar_template !== 'Barra de navegacion estandar'",
    "fieldname": "edit_navbar_template_values",
    "fieldtype": "Button",
    "label": "Edit Values"
@@ -402,7 +403,7 @@
    "options": "JSON"
   },
   {
-   "depends_on": "eval:doc.footer_template && doc.footer_template !== 'Standard Footer'",
+   "depends_on": "eval:doc.footer_template && doc.footer_template !== 'Pie de pagina estandar'",
    "fieldname": "edit_footer_template_values",
    "fieldtype": "Button",
    "label": "Edit Values"
@@ -417,6 +418,7 @@
    "default": "0",
    "fieldname": "show_language_picker",
    "fieldtype": "Check",
+   "hidden": 1,
    "label": "Show Language Picker"
   },
   {
@@ -424,6 +426,7 @@
    "collapsible_depends_on": "navbar_template",
    "fieldname": "navbar_template_section",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Navbar Template"
   }
  ],
@@ -433,7 +436,7 @@
  "issingle": 1,
  "links": [],
  "max_attachments": 10,
- "modified": "2021-07-15 17:39:56.609771",
+ "modified": "2021-12-23 11:52:34.121678",
  "modified_by": "Administrator",
  "module": "Website",
  "name": "Website Settings",

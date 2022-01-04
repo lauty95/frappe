@@ -167,12 +167,12 @@ class WebsiteAnalytics(object):
 				'labels': labels,
 				'datasets': [
 					{
-						'name': "Total Views",
+						'name': "Vistas totales",
 						'type': 'line',
 						'values': total_dataset
 					},
 					{
-						'name': "Unique Visits",
+						'name': "Visitas únicas",
 						'type': 'line',
 						'values': unique_dataset
 					}
@@ -201,12 +201,12 @@ class WebsiteAnalytics(object):
 		report_summary = [
 			{
 				"value": total_count,
-				"label": "Total Page Views",
+				"label": "Vistas totales de la página",
 				"datatype": "Int",
 			},
 			{
 				"value": unique_count,
-				"label": "Unique Page Views",
+				"label": "Vistas únicas de la página",
 				"datatype": "Int",
 			},
 

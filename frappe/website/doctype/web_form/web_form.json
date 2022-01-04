@@ -261,6 +261,7 @@
    "collapsible_depends_on": "accept_payment",
    "fieldname": "payments",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Payments"
   },
   {
@@ -361,7 +362,7 @@
  "icon": "icon-edit",
  "is_published_field": "published",
  "links": [],
- "modified": "2021-05-12 20:00:23.371259",
+ "modified": "2021-12-08 16:02:41.593661",
  "modified_by": "Administrator",
  "module": "Website",
  "name": "Web Form",
