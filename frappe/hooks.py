@@ -50,7 +50,7 @@ web_include_js = [
 	"website_script.js"
 ]
 
-web_include_css = []
+web_include_css = ["website_style.css"]
 
 website_route_rules = [
 	{"from_route": "/blog/<category>", "to_route": "Blog Post"},
