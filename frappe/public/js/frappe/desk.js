@@ -81,7 +81,6 @@ frappe.Application = Class.extend({
 			// delayed following requests to make boot faster
 			setTimeout(() => {
 				this.show_change_log();
-				this.show_update_available();
 			}, 1000);
 		}
 
@@ -519,14 +518,6 @@ frappe.Application = Class.extend({
 			});
 			me.show_notes();
 		};
-	},
-
-	show_update_available: () => {
-		if (frappe.boot.sysdefaults.disable_system_update_notification) return;
-
-		frappe.call({
-			"method": "frappe.utils.change_log.show_update_popup"
-		});
 	},
 
 	setup_analytics: function() {
