@@ -31,12 +31,8 @@ class WidgetDialog {
 	}
 
 	get_title() {
-		// DO NOT REMOVE: Comment to load translation
-		// __("New Chart") __("New Shortcut") __("Edit Chart") __("Edit Shortcut")
-
-		let action = this.editing ? "Edit" : "Add";
-		let label = action = action + " " + frappe.model.unscrub(this.type);
-		return __(label);
+		let action = this.editing ? __("Edit") : __("Add");
+		return action + " " + __(frappe.model.unscrub(this.type));
 	}
 
 	get_fields() {
@@ -106,14 +102,14 @@ class ChartDialog extends WidgetDialog {
 			{
 				fieldtype: "Link",
 				fieldname: "chart_name",
-				label: "Chart Name",
+				label: __("Chart Name"),
 				options: "Dashboard Chart",
 				reqd: 1,
 			},
 			{
 				fieldtype: "Data",
 				fieldname: "label",
-				label: "Label",
+				label: __("Label"),
 			},
 		];
 	}
@@ -165,7 +161,7 @@ class ShortcutDialog extends WidgetDialog {
 			{
 				fieldtype: "Data",
 				fieldname: "label",
-				label: "Label",
+				label: __("Label"),
 			},
 			{
 				fieldtype: "Column Break",
@@ -174,7 +170,7 @@ class ShortcutDialog extends WidgetDialog {
 			{
 				fieldtype: "Dynamic Link",
 				fieldname: "link_to",
-				label: "Link To",
+				label: __("Link To"),
 				reqd: 1,
 				options: "type",
 				onchange: () => {
@@ -201,7 +197,7 @@ class ShortcutDialog extends WidgetDialog {
 			{
 				fieldtype: "Select",
 				fieldname: "doc_view",
-				label: "DocType View",
+				label: __("DocType View"),
 				options: "List\nReport Builder\nDashboard\nTree\nNew\nCalendar",
 				description: __("Which view of the associated DocType should this shortcut take you to?"),
 				default: "List",
@@ -240,7 +236,16 @@ class ShortcutDialog extends WidgetDialog {
 				fieldtype: "Select",
 				fieldname: "color",
 				label: __("Color"),
-				options: ["Grey", "Green", "Red", "Orange", "Pink", "Yellow", "Blue", "Cyan"],
+				options: [
+					{"value": "Grey", "label": __("Grey")},
+					{"value": "Green", "label": __("Green")},
+					{"value": "Red", "label": __("Red")},
+					{"value": "Orange", "label": __("Orange")},
+					{"value": "Pink", "label": __("Pink")},
+					{"value": "Yellow", "label": __("Yellow")},
+					{"value": "Blue", "label": __("Blue")},
+					{"value": "Cyan", "label": __("Cyan")}
+				],
 				default: "Grey",
 				onchange: () => {
 					let color = this.dialog.fields_dict.color.value.toLowerCase();
