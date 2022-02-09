@@ -53,11 +53,11 @@ frappe.ui.ThemeSwitcher = class ThemeSwitcher {
 			this.themes = [
 				{
 					name: "light",
-					label: __("Frappe Light"),
+					label: __("Claro"),
 				},
 				{
 					name: "dark",
-					label: __("Timeless Night"),
+					label: __("Oscuro"),
 				}
 			];
 
@@ -113,7 +113,7 @@ frappe.ui.ThemeSwitcher = class ThemeSwitcher {
 	toggle_theme(theme) {
 		this.current_theme = theme.toLowerCase();
 		document.documentElement.setAttribute("data-theme", this.current_theme);
-		frappe.show_alert("Theme Changed", 3);
+		frappe.show_alert(__("Theme Changed"), 3);
 
 		frappe.xcall("frappe.core.doctype.user.user.switch_theme", {
 			theme: toTitle(theme)
