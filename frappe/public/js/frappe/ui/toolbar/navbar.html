@@ -73,7 +73,7 @@
 						{% for item in navbar_settings.help_dropdown %}
 							{% if (!item.hidden) { %}
 								{% if (item.route) { %}
-									<a class="dropdown-item" href="{{ item.route }}">
+									<a class="dropdown-item" href="{{ item.route }}" target="_blank">
 										{%= __(item.item_label) %}
 									</a>
 								{% } else if (item.action) { %}
