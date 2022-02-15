@@ -10,12 +10,16 @@ def setear_fechas(doctype, dates=[], child_dates={}, related_doctype=''):
     related_doctype (str): 'Stock Ledger Entry'
     """
     import datetime
+    from dateutil import parser
 
     def get_new_date(old_date):
         if not old_date:
             return
 
         old_time = None
+
+        if type(old_date) == str:
+            old_date = parser.parse(old_date)
 
         if type(old_date) == datetime.datetime:
             old_time = old_date.time()
