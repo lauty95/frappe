@@ -114,7 +114,7 @@ def create_demo():
     setear_fechas('Delivery Note', dates=['posting_date', 'lr_date'], related_doctype='Stock Ledger Entry')
     setear_fechas('Purchase Receipt', dates=['posting_date'], related_doctype='Stock Ledger Entry')
     setear_fechas('Delivery Trip', dates=['departure_time'], child_dates={'Delivery Stop': 'estimated_arrival'})
-    setear_fechas('Batch', dates=['manufacturing_date'])
+    setear_fechas('Batch', dates=['manufacturing_date', 'expiry_date'])
     setear_fechas('Serial No', dates=['warranty_expiry_date', 'amc_expiry_date'])
     setear_fechas('Item', dates=['end_of_life'])
 
@@ -124,6 +124,7 @@ def create_demo():
     setear_fechas('Purchase Invoice', dates=['posting_date', 'due_date', 'bill_date'], child_dates={'Payment Schedule': 'due_date'}, related_doctype='GL Entry')
     setear_fechas('Period Closing Voucher', dates=['transaction_date', 'posting_date'])
     setear_fechas('Accounting Period', dates=['start_date', 'end_date'])
+    setear_fechas('Subscription', dates=['start_date', 'end_date', 'current_invoice_start', 'current_invoice_end', 'trial_period_start', 'trial_period_end'])
 
     # Sales
     setear_fechas('Quotation', dates=['transaction_date', 'valid_till'], child_dates={'Payment Schedule': 'due_date'})
@@ -132,7 +133,7 @@ def create_demo():
     setear_fechas('Installation Note', dates=['inst_date'])
     setear_fechas('Pricing Rule', dates=['valid_from', 'valid_upto'])
 
-    #  Compras
+    # Compras
     setear_fechas('Request for Quotation', dates=['transaction_date'], child_dates={'Request for Quotation Item': 'schedule_date'})
     setear_fechas('Supplier Quotation', dates=['transaction_date', 'valid_till'], child_dates={'Supplier Quotation Item': 'expected_delivery_date'})
     setear_fechas('Purchase Order', dates=['transaction_date', 'schedule_date', 'order_confirmation_date'], child_dates={'Purchase Order Item': 'schedule_date', 'Payment Schedule': 'due_date'})
@@ -144,8 +145,29 @@ def create_demo():
     setear_fechas('Social Media Post', dates=['scheduled_time'])
     setear_fechas('Contract', dates=['start_date'])
 
-    #  Varios
+    # Varios
     setear_fechas('ToDo', dates=['date'])
 
     # Support
     setear_fechas('Issue', dates=['opening_date', 'creation', 'resolution_date', 'first_responded_on', 'response_by', 'resolution_by'])
+    setear_fechas('Warranty Claim', dates=['complaint_date', 'warranty_expiry_date', 'resolution_date'])
+    # setear_fechas('Maintenance Schedule', dates=['transaction_date'], child_dates={'Maintenance Schedule Item': 'start_date', 'Maintenance Schedule Item': 'end_date', 'Maintenance Schedule Detail': 'scheduled_date'})
+    # setear_fechas('Maintenance Visit', dates=['mntc_date'])
+
+    # Assets
+    setear_fechas('Asset Maintenance Task', dates=['start_date', 'next_due_date', 'last_completion_date'])
+    setear_fechas('Asset Repair', dates=['failure_date'])
+    setear_fechas('Asset Value Adjustment', dates=['date'])
+    setear_fechas('Asset Movement', dates=['transaction_date'])
+    setear_fechas('Asset Category', dates=[], child_dates={'Asset Finance Book': 'depreciation_start_date'})
+    setear_fechas('Asset', dates=['available_for_use_date', 'purchase_date', 'insurance_start_date', 'insurance_end_date'], child_dates={'Asset Finance Book': 'depreciation_start_date', 'Depreciation Schedule': 'schedule_date'})
+    setear_fechas('Asset Maintenance Log', dates=['due_date', 'completion_date'])
+
+    # Projects
+    setear_fechas('Project', dates=['expected_start_date', 'expected_end_date', 'actual_start_date', 'actual_end_date'])
+    setear_fechas('Project Update', dates=['date'])
+    setear_fechas('Task', dates=['expected_start_date', 'expected_end_date', 'act_start_date', 'act_end_date', 'completed_on'])
+    setear_fechas('Timesheet', dates=['start_date', 'end_date'], child_dates={'Timesheet Detail': 'from_time', 'Timesheet Detail': 'to_time'})
+
+    # Website
+    setear_fechas('Blog Post', dates=['published_on'])
