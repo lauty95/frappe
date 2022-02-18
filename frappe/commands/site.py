@@ -9,6 +9,7 @@ import click
 
 # imports - module imports
 import frappe
+from frappe import _
 from frappe.commands import get_site, pass_context
 from frappe.exceptions import SiteNotSpecifiedError
 
@@ -746,11 +747,19 @@ def _set_limits(context, site, limits):
     with frappe.init_site(site):
         frappe.connect()
         new_limits = {}
+        available_limits = ['daily_emails', 'emails', 'space', 'users', 'email_group', 'currency',
+            'expiry', 'support_email', 'support_chat', 'upgrade_url', 'subscription_id',
+            'subscription_type', 'current_plan', 'subscription_base_price', 'upgrade_plan',
+            'upgrade_base_price', 'cancellation_url', 'companies']
+
+        ecommerce_integrations_limits = []
+        if 'ecommerce_integrations' in frappe.get_installed_apps():
+            from ecommerce_integrations.base.utils import AVAILABLE_INTEGRATIONS
+            ecommerce_integrations_limits.extend(f'{integration_name}_publications' for integration_name in AVAILABLE_INTEGRATIONS)
+            available_limits.extend(ecommerce_integrations_limits)
+
         for limit, value in limits:
-            if limit not in ('daily_emails', 'emails', 'space', 'users', 'email_group', 'currency',
-                'expiry', 'support_email', 'support_chat', 'upgrade_url', 'subscription_id',
-                'subscription_type', 'current_plan', 'subscription_base_price', 'upgrade_plan',
-                'upgrade_base_price', 'cancellation_url', 'companies'):
+            if limit not in available_limits:
                 frappe.throw(_('Invalid limit {0}').format(limit))
 
             if limit=='expiry' and value:
@@ -762,7 +771,7 @@ def _set_limits(context, site, limits):
             elif limit in ('space', 'subscription_base_price', 'upgrade_base_price'):
                 value = float(value)
 
-            elif limit in ('users', 'emails', 'email_group', 'daily_emails', 'companies'):
+            elif limit in ('users', 'emails', 'email_group', 'daily_emails', 'companies', *ecommerce_integrations_limits):
                 value = int(value)
 
             new_limits[limit] = value

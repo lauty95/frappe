@@ -8,11 +8,7 @@ frappe.pages['informacion-de-uso'].on_page_load = function(wrapper) {
 	frappe.call({
 		method: "frappe.limits.get_usage_info",
 		callback: function(r) {
-			var usage_info = r.message;
-			if (!usage_info) {
-				return;
-			}
-
+			let usage_info = r.message;
 			let limits = usage_info.limits;
 			let database_percent = (limits.space_usage.database_size / limits.space) * 100;
 			let files_percent = (limits.space_usage.files_size / limits.space) * 100;
@@ -34,11 +30,34 @@ frappe.pages['informacion-de-uso'].on_page_load = function(wrapper) {
 				usage_message = __('{0} disponible de {1}', [(available + ' MB').bold(), (limits.space + ' MB').bold()]);
 			}
 
+			let limited_ecommerce_integrations = [];
+			frappe.call({
+				async: false,
+				method: 'frappe.core.doctype.module_def.module_def.get_installed_apps',
+				callback: function (response) {
+					if (JSON.parse(response.message).indexOf("ecommerce_integrations") === -1) {
+						return;
+					}
+					frappe.call({
+						async: false,
+						method: 'ecommerce_integrations.base.whitelist.get_available_integrations_whitelisted',
+						callback: function (response) {
+							response.message.forEach(function (integration_name) {
+								if (`${integration_name}_publications` in limits) {
+									limited_ecommerce_integrations.push(integration_name);
+								}
+							});
+						},
+					});
+				},
+			});
+
 			$(frappe.render_template("informacion_de_uso", Object.assign(usage_info, {
 				database_percent,
 				files_percent,
 				backup_percent,
-				usage_message
+				usage_message,
+				limited_ecommerce_integrations,
 			}))).appendTo(page.main);
 
 			var btn_text = usage_info.limits.users == 1 ? __("Ampliar") : __("Renovar / Ampliar");
@@ -47,5 +66,4 @@ frappe.pages['informacion-de-uso'].on_page_load = function(wrapper) {
 			});
 		}
 	});
-
-}
+};

@@ -137,9 +137,6 @@ def get_usage_info():
     from frappe.email.queue import get_emails_sent_this_month
 
     limits = get_limits()
-    if not (limits and any([limits.users, limits.space, limits.emails, limits.expiry, limits.companies])):
-        # no limits!
-        return
 
     limits.space = (limits.space or 0) * 1024.0  # to MB
     if not limits.space_usage:
@@ -158,6 +155,10 @@ def get_usage_info():
         'space_usage': limits.space_usage['total'],
         'enabled_companies': frappe.db.count("Company"),
     })
+
+    if 'ecommerce_integrations' in frappe.get_installed_apps():
+        from ecommerce_integrations.base.limits import get_usage_info as get_ecommerce_integrations_usage_info
+        usage_info.update(get_ecommerce_integrations_usage_info())
 
     if limits.expiry:
         usage_info['expires_on'] = formatdate(limits.expiry)
@@ -207,7 +208,13 @@ def update_limits(limits_dict):
     limits = get_limits()
     limits.update(limits_dict)
     update_site_config("limits", limits, validate=False)
+
+    if 'ecommerce_integrations' in frappe.get_installed_apps():
+        from ecommerce_integrations.base.limits import handle_limits as handle_ecommerce_integrations_limits
+        handle_ecommerce_integrations_limits(limits)
+
     disable_users(limits)
+
     frappe.local.conf.limits = limits
 
 
