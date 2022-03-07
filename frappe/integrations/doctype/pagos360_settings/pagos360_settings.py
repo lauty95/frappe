@@ -126,20 +126,19 @@ class Pagos360Settings(Document):
 
     def get_due_date(self, pago360, sales_invoice):
         """
-        Busca la primer fecha hábil a partir de los 3 días de la fecha de la factura.
+        Debe haber como mínimo 72hs hábiles entre hoy y la primera fecha de vencimiento.
         """
-        posting_date_3_days = sales_invoice.posting_date + timedelta(days=4)
         data = {
             "next_business_day": {
-                "date": posting_date_3_days.strftime("%d-%m-%Y"),
-                "days": 1,
+                "date": sales_invoice.posting_date.strftime("%d-%m-%Y"),
+                "days": 4,
             }
         }
         response = pago360.get_next_business_day(data)
 
         if response["status"] == 200:
             return parser.parse(response["response"]).date()
-        return posting_date_3_days
+        return sales_invoice.posting_date + timedelta(days=4)
 
     def solicitar_debito(self, subscription, adhesion, sales_invoice, payment_request):
         from erpnext_argentina.pagos360 import pago360_log_error
