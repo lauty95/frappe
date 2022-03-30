@@ -141,6 +141,7 @@ class Pagos360Settings(Document):
         return sales_invoice.posting_date + timedelta(days=4)
 
     def solicitar_debito(self, subscription, adhesion, sales_invoice, payment_request):
+        from dateutil.relativedelta import relativedelta
         from erpnext_argentina.pagos360 import pago360_log_error
 
         pagos360_settings = get_payment_gateway_controller("Pagos360")
@@ -167,10 +168,15 @@ class Pagos360Settings(Document):
             nombre_objeto = "card_debit_request"
             method = pago360.create_card_debit_request
 
+            posting_date = sales_invoice.posting_date
+
+            if posting_date.day > 19:
+                posting_date = posting_date + relativedelta(day=1, months=+1)
+
             debit_request.update({
                 "card_adhesion_id": int(adhesion.id_adhesion),
-                "month": sales_invoice.posting_date.month,
-                "year": sales_invoice.posting_date.year,
+                "month": posting_date.month,
+                "year": posting_date.year,
                 "amount": '{0:.2f}'.format(payment_request.grand_total),
                 "description": f"Suscripción {subscription.company}"
             })
