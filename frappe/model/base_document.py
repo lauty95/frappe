@@ -768,7 +768,7 @@ class BaseDocument(object):
 					self_value = self.get_value(key)
 
 				if self_value != db_value:
-					frappe.throw(_("Not allowed to change {0} after submission").format(df.label),
+					frappe.throw(_("Not allowed to change {0} after submission").format(_(df.label)),
 						frappe.UpdateAfterSubmitError)
 
 	def _sanitize_content(self):
