@@ -1,0 +1,146 @@
+{
+ "actions": [],
+ "creation": "2021-12-23 09:24:42.871158",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "hidden_section",
+  "access_token",
+  "refresh_token",
+  "token",
+  "authentication_details_section",
+  "account_name",
+  "sandbox",
+  "column_break_7",
+  "user_id",
+  "url_section",
+  "success_url",
+  "failure_url",
+  "pending_url"
+ ],
+ "fields": [
+  {
+   "fieldname": "access_token",
+   "fieldtype": "Data",
+   "label": "Access Token",
+   "no_copy": 1,
+   "print_hide": 1,
+   "read_only": 1,
+   "report_hide": 1
+  },
+  {
+   "fieldname": "success_url",
+   "fieldtype": "Data",
+   "label": "URL Pago Exitoso"
+  },
+  {
+   "fieldname": "failure_url",
+   "fieldtype": "Data",
+   "label": "URL Pago Pendiente"
+  },
+  {
+   "fieldname": "pending_url",
+   "fieldtype": "Data",
+   "label": "URL Pago Fallido"
+  },
+  {
+   "default": "0",
+   "fieldname": "sandbox",
+   "fieldtype": "Check",
+   "label": "Sandbox"
+  },
+  {
+   "fieldname": "hidden_section",
+   "fieldtype": "Section Break",
+   "hidden": 1
+  },
+  {
+   "fieldname": "refresh_token",
+   "fieldtype": "Data",
+   "label": "Refresh Token"
+  },
+  {
+   "fieldname": "token",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Token de seguridad",
+   "no_copy": 1,
+   "print_hide": 1,
+   "report_hide": 1
+  },
+  {
+   "fieldname": "authentication_details_section",
+   "fieldtype": "Section Break",
+   "label": "Detalles de autenticaci\u00f3n"
+  },
+  {
+   "fieldname": "user_id",
+   "fieldtype": "Data",
+   "label": "ID de usuario",
+   "read_only": 1
+  },
+  {
+   "fieldname": "account_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Cuenta",
+   "reqd": 1
+  },
+  {
+   "fieldname": "url_section",
+   "fieldtype": "Section Break",
+   "label": "Configuraci\u00f3n de URL"
+  },
+  {
+   "fieldname": "column_break_7",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "in_create": 1,
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2022-01-13 11:07:07.384259",
+ "modified_by": "Administrator",
+ "module": "Integrations",
+ "name": "Mercadopago Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Accounts User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Accounts Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "read_only": 1,
+ "restrict_to_domain": "Mercadopago",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

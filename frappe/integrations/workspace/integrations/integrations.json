@@ -155,6 +155,26 @@
    "dependencies": "",
    "hidden": 0,
    "is_query_report": 0,
+   "label": "Mercadopago",
+   "link_to": "Mercadopago Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Notificacion Mercadopago",
+   "link_to": "Notificacion Mercadopago",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
    "label": "Pagos360",
    "link_to": "Pagos360 Settings",
    "link_type": "DocType",
@@ -279,7 +299,7 @@
    "type": "Link"
   }
  ],
- "modified": "2020-12-05 14:38:39.706680",
+ "modified": "2020-12-07 14:38:39.706680",
  "modified_by": "Administrator",
  "module": "Integrations",
  "name": "Integrations",

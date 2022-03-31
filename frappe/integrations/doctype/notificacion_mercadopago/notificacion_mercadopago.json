@@ -1,22 +1,29 @@
 {
  "actions": [],
- "creation": "2021-08-23 10:28:43.617078",
+ "autoname": "field:payment_id",
+ "creation": "2021-12-27 09:00:37.832707",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
   "payment_id",
+  "payment_external_reference",
   "payment_status",
-  "payment_total_paid_amount",
-  "payment_net_received_amount",
+  "payment_status_detail",
+  "payment_description",
   "payment_date_created",
   "payment_date_approved",
-  "payment_order_id",
-  "payment_merchant_order_id",
+  "payment_currency_id",
+  "payment_transaction_amount",
+  "payment_total_paid_amount",
+  "payment_net_received_amount",
+  "payment_installments",
+  "payment_installment_amount",
   "pagador_section",
   "payer_id",
-  "payer_nickname",
   "payer_email",
+  "payer_identification_type",
+  "payer_identification_number",
   "data_section",
   "data_json"
  ],
@@ -24,8 +31,10 @@
   {
    "fieldname": "payment_id",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "ID",
-   "read_only": 1
+   "read_only": 1,
+   "unique": 1
   },
   {
    "fieldname": "payment_status",
@@ -35,17 +44,15 @@
    "read_only": 1
   },
   {
-   "fieldname": "payment_total_paid_amount",
+   "fieldname": "payment_status_detail",
    "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Total Pagado",
+   "label": "Detalle de Estado",
    "read_only": 1
   },
   {
-   "fieldname": "payment_net_received_amount",
+   "fieldname": "payment_description",
    "fieldtype": "Data",
-   "in_list_view": 1,
-   "label": "Neto Recibido",
+   "label": "Descripcion",
    "read_only": 1
   },
   {
@@ -61,15 +68,28 @@
    "read_only": 1
   },
   {
-   "fieldname": "payment_order_id",
+   "fieldname": "payment_transaction_amount",
    "fieldtype": "Data",
-   "label": "ID de la Orden",
+   "in_list_view": 1,
+   "label": "Importe de Transacci\u00f3n",
    "read_only": 1
   },
   {
-   "fieldname": "payment_merchant_order_id",
+   "fieldname": "payment_net_received_amount",
    "fieldtype": "Data",
-   "label": "ID de la Solicitud",
+   "label": "Neto Recibido",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payment_installments",
+   "fieldtype": "Data",
+   "label": "Cuotas",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payment_installment_amount",
+   "fieldtype": "Data",
+   "label": "Valor de la cuota",
    "read_only": 1
   },
   {
@@ -85,15 +105,21 @@
    "read_only": 1
   },
   {
-   "fieldname": "payer_nickname",
-   "fieldtype": "Data",
-   "label": "Usuario",
-   "read_only": 1
-  },
-  {
    "fieldname": "payer_email",
    "fieldtype": "Data",
    "label": "Email",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payer_identification_type",
+   "fieldtype": "Data",
+   "label": "Tipo de Indentificaci\u00f3n",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payer_identification_number",
+   "fieldtype": "Data",
+   "label": "N\u00famero de Identificaci\u00f3n",
    "read_only": 1
   },
   {
@@ -107,15 +133,35 @@
    "fieldtype": "Code",
    "label": "Data",
    "read_only": 1
+  },
+  {
+   "fieldname": "payment_external_reference",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Referencia Externa",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payment_total_paid_amount",
+   "fieldtype": "Data",
+   "label": "Total Pagado",
+   "read_only": 1
+  },
+  {
+   "fieldname": "payment_currency_id",
+   "fieldtype": "Data",
+   "label": "Moneda",
+   "read_only": 1
   }
  ],
  "in_create": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-12-27 09:01:03.167866",
+ "modified": "2021-12-28 10:34:41.497235",
  "modified_by": "Administrator",
  "module": "Integrations",
- "name": "Notificacion Pagos360",
+ "name": "Notificacion Mercadopago",
+ "restrict_to_domain": "Mercadopago",
  "owner": "Administrator",
  "permissions": [
   {
@@ -155,7 +201,6 @@
    "write": 1
   }
  ],
- "restrict_to_domain": "Pagos360",
  "sort_field": "modified",
  "sort_order": "DESC"
 }
