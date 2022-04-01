@@ -25,7 +25,7 @@ def update_genders():
 
 @frappe.whitelist()
 def update_salutations():
-	default_salutations = ["Sr.", "Sra.", "Dr.", "Sra.", "Srita.", "Mgs.", "Prof."]
+	default_salutations = ["Sr.", "Sra.", "Dr.", "Srita.", "Mgs.", "Prof."]
 	records = [{'doctype': 'Salutation', 'salutation': d} for d in default_salutations]
 	for record in records:
 		doc = frappe.new_doc(record.get("doctype"))
