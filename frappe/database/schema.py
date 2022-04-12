@@ -85,8 +85,8 @@ class DBTable:
 					'fieldtype': 'Text'
 				})
 
-			# add _draft_name column if name_after_submit
-			if self.meta.get('name_after_submit'):
+			# add _draft_name column if set_name_after_submit
+			if self.meta.get('set_name_after_submit'):
 				fields.append({
 					'fieldname': '_draft_name',
 					'fieldtype': 'Data'

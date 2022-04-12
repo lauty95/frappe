@@ -65,5 +65,14 @@ frappe.ui.form.on('DocType', {
 
 	autoname: function(frm) {
 		frm.set_df_property('fields', 'reqd', frm.doc.autoname !== 'Prompt');
-	}
+	},
+
+	is_submittable: function(frm) {
+		if (!frm.doc.is_submittable) {
+			frm.set_value('set_name_after_submit', 0);
+			frm.toggle_display('set_name_after_submit', 0);
+		} else {
+		  	frm.toggle_display('set_name_after_submit', 1);
+		}
+	},
 })
