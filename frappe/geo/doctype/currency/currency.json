@@ -15,7 +15,9 @@
   "fraction_units",
   "smallest_currency_fraction_value",
   "symbol",
-  "number_format"
+  "number_format",
+  "column_break",
+  "exchange_rate_type"
  ],
  "fields": [
   {
@@ -69,13 +71,24 @@
    "in_list_view": 1,
    "label": "Number Format",
    "options": "\n#,###.##\n#.###,##\n# ###.##\n# ###,##\n#'###.##\n#, ###.##\n#,##,###.##\n#,###.###\n#.###\n#,###"
+  },
+  {
+   "fieldname": "column_break",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Los valores se obtienen de dolarsi.com",
+   "fieldname": "exchange_rate_type",
+   "fieldtype": "Select",
+   "label": "Tipo de d\u00f3lar",
+   "options": "\nDolar Oficial\nDolar Blue\nDolar Contado con Liqui\nDolar Bolsa"
   }
  ],
  "icon": "fa fa-bitcoin",
  "idx": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-10-29 12:38:48.831325",
+ "modified": "2022-02-25 12:54:51.053900",
  "modified_by": "Administrator",
  "module": "Geo",
  "name": "Currency",
