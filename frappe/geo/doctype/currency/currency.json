@@ -81,14 +81,14 @@
    "fieldname": "exchange_rate_type",
    "fieldtype": "Select",
    "label": "Tipo de d\u00f3lar",
-   "options": "\nDolar Oficial\nDolar Blue\nDolar Contado con Liqui\nDolar Bolsa"
+   "options": "\nDolar Oficial\nDolar Blue\nDolar Contado con Liqui\nDolar Bolsa\nBanco Nación Billete\nBanco Nación Público\nBCRA de Referencia"
   }
  ],
  "icon": "fa fa-bitcoin",
  "idx": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-02-25 12:54:51.053900",
+ "modified": "2022-02-27 12:54:51.053900",
  "modified_by": "Administrator",
  "module": "Geo",
  "name": "Currency",
