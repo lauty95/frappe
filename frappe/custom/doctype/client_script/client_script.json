@@ -59,23 +59,12 @@
  "idx": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-05-12 20:02:05.837019",
+ "modified": "2022-05-06 13:49:46.010135",
  "modified_by": "Administrator",
  "module": "Custom",
  "name": "Client Script",
  "owner": "Administrator",
  "permissions": [
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "System Manager",
-   "share": 1,
-   "write": 1
-  },
   {
    "create": 1,
    "delete": 1,

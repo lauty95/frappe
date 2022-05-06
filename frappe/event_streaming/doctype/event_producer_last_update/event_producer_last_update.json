@@ -27,7 +27,7 @@
  "in_create": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-05-12 20:00:34.413810",
+ "modified": "2021-05-13 20:00:34.413810",
  "modified_by": "Administrator",
  "module": "Event Streaming",
  "name": "Event Producer Last Update",
@@ -41,7 +41,7 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "System Manager",
+   "role": "Administrator",
    "share": 1,
    "write": 1
   }

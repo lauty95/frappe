@@ -51,7 +51,7 @@
  ],
  "in_create": 1,
  "links": [],
- "modified": "2021-05-12 20:01:40.028061",
+ "modified": "2021-05-13 20:01:40.028061",
  "modified_by": "Administrator",
  "module": "Event Streaming",
  "name": "Event Update Log",
@@ -65,7 +65,7 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "System Manager",
+   "role": "Administrator",
    "share": 1,
    "write": 1
   }

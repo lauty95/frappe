@@ -636,22 +636,12 @@
    "link_fieldname": "reference_doctype"
   }
  ],
- "modified": "2022-04-18 11:26:19.077164",
+ "modified": "2022-05-06 13:49:56.458719",
  "modified_by": "Administrator",
  "module": "Core",
  "name": "DocType",
  "owner": "Administrator",
  "permissions": [
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "System Manager",
-   "write": 1
-  },
   {
    "create": 1,
    "delete": 1,

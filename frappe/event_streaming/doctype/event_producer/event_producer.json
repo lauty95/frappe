@@ -70,7 +70,7 @@
   }
  ],
  "links": [],
- "modified": "2021-05-12 20:00:34.588357",
+ "modified": "2021-05-13 20:00:34.588357",
  "modified_by": "Administrator",
  "module": "Event Streaming",
  "name": "Event Producer",
@@ -84,7 +84,7 @@
    "print": 1,
    "read": 1,
    "report": 1,
-   "role": "System Manager",
+   "role": "Administrator",
    "share": 1,
    "write": 1
   }

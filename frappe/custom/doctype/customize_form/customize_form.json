@@ -297,7 +297,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2021-06-21 19:01:06.920663",
+ "modified": "2021-06-22 19:01:06.920663",
  "modified_by": "Administrator",
  "module": "Custom",
  "name": "Customize Form",
@@ -308,7 +308,7 @@
    "email": 1,
    "print": 1,
    "read": 1,
-   "role": "System Manager",
+   "role": "Administrator",
    "share": 1,
    "write": 1
   }
