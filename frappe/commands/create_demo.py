@@ -175,3 +175,7 @@ def create_demo():
 
     # Website
     setear_fechas('Blog Post', dates=['published_on'])
+
+    # Cheques
+    setear_fechas('Cheque', dates=['fecha_de_pago', 'fecha_de_emision'])
+    setear_fechas('Entrada de Pago Cheque', dates=['fecha'])
