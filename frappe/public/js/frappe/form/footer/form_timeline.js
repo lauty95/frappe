@@ -100,12 +100,12 @@ class FormTimeline extends BaseTimeline {
 
 	set_document_info() {
 		// TODO: handle creation via automation
-		let creation_message = __("{0} created this {1}", [
+		let creation_message = __("{0} creó esto {1}", [
 			this.get_user_link(this.frm.doc.owner),
 			comment_when(this.frm.doc.creation)
 		]);
 
-		let modified_message = __("{0} edited this {1}", [
+		let modified_message = __("{0} editó esto {1}", [
 			this.get_user_link(this.frm.doc.modified_by),
 			comment_when(this.frm.doc.modified),
 		]);
