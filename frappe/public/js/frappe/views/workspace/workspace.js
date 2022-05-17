@@ -91,8 +91,18 @@ frappe.views.Workspace = class Workspace {
 
 		// DO NOT REMOVE: Comment to load translation
 		// __("Modules") __("Domains") __("Places") __("Administration")
-		$(`<div class="standard-sidebar-label">${__(title)}</div>`)
-			.appendTo(sidebar_section);
+
+		if (title == "Modules") {
+			title = "Modulos";
+		} else if (title == "Domains") {
+			title = "Dominios";
+		} else if (title == "Places") {
+			title = "Lugares";
+		}else if (title == "Administration") {
+			title = "Administración";
+		}
+
+		$(`<div class="standard-sidebar-label">${__(title)}</div>`).appendTo(sidebar_section);
 
 		const get_sidebar_item = function (item) {
 			return $(`
