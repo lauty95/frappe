@@ -56,9 +56,11 @@
   "google_analytics_id",
   "google_analytics_anonymize_ip",
   "misc_section",
-  "subdomain",
+  "app_name",
+  "app_logo",
   "disable_signup",
   "section_break_38",
+  "subdomain",
   "head_html",
   "robots_txt",
   "route_redirects",
@@ -224,7 +226,7 @@
    "collapsible": 1,
    "fieldname": "misc_section",
    "fieldtype": "Section Break",
-   "label": "Disable Signup"
+   "label": "Login Page"
   },
   {
    "description": "An icon file with .ico extension. Should be 16 x 16 px. Generated using a favicon generator. [favicon-generator.org]",
@@ -235,7 +237,7 @@
   {
    "description": "Sub-domain provided by erpnext.com",
    "fieldname": "subdomain",
-   "fieldtype": "Text",
+   "fieldtype": "Small Text",
    "label": "Subdomain",
    "read_only": 1
   },
@@ -428,6 +430,17 @@
    "fieldtype": "Section Break",
    "hidden": 1,
    "label": "Navbar Template"
+  },
+  {
+   "default": "Frappe",
+   "fieldname": "app_name",
+   "fieldtype": "Data",
+   "label": "App Name"
+  },
+  {
+   "fieldname": "app_logo",
+   "fieldtype": "Attach Image",
+   "label": "App Logo"
   }
  ],
  "icon": "fa fa-cog",
@@ -436,7 +449,7 @@
  "issingle": 1,
  "links": [],
  "max_attachments": 10,
- "modified": "2021-12-23 11:52:34.121678",
+ "modified": "2021-12-24 11:52:34.121678",
  "modified_by": "Administrator",
  "module": "Website",
  "name": "Website Settings",
