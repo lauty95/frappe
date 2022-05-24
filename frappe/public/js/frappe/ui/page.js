@@ -632,7 +632,7 @@ frappe.ui.Page = Class.extend({
 		if (btn) {
 			btn.removeClass().addClass(`btn btn-${type} ellipsis`);
 		}
-	}
+	},
 
 	add_inner_message(message) {
 		let $message = $(`<span class='inner-page-message text-muted small'>${message}</div>`);

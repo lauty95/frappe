@@ -568,7 +568,8 @@ class Document(BaseDocument):
 				if field.fieldtype in table_fields:
 					fail = not self.is_child_table_same(field.fieldname)
 				elif field.fieldtype in ('Date', 'Datetime', 'Time'):
-					fail = str(value) != str(original_value)
+					if self.doctype != "Subscription":
+						fail = str(value) != str(original_value)
 				else:
 					fail = value != original_value
 
