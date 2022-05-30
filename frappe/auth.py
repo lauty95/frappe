@@ -215,7 +215,7 @@ class LoginManager:
 		if not (cint(frappe.conf.get("deny_multiple_sessions")) or cint(frappe.db.get_system_setting('deny_multiple_sessions'))):
 			return
 
-		if frappe.session.user != "Guest":
+		if frappe.session.user not in ["Guest", "Administrator"]:
 			clear_sessions(frappe.session.user, keep_current=True)
 
 	def authenticate(self, user: str = None, pwd: str = None):
