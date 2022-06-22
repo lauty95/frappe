@@ -784,7 +784,7 @@
   "currency_fraction_units": 100,
   "smallest_currency_fraction_value": 0.01,
   "currency_name": "Dolar estadounidense",
-  "currency_symbol": "$",
+  "currency_symbol": "U$S",
   "date_format": "dd-mm-yyyy",
   "number_format": "#,###.##",
   "timezones": [
@@ -2589,7 +2589,7 @@
   "currency_fraction_units": 100,
   "smallest_currency_fraction_value": 0.01,
   "currency_name": "US Dollar",
-  "currency_symbol": "$",
+  "currency_symbol": "U$S",
   "date_format": "mm-dd-yyyy",
   "number_format": "#,###.##",
   "timezones": [
