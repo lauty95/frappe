@@ -1,6 +1,6 @@
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
 	<tr>
-		<h3>Document Follow Notification</h3>
+		<h3>Notificación de seguimiento de documento</h3>
 	</tr>
 </table>
 {% for doc in docinfo%}
@@ -10,7 +10,7 @@
 		<td width="15"></td>
 		<td>
 			<div class="text-medium text-muted">
-				<span><a href="{{doc.reference_url}}">{{ doc.reference_doctype }}: {{doc.reference_docname }}</a></span>
+				<span><a href="{{doc.reference_url}}">{{ _(doc.reference_doctype) }}: {{doc.reference_docname }}</a></span>
 			</div>
 		</td>
 		<td width="15"></td>
@@ -39,22 +39,22 @@
 									<span style ='color:#8d99a6!important'>
 										{{data.data.time}}:
 									</span>
-									Row Added to Table Field
+									Fila añadida al campo de la tabla
 									<b>{{data.data.to}}</b>
-									By:
+									por:
 									<b>{{data.by}}</b>
 								</li>
 							{% elif data.type == "field changed" %}
 								<li>
 									<span style ='color:#8d99a6!important'>
 										{{data.data.time}}:
-									</span>Field:
+									</span>El campo:
 									<b>"{{data.data.field}}"</b>
-									changed from
+									fue modificado de
 									<b>"{{data.data.from}}"</b>
-									to
+									a
 									<b>"{{data.data.to}}"</b>
-									By:
+									por:
 									<b>{{data.by}}</b>
 								</li>
 							{% elif data.type == "row changed" %}
@@ -62,14 +62,14 @@
 									<span style ='color:#8d99a6!important'>
 										{{data.data.time}}:
 									</span>
-									Table Field:
+									El campo de la tabla:
 									<b>"{{data.data.table_field}}"</b>
-									Row# {{data.data.row}} Field:
+									fila# {{data.data.row}} campo:
 									<b>"{{data.data.field}}"</b>
-									changed from
+									fue modificado de
 									<b>"{{data.data.from}}" </b>
-									to <b>"{{data.data.to}}"</b>
-									By:
+									a <b>"{{data.data.to}}"</b>
+									por:
 									<b>{{data.by}}</b>
 								</li>
 							{% endif %}

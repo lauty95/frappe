@@ -55,7 +55,7 @@ class Comment(Document):
 	def remove_comment_from_cache(self):
 		_comments = get_comments_from_parent(self)
 		for c in _comments:
-			if c.get("name")==self.name:
+			if c.get("name") == self.name:
 				_comments.remove(c)
 
 		update_comments_in_parent(self.reference_doctype, self.reference_name, _comments)
@@ -70,11 +70,9 @@ class Comment(Document):
 			sender_fullname = get_fullname(frappe.session.user)
 			title = get_title(self.reference_doctype, self.reference_name)
 
-			recipients = [frappe.db.get_value("User", {"enabled": 1, "name": name, "user_type": "System User", "allowed_in_mentions": 1}, "email")
-				for name in mentions]
+			recipients = [frappe.db.get_value("User", {"enabled": 1, "name": name, "user_type": "System User", "allowed_in_mentions": 1}, "email") for name in mentions]
 
-			notification_message = _('''{0} mentioned you in a comment in {1} {2}''')\
-				.format(frappe.bold(sender_fullname), frappe.bold(self.reference_doctype), get_title_html(title))
+			notification_message = _('''{0} te mencionó en un comentario en {1} {2}''').format(frappe.bold(sender_fullname), frappe.bold(self.reference_doctype), get_title_html(title))
 
 			notification_doc = {
 				'type': 'Mention',

@@ -101,11 +101,11 @@ def send_notification_email(doc):
 def get_email_header(doc):
 	docname = doc.document_name
 	header_map = {
-		'Default': _('New Notification'),
-		'Mention': _('New Mention on {0}').format(docname),
-		'Assignment': _('Assignment Update on {0}').format(docname),
-		'Share': _('New Document Shared {0}').format(docname),
-		'Energy Point': _('Energy Point Update on {0}').format(docname),
+		'Default': _('Nueva Notificación'),
+		'Mention': _('Nueva mención en  {0}').format(docname),
+		'Assignment': _('Actualización de la asignación en {0}').format(docname),
+		'Share': _('Nuevo documento compartido {0}').format(docname),
+		'Energy Point': _('Actualización del punto de energía en {0}').format(docname),
 	}
 
 	return header_map[doc.type or 'Default']

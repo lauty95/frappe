@@ -74,7 +74,7 @@ def get_message(doc_name, doctype, frequency, user):
 def send_email_alert(receiver, docinfo, timeline):
 	if receiver:
 		frappe.sendmail(
-			subject=_("Document Follow Notification"),
+			subject=_("Notificación de seguimiento de documento"),
 			recipients=[receiver],
 			template="document_follow",
 			args={
@@ -151,15 +151,12 @@ def get_comments(doctype, doc_name, frequency, user):
 
 	timeline = []
 	filters = get_filters("reference_name", doc_name, frequency, user)
-	comments = frappe.get_all("Comment",
-		filters=filters,
-		fields=["content", "modified", "modified_by", "comment_type"]
-	)
+	comments = frappe.get_all("Comment", filters=filters, fields=["content", "modified", "modified_by", "comment_type"])
 	for comment in comments:
 		if comment.comment_type == "Like":
-			by = ''' By : <b>{0}<b>'''.format(comment.modified_by)
+			by = ''' por : <b>{0}<b>'''.format(comment.modified_by)
 		elif comment.comment_type == "Comment":
-			by = '''Commented by : <b>{0}<b>'''.format(comment.modified_by)
+			by = '''Comentado por : <b>{0}<b>'''.format(comment.modified_by)
 		else:
 			by = ''
 
