@@ -46,11 +46,7 @@ function get_version_timeline_content(version_doc, frm) {
 					const field_display_status = frappe.perm.get_field_display_status(df, null,
 						frm.perm);
 					if (field_display_status === 'Read' || field_display_status === 'Write') {
-						parts.push(__('{0} from {1} to {2}', [
-							__(df.label),
-							format_content_for_timeline(p[1]),
-							format_content_for_timeline(p[2])
-						]));
+						parts.push(__('{0} from {1} to {2}', [__(df.label), format_content_for_timeline(__(p[1])), format_content_for_timeline(__(p[2]))]));
 					}
 				}
 			}
@@ -81,13 +77,7 @@ function get_version_timeline_content(version_doc, frm) {
 						null, frm.perm);
 
 					if (field_display_status === 'Read' || field_display_status === 'Write') {
-						parts.push(__('{0} from {1} to {2} in row #{3}', [
-							frappe.meta.get_label(frm.fields_dict[row[0]].grid.doctype,
-								p[0]),
-							format_content_for_timeline(p[1]),
-							format_content_for_timeline(p[2]),
-							row[1]
-						]));
+						parts.push(__('{0} de {1} a {2} en fila #{3}', [__(frappe.meta.get_label(frm.fields_dict[row[0]].grid.doctype, p[0])), format_content_for_timeline(__(p[1])), format_content_for_timeline(__(p[2])), row[1]]));
 					}
 				}
 				return parts.length < 3;
@@ -112,11 +102,10 @@ function get_version_timeline_content(version_doc, frm) {
 			let parts = (data[key] || []).map(function(p) {
 				var df = frappe.meta.get_docfield(frm.doctype, p[0], frm.docname);
 				if (df && !df.hidden) {
-					var field_display_status = frappe.perm.get_field_display_status(df, null,
-						frm.perm);
+					var field_display_status = frappe.perm.get_field_display_status(df, null, frm.perm);
 
 					if (field_display_status === 'Read' || field_display_status === 'Write') {
-						return frappe.meta.get_label(frm.doctype, p[0]);
+						return __(frappe.meta.get_label(frm.doctype, p[0]));
 					}
 				}
 			});
@@ -129,7 +118,7 @@ function get_version_timeline_content(version_doc, frm) {
 				if (key === 'added') {
 					message = __("added rows for {0}", [parts.join(', ')]);
 				} else if (key === 'removed') {
-					message = __("removed rows for {0}", [parts.join(', ')]);
+					message = __("filas eliminadas en {0}", [parts.join(', ')]);
 				}
 
 				let version_comment = get_version_comment(version_doc, message);

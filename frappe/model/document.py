@@ -1406,7 +1406,7 @@ def execute_action(doctype, name, action, **kwargs):
 		else:
 			msg = '<pre><code>' + frappe.get_traceback() + '</pre></code>'
 
-		doc.add_comment('Comment', _('Action Failed') + '<br><br>' + msg)
+		doc.add_comment('Comment', _('Acción fallida') + '<br><br>' + msg)
 		doc.notify_update()
 
 
