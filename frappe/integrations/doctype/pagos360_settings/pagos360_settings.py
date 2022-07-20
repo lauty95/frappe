@@ -231,7 +231,7 @@ class Pagos360:
         if data is not None:
             data = JSONEncoder().encode(data)
 
-        api_result = self.put(self.get_base_url() + uri, params=params, data=data, headers=self.headers)
+        api_result = requests.put(self.get_base_url() + uri, params=params, data=data, headers=self.headers)
         return {"status": api_result.status_code, "response": api_result.json()}
 
     def validate_date(self, date=None):

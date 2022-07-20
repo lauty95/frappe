@@ -6,6 +6,23 @@ frappe.ui.form.on("Adhesion Pagos360", {
         if (!frm.doc.__islocal) {
             set_readonly_all_fields(frm);
         }
+
+        if (frm.doc.estado != "canceled") {
+            frm.add_custom_button("Cancelar", function() {
+                frappe.confirm('¿Está seguro de que desea cancelar la adhesión?', function() {
+                    frappe.call({
+                        method: "erpnext_argentina.pagos360.cancelar_adhesion",
+                        args: { adhesion: frm.doc.name },
+                        callback: function(r) {
+                            if (r.message) {
+                                frappe.msgprint(r.message);
+                                frm.refresh();
+                            }
+                        }
+                    });
+                });
+            });
+        }
     },
 });
 
