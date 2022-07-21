@@ -43,21 +43,13 @@ def get_report_doc(report_name):
 		doc.is_custom_report = True
 
 	if not doc.is_permitted():
-		frappe.throw(
-			_("You don't have access to Report: {0}").format(report_name),
-			frappe.PermissionError,
-		)
+		frappe.throw(_("You don't have access to Report: {0}").format(_(report_name)), frappe.PermissionError,)
 
 	if not frappe.has_permission(doc.ref_doctype, "report"):
-		frappe.throw(
-			_("You don't have permission to get a report on: {0}").format(
-				doc.ref_doctype
-			),
-			frappe.PermissionError,
-		)
+		frappe.throw(_("You don't have permission to get a report on: {0}").format(_(doc.ref_doctype)), frappe.PermissionError,)
 
 	if doc.disabled:
-		frappe.throw(_("Report {0} is disabled").format(report_name))
+		frappe.throw(_("Report {0} is disabled").format(_(report_name)))
 
 	return doc
 
