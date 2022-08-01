@@ -1195,9 +1195,10 @@ def get_host_name():
 	return get_url().rsplit("//", 1)[-1]
 
 def get_link_to_form(doctype, name, label=None):
+	from frappe import _
 	if not label: label = name
 
-	return """<a href="{0}">{1}</a>""".format(get_url_to_form(doctype, name), label)
+	return """<a href="{0}">{1}</a>""".format(get_url_to_form(doctype, name), _(label))
 
 def get_link_to_report(name, label=None, report_type=None, doctype=None, filters=None):
 	if not label: label = name
