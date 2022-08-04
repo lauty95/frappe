@@ -40,7 +40,7 @@ frappe.pages['informacion-de-uso'].on_page_load = function(wrapper) {
 					}
 					frappe.call({
 						async: false,
-						method: 'ecommerce_integrations.base.whitelist.get_available_integrations_whitelisted',
+						method: 'ecommerce_integrations.base.whitelist.base.get_available_integrations_whitelisted',
 						callback: function (response) {
 							response.message.forEach(function (integration_name) {
 								if (`${integration_name}_publications` in limits) {
