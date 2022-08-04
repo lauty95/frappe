@@ -99,7 +99,7 @@ def crear_notificacion_mercadopago(payment):
 
 def get_ipn_url() -> str:
     # La configuración debe cargarse de manera tardía.
-    return f"https://{frappe.get_site_config().get('MP_IPN_DOMAIN', '')}"
+    return f"https://{frappe.get_site_config().get('IPN_DOMAIN', '')}"
 
 
 @frappe.whitelist()
