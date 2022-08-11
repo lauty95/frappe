@@ -267,7 +267,7 @@ def get_group_by_chart_config(chart, filters):
 			data.append({'name': 'Other', 'count': other_count})
 
 		chart_config = {
-			"labels": [item['name'] if item['name'] else 'Not Specified' for item in data],
+			"labels": [item['name'] if item['name'] else _('Not Specified') for item in data],
 			"datasets": [{
 				"name": chart.name,
 				"values": [item['count'] for item in data]
