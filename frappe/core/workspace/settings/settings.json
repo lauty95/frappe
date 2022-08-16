@@ -132,16 +132,6 @@
    "dependencies": "",
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Newsletter",
-   "link_to": "Newsletter",
-   "link_type": "DocType",
-   "onboard": 0,
-   "type": "Link"
-  },
-  {
-   "dependencies": "",
-   "hidden": 0,
-   "is_query_report": 0,
    "label": "Notification Settings",
    "link_to": "Notification Settings",
    "link_type": "DocType",
@@ -355,7 +345,7 @@
    "type": "Link"
   }
  ],
- "modified": "2021-07-20 10:20:27.443445",
+ "modified": "2022-08-14 12:48:57.854851",
  "modified_by": "Administrator",
  "module": "Core",
  "name": "Settings",

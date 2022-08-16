@@ -157,6 +157,7 @@
    "options": "\n2\n3\n4\n5\n6\n7\n8\n9"
   },
   {
+   "default": "2",
    "description": "If not set, the currency precision will depend on number format",
    "fieldname": "currency_precision",
    "fieldtype": "Select",
@@ -167,6 +168,7 @@
    "collapsible": 1,
    "fieldname": "sec_backup_limit",
    "fieldtype": "Section Break",
+   "hidden": 1,
    "label": "Backups"
   },
   {
@@ -237,14 +239,14 @@
    "label": "Allow only one session per user"
   },
   {
-   "default": "0",
+   "default": "1",
    "description": "User can login using Email id or Mobile number",
    "fieldname": "allow_login_using_mobile_number",
    "fieldtype": "Check",
    "label": "Allow Login using Mobile Number"
   },
   {
-   "default": "0",
+   "default": "1",
    "description": "User can login using Email id or User Name",
    "fieldname": "allow_login_using_user_name",
    "fieldtype": "Check",
@@ -273,7 +275,7 @@
    "fieldtype": "Column Break"
   },
   {
-   "default": "1",
+   "default": "0",
    "description": "If enabled, the password strength will be enforced based on the Minimum Password Score value. A value of 2 being medium strong and 4 being very strong.",
    "fieldname": "enable_password_policy",
    "fieldtype": "Check",
@@ -294,6 +296,7 @@
    "label": "Brute Force Security"
   },
   {
+   "default": "5",
    "fieldname": "allow_consecutive_login_attempts",
    "fieldtype": "Int",
    "label": "Allow Consecutive Login Attempts "
@@ -439,7 +442,7 @@
    "label": "Enable Onboarding"
   },
   {
-   "default": "1",
+   "default": "0",
    "fieldname": "attach_view_link",
    "fieldtype": "Check",
    "label": "Send document Web View link in email"
@@ -496,21 +499,21 @@
    "collapsible": 1,
    "fieldname": "system_updates_section",
    "fieldtype": "Section Break",
-   "label": "System Updates",
-   "hidden": 1
+   "hidden": 1,
+   "label": "System Updates"
   },
   {
    "default": "1",
    "fieldname": "disable_system_update_notification",
    "fieldtype": "Check",
-   "label": "Disable System Update Notification",
-   "hidden": 1
+   "hidden": 1,
+   "label": "Disable System Update Notification"
   }
  ],
  "icon": "fa fa-cog",
  "issingle": 1,
  "links": [],
- "modified": "2021-11-29 18:09:53.601629",
+ "modified": "2022-08-14 12:32:23.736407",
  "modified_by": "Administrator",
  "module": "Core",
  "name": "System Settings",
@@ -525,6 +528,7 @@
   }
  ],
  "quick_entry": 1,
+ "route": "app/doctype/System%20Settings",
  "sort_field": "modified",
  "sort_order": "ASC",
  "track_changes": 1
