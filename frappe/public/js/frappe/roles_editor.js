@@ -57,13 +57,14 @@ frappe.RoleEditor = class {
 						${__('{0} role does not have permission on any doctype', [role])}
 					</div>`);
 				} else {
+					// __('Write') __('Read') __('Share')
 					$body.append(`
 						<table class="user-perm">
 							<thead>
 								<tr>
 									<th> ${__('Document Type')} </th>
 									<th> ${__('Level')} </th>
-									${frappe.perm.rights.map(p => `<th> ${frappe.unscrub(p)}</th>`).join("")}
+									${frappe.perm.rights.map(p => `<th> ${__(frappe.unscrub(p))}</th>`).join("")}
 								</tr>
 							</thead>
 							<tbody></tbody>
@@ -72,8 +73,8 @@ frappe.RoleEditor = class {
 					permissions.forEach(perm => {
 						$body.find('tbody').append(`
 							<tr>
-								<td>${perm.parent}</td>
-								<td>${perm.permlevel}</td>
+								<td>${__(perm.parent)}</td>
+								<td>${__(perm.permlevel)}</td>
 								${frappe.perm.rights.map(p => `<td class="text-muted bold">${perm[p] ? frappe.utils.icon('check', 'xs') : '-'}</td>`).join("")}
 							</tr>
 						`);

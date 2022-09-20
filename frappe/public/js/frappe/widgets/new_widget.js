@@ -19,7 +19,7 @@ export default class NewWidget {
 	get_title() {
 		// DO NOT REMOVE: Comment to load translation
 		// __("New Chart") __("New Shortcut") __("New Number Card")
-		let title = `New ${frappe.model.unscrub(this.type)}`;
+		let title = __(`New ${frappe.model.unscrub(this.type)}`);
 		return __(title);
 	}
 
