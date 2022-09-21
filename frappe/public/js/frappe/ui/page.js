@@ -617,7 +617,7 @@ frappe.ui.Page = Class.extend({
 		}
 	},
 
-	change_inner_button_type(label, group, type) {
+	change_inner_button_type: function(label, group, type) {
 		let btn;
 
 		if (group) {

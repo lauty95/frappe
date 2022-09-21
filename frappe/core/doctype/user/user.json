@@ -569,7 +569,8 @@
   {
    "fieldname": "generate_keys",
    "fieldtype": "Button",
-   "label": "Generate Keys"
+   "label": "Generate Keys",
+   "permlevel": 1
   },
   {
    "fieldname": "column_break_65",
@@ -579,6 +580,7 @@
    "fieldname": "api_secret",
    "fieldtype": "Password",
    "label": "API Secret",
+   "permlevel": 1,
    "read_only": 1
   },
   {
@@ -672,7 +674,7 @@
   }
  ],
  "max_attachments": 5,
- "modified": "2021-08-06 08:46:38.549138",
+ "modified": "2021-08-07 08:46:38.549138",
  "modified_by": "Administrator",
  "module": "Core",
  "name": "User",
