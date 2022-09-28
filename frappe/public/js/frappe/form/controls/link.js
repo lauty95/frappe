@@ -457,8 +457,9 @@ frappe.ui.form.ControlLink = frappe.ui.form.ControlData.extend({
 			this.docname, value);
 	},
 	validate_link_and_fetch(df, options, docname, value) {
-		if (!value) return;
+		if (!options) return;
 
+		let field_value = "";
 		const fetch_map = this.get_fetch_map();
 		const columns_to_fetch = Object.values(fetch_map);
 
@@ -472,15 +473,16 @@ frappe.ui.form.ControlLink = frappe.ui.form.ControlData.extend({
 			docname: value,
 			fields: columns_to_fetch,
 		}).then((response) => {
-			if (!response || !response.name) return "";
 			if (!docname || !columns_to_fetch.length) return response.name;
 
 			for (const [target_field, source_field] of Object.entries(fetch_map)) {
+				if(value) field_value = response[source_field];
+
 				frappe.model.set_value(
 					df.parent,
 					docname,
 					target_field,
-					response[source_field],
+					field_value,
 					df.fieldtype,
 				);
 			}
