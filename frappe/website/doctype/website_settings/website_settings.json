@@ -432,7 +432,6 @@
    "label": "Navbar Template"
   },
   {
-   "default": "Frappe",
    "fieldname": "app_name",
    "fieldtype": "Data",
    "label": "App Name"
@@ -449,7 +448,7 @@
  "issingle": 1,
  "links": [],
  "max_attachments": 10,
- "modified": "2021-12-24 11:52:34.121678",
+ "modified": "2021-12-25 11:52:34.121678",
  "modified_by": "Administrator",
  "module": "Website",
  "name": "Website Settings",
