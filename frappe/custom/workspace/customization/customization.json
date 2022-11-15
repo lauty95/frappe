@@ -2,7 +2,7 @@
  "category": "Administration",
  "charts": [],
  "creation": "2020-03-02 15:15:03.839594",
- "developer_mode_only": 0,
+ "developer_mode_only": 1,
  "disable_user_customization": 0,
  "docstatus": 0,
  "doctype": "Workspace",
@@ -116,7 +116,7 @@
    "type": "Link"
   }
  ],
- "modified": "2021-02-04 13:50:35.750463",
+ "modified": "2022-11-07 09:02:42.953232",
  "modified_by": "Administrator",
  "module": "Custom",
  "name": "Customization",
