@@ -447,7 +447,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "max_attachments": 10,
+ "max_attachments": 0,
  "modified": "2021-12-25 11:52:34.121678",
  "modified_by": "Administrator",
  "module": "Website",

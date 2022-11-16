@@ -673,8 +673,8 @@
    "link_fieldname": "user"
   }
  ],
- "max_attachments": 5,
- "modified": "2021-08-07 08:46:38.549138",
+ "max_attachments": 0,
+ "modified": "2021-08-08 08:46:38.549138",
  "modified_by": "Administrator",
  "module": "Core",
  "name": "User",
