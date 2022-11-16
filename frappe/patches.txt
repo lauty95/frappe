@@ -181,3 +181,4 @@ frappe.patches.v13_0.queryreport_columns
 frappe.patches.v13_0.rename_web_template
 frappe.patches.v13_0.disable_system_update_notification
 execute:frappe.db.set_value("Energy Point Settings", "Energy Point Settings", "enabled", 0)
+frappe.patches.v13_0.log_settings
