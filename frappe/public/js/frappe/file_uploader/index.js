@@ -51,7 +51,7 @@ export default class FileUploader {
 		this.uploader.$watch('files', (files) => {
 			let all_private = files.every(file => file.private);
 			if (this.dialog) {
-				this.dialog.set_secondary_action_label(all_private ? __('Set all public') : __('Set all private'));
+				this.dialog.set_secondary_action_label(all_private ? __('Establecer todos publicos') : __('Establecer todos privados'));
 			}
 		}, { deep: true });
 
@@ -70,10 +70,10 @@ export default class FileUploader {
 
 	make_dialog() {
 		this.dialog = new frappe.ui.Dialog({
-			title: __('Upload'),
-			primary_action_label: __('Upload'),
+			title: __('Subir'),
+			primary_action_label: __('Subir'),
 			primary_action: () => this.upload_files(),
-			secondary_action_label: __('Set all private'),
+			secondary_action_label: __('Establecer todos privados'),
 			secondary_action: () => {
 				this.uploader.toggle_all_private();
 			}
