@@ -351,6 +351,8 @@ $.extend(frappe.model, {
 		newdoc.creation = "";
 		newdoc.modified_by = user;
 		newdoc.modified = "";
+		newdoc.lft = null;
+		newdoc.rgt = null;
 
 		return newdoc;
 	},
