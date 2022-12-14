@@ -26,6 +26,49 @@
 		</div>
 	{% endif %}
 
+	{% if limits.usuario_de_ventas_reducido %}
+	    {% var usuario_de_ventas_reducido_percent = ((enabled_usuario_de_ventas_reducido / limits.usuario_de_ventas_reducido) * 100); %}
+		<div class="usage-info-section" style="margin: 30px;">
+			<h4>{{ "Usuario de Ventas Reducido" }}</h4>
+
+			<div class="progress" style="margin-bottom: 0;">
+				<div class="progress-bar progress-bar-{%= (usuario_de_ventas_reducido_percent < 75 ? "success" : "warning") %}" style="width: {{ usuario_de_ventas_reducido_percent }}%">
+				</div>
+			</div>
+
+			<p>{%= enabled_usuario_de_ventas_reducido %} de {%= limits.usuario_de_ventas_reducido %} habilitados</p>
+		</div>
+	{% endif %}
+
+	{% if limits.usuario_de_soporte_reducido %}
+	    {% var usuario_de_soporte_reducido_percent = ((enabled_usuario_de_soporte_reducido / limits.usuario_de_ventas_reducido) * 100); %}
+		<div class="usage-info-section" style="margin: 30px;">
+			<h4>{{ "Usuario de Soporte Reducido" }}</h4>
+
+			<div class="progress" style="margin-bottom: 0;">
+				<div class="progress-bar progress-bar-{%= (usuario_de_soporte_reducido_percent < 75 ? "success" : "warning") %}" style="width: {{ usuario_de_soporte_reducido_percent }}%">
+				</div>
+			</div>
+
+			<p>{%= enabled_usuario_de_soporte_reducido %} de {%= limits.usuario_de_soporte_reducido %} habilitados</p>
+		</div>
+	{% endif %}
+
+
+	{% if limits.usuario_de_proyecto_reducido %}
+	    {% var usuario_de_proyecto_reducido_percent = ((enabled_usuario_de_proyecto_reducido / limits.usuario_de_proyecto_reducido) * 100); %}
+		<div class="usage-info-section" style="margin: 30px;">
+			<h4>{{ "Usuario de Proyecto Reducido" }}</h4>
+
+			<div class="progress" style="margin-bottom: 0;">
+				<div class="progress-bar progress-bar-{%= (usuario_de_proyecto_reducido_percent < 75 ? "success" : "warning") %}" style="width: {{ usuario_de_proyecto_reducido_percent }}%">
+				</div>
+			</div>
+
+			<p>{%= enabled_usuario_de_proyecto_reducido %} de {%= limits.usuario_de_proyecto_reducido %} habilitados</p>
+		</div>
+	{% endif %}
+
 	{% if limits.companies %}
 	    {% var companies_percent = ((enabled_companies / limits.companies) * 100); %}
 		<div class="usage-info-section" style="margin: 30px;">

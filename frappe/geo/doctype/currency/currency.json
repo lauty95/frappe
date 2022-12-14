@@ -81,14 +81,14 @@
    "fieldname": "exchange_rate_type",
    "fieldtype": "Select",
    "label": "Tipo de d\u00f3lar",
-   "options": "\nDolar Oficial\nDolar Blue\nDolar Contado con Liqui\nDolar Bolsa\nBanco Nación Billete\nBanco Nación Público\nBCRA de Referencia"
+   "options": "\nDolar Oficial\nDolar Blue\nDolar Contado con Liqui\nDolar Bolsa\nBanco Naci\u00f3n Billete\nBanco Naci\u00f3n P\u00fablico\nBCRA de Referencia"
   }
  ],
  "icon": "fa fa-bitcoin",
  "idx": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-02-27 12:54:51.053900",
+ "modified": "2022-12-14 19:47:42.545328",
  "modified_by": "Administrator",
  "module": "Geo",
  "name": "Currency",
@@ -118,8 +118,15 @@
   {
    "read": 1,
    "role": "Purchase User"
+  },
+  {
+   "read": 1,
+   "report": 1,
+   "export": 1,
+   "role": "Usuario Contador"
   }
  ],
+ "route": "app/doctype/Currency",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1

@@ -106,6 +106,7 @@ class User(Document):
 	def on_update(self):
 		# clear new password
 		self.validate_user_limit()
+		self.validate_usuarios_reducidos_limit()
 		self.share_with_self()
 		clear_notifications(user=self.name)
 		frappe.clear_cache(user=self.name)
@@ -191,7 +192,9 @@ class User(Document):
 			'Guest': 'Website User'
 		}
 
-		if self.user_type and not frappe.get_cached_value('User Type', self.user_type, 'is_standard'):
+		user_types_reducidos = frappe.get_hooks("user_types_reducidos")
+
+		if self.user_type and not frappe.get_cached_value('User Type', self.user_type, 'is_standard') or frappe.get_cached_value('User Type', self.user_type, 'name') in user_types_reducidos:
 			if user_type_mapper.get(self.name):
 				self.user_type = user_type_mapper.get(self.name)
 			else:
@@ -210,6 +213,11 @@ class User(Document):
 				self.append('roles', {
 					'role': user_type_doc.role
 				})
+
+				if self.user_type in frappe.get_hooks("user_types_reducidos"):
+					self.append('roles', {
+						'role': "Herramientas Sistema"
+					})
 
 				frappe.msgprint(_('Role has been set as per the user type {0}')
 					.format(self.user_type), alert=True)
@@ -525,12 +533,15 @@ class User(Document):
 
 	def get_blocked_modules(self):
 		"""Returns list of modules blocked for that user"""
+		if self.user_type in frappe.get_hooks('user_types_reducidos'):
+			from erpnext.setup.install import get_user_types_data
+			uset_types_data = get_user_types_data()
+			return uset_types_data[self.user_type].get('blocked_modules') or []
 		return [d.module for d in self.block_modules] if self.block_modules else []
 
 	def validate_user_email_inbox(self):
 		""" check if same email account added in User Emails twice """
-
-		email_accounts = [ user_email.email_account for user_email in self.user_emails ]
+		email_accounts = [user_email.email_account for user_email in self.user_emails]
 		if len(email_accounts) != len(set(email_accounts)):
 			frappe.throw(_("Email Account added multiple times"))
 
@@ -617,7 +628,30 @@ class User(Document):
 			total_users += 1
 
 		if total_users > limits.users:
-			frappe.throw('Lo sentimos, ha alcanzado el límite máximo de <b>usuarios</b> para su suscripción. Puede desactivar un usuario existente o contactar a <a href="https://diamo.com.ar" target="_blank">soporte</a> para descubrir cómo añadir más <b>usuarios</b>.', MaxUsersReachedError)
+			frappe.throw('Lo sentimos, ha alcanzado el límite máximo de <b>usuarios</b> para su suscripción. Puede desactivar un usuario existente o contactar a <a href="https://diamo.com.ar" target="_blank">soporte</a> para descubrir cómo añadir más <b>usuarios</b>.')
+
+	def validate_usuarios_reducidos_limit(self):
+		if self.user_type not in frappe.get_hooks('user_types_reducidos'):
+			return
+
+		if not self.enabled:
+			# don't validate max users when saving a disabled user
+			return
+
+		limits = get_limits()
+		if frappe.scrub(self.user_type) not in limits.keys():
+			# no limits defined
+			return
+
+		total_users = get_total_users(self.user_type)
+		if self.is_new():
+			# get_total_users gets existing users in database
+			# a new record isn't inserted yet, so adding 1
+			total_users += 1
+
+		if total_users > limits.get(frappe.scrub(self.user_type)):
+			frappe.throw(f'Lo sentimos, ha alcanzado el límite máximo de <b>{self.user_type}</b> para su suscripción. Puede desactivar un usuario existente o contactar a <a href="https://diamo.com.ar" target="_blank">soporte</a> para descubrir cómo añadir más <b>{self.user_type}</b>.')
+
 
 @frappe.whitelist()
 def get_timezones():
@@ -878,13 +912,13 @@ def user_query(doctype, txt, searchfield, start, page_len, filters):
 		dict(start=start, page_len=page_len, txt=txt)
 	)
 
-def get_total_users():
+def get_total_users(user_type='System User'):
 	"""Returns total no. of system users"""
 	return flt(frappe.db.sql('''SELECT SUM(`simultaneous_sessions`)
 		FROM `tabUser`
 		WHERE `enabled` = 1
-		AND `user_type` = 'System User'
-		AND `name` NOT IN ({})'''.format(", ".join(["%s"]*len(STANDARD_USERS))), STANDARD_USERS)[0][0])
+		AND `user_type` = '{}'
+		AND `name` NOT IN ({})'''.format(user_type, ", ".join(["%s"]*len(STANDARD_USERS))), STANDARD_USERS)[0][0])
 
 def get_system_users(exclude_users=None, limit=None):
 	if not exclude_users:

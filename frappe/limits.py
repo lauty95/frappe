@@ -154,7 +154,11 @@ def get_usage_info():
         'emails_sent': get_emails_sent_this_month(),
         'space_usage': limits.space_usage['total'],
         'enabled_companies': frappe.db.count("Company"),
+        'user_types_reducidos': frappe.get_hooks('user_types_reducidos'),
     })
+
+    for user_type_reducido in frappe.get_hooks('user_types_reducidos'):
+        usage_info[f'enabled_{frappe.scrub(user_type_reducido)}'] = len(get_enabled_system_users(user_type_reducido)),
 
     if 'ecommerce_integrations' in frappe.get_installed_apps():
         from ecommerce_integrations.base.limits import get_usage_info as get_ecommerce_integrations_usage_info

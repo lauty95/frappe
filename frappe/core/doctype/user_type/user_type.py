@@ -54,7 +54,7 @@ class UserType(Document):
 			frappe.throw(_('User does not have permission to create the new {0}')
 				.format(frappe.bold(_('User Type'))), title=_('Permission Error'))
 
-		if not limit:
+		if not limit and self.name not in frappe.get_hooks('user_types_reducidos'):
 			frappe.throw(_('The limit has not set for the user type {0} in the site config file.')
 				.format(frappe.bold(self.name)), title=_('Set Limit'))
 
@@ -72,7 +72,7 @@ class UserType(Document):
 			frappe.throw(_("The field {0} is mandatory")
 				.format(frappe.bold(_('Role'))))
 
-		if not frappe.db.get_value('Role', self.role, 'is_custom'):
+		if not frappe.db.get_value('Role', self.role, 'is_custom') and not self.name in frappe.get_hooks('user_types_reducidos'):
 			frappe.throw(_("The role {0} should be a custom role.")
 				.format(frappe.bold(get_link_to_form('Role', self.role))))
 

@@ -752,6 +752,9 @@ def _set_limits(context, site, limits):
             'subscription_type', 'current_plan', 'subscription_base_price', 'upgrade_plan',
             'upgrade_base_price', 'cancellation_url', 'companies']
 
+        usuarios_reducidos_limits = ['usuario_de_ventas_reducido', 'usuario_de_soporte_reducido', 'usuario_de_proyecto_reducido', 'usuario_contador']
+        available_limits.extend(usuarios_reducidos_limits)
+
         ecommerce_integrations_limits = []
         if 'ecommerce_integrations' in frappe.get_installed_apps():
             from ecommerce_integrations.base.utils import AVAILABLE_INTEGRATIONS
@@ -771,7 +774,7 @@ def _set_limits(context, site, limits):
             elif limit in ('space', 'subscription_base_price', 'upgrade_base_price'):
                 value = float(value)
 
-            elif limit in ('users', 'emails', 'email_group', 'daily_emails', 'companies', *ecommerce_integrations_limits):
+            elif limit in ('users', 'emails', 'email_group', 'daily_emails', 'companies', *ecommerce_integrations_limits, *usuarios_reducidos_limits):
                 value = int(value)
 
             new_limits[limit] = value

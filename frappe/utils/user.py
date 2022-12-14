@@ -280,12 +280,12 @@ def add_system_manager(email, first_name=None, last_name=None, send_welcome_emai
 		from frappe.utils.password import update_password
 		update_password(user=user.name, pwd=password)
 
-def get_enabled_system_users():
+def get_enabled_system_users(user_type='System User'):
 	# add more fields if required
 	return frappe.get_all('User',
 		fields=['email', 'language', 'name'],
 		filters={
-			'user_type': 'System User',
+			'user_type': user_type,
 			'enabled': 1,
 			'name': ['not in', ('Administrator', 'Guest')]
 		}
