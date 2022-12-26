@@ -521,7 +521,11 @@ frappe.ui.form.Form = class FrappeForm {
 		}
 
 		if(this.meta.autoname=="naming_series:" && !this.doc.__islocal) {
-			this.toggle_display("naming_series", false);
+			if (this.doc.doctype == 'Sales Invoice') {
+				this.toggle_display("naming_series", true);
+			} else {
+				this.toggle_display("naming_series", false);
+			}
 		}
 	}
 
