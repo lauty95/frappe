@@ -57,14 +57,26 @@ frappe.RoleEditor = class {
 						${__('{0} role does not have permission on any doctype', [role])}
 					</div>`);
 				} else {
+					var p_th = ''
 					// __('Write') __('Read') __('Share')
+					for (const p of frappe.perm.rights) { 
+						if (p == 'write') {
+							p_th += '<th> Leer</th>'
+						} else if (p == 'read') {
+							p_th += '<th> Escribir</th>'
+						} else if (p == 'share') {
+							p_th += '<th> Compartir</th>'
+						} else {
+							p_th += '<th> ' + __(frappe.unscrub(p)) + '</th>'
+						}
+					}
 					$body.append(`
 						<table class="user-perm">
 							<thead>
 								<tr>
 									<th> ${__('Document Type')} </th>
 									<th> ${__('Level')} </th>
-									${frappe.perm.rights.map(p => `<th> ${__(frappe.unscrub(p))}</th>`).join("")}
+									${p_th}
 								</tr>
 							</thead>
 							<tbody></tbody>
@@ -80,7 +92,7 @@ frappe.RoleEditor = class {
 						`);
 					});
 				}
-				this.perm_dialog.set_title(role);
+				this.perm_dialog.set_title(__(role));
 				this.perm_dialog.show();
 			});
 	}
