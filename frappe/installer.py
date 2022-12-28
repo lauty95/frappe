@@ -271,7 +271,7 @@ def remove_app(app_name, dry_run=False, yes=False, no_backup=False, force=False)
 	for doctype in set(drop_doctypes):
 		print(f"* dropping Table for '{doctype}'...")
 		if not dry_run:
-			frappe.db.sql_ddl(f"drop table `tab{doctype}`")
+			frappe.db.sql_ddl(f"DROP TABLE IF EXISTS `tab{doctype}`")
 
 	if not dry_run:
 		remove_from_installed_apps(app_name)
