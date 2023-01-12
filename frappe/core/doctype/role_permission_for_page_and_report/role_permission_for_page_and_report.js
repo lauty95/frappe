@@ -37,7 +37,8 @@ frappe.ui.form.on('Role Permission for Page and Report', {
 		frm.set_query("page", function() {
 			return {
 				filters: {
-					system_page: 0
+					system_page: 0,
+					restrict_to_domain: ['in', frappe.boot.active_domains],
 				}
 			}
 		});

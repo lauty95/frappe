@@ -4,12 +4,13 @@
  "docstatus": 0,
  "doctype": "Page",
  "idx": 0,
- "modified": "2019-02-08 08:23:04.416426",
+ "modified": "2023-01-11 12:27:41.752229",
  "modified_by": "Administrator",
  "module": "Core",
  "name": "recorder",
  "owner": "Administrator",
  "page_name": "Recorder",
+ "restrict_to_domain": "Build",
  "roles": [
   {
    "role": "Administrator"
