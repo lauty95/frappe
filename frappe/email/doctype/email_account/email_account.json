@@ -490,7 +490,7 @@
   },
   {
    "default": "0",
-   "description": "For more information, <a class=\"text-muted\" href=\"https://erpnext.com/docs/user/manual/en/setting-up/email/linking-emails-to-document\">click here</a>.",
+   "description": "Para más información, <a class=\"text-muted\" target=\"_blank\" href=\"https://docs.diamo.com.ar/doc/configuracion/email/vinculacion-de-correos-electronicos-a-documentos\">haga clic aquí</a>.",
    "fieldname": "enable_automatic_linking",
    "fieldtype": "Check",
    "hide_days": 1,
@@ -567,7 +567,7 @@
  "icon": "fa fa-inbox",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2021-09-22 11:09:15.603556",
+ "modified": "2021-09-22 12:11:15.603556",
  "modified_by": "Administrator",
  "module": "Email",
  "name": "Email Account",
