@@ -250,7 +250,7 @@
  "image_field": "image",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2020-08-29 16:12:09.906719",
+ "modified": "2020-08-29 17:12:09.906719",
  "modified_by": "Administrator",
  "module": "Contacts",
  "name": "Contact",
@@ -340,6 +340,16 @@
    "read": 1,
    "report": 1,
    "role": "Sales User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Usuario Reducido Ventas",
    "share": 1,
    "write": 1
   },

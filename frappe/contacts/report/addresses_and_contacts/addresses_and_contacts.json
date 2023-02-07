@@ -7,7 +7,7 @@
  "doctype": "Report", 
  "idx": 2, 
  "is_standard": "Yes", 
- "modified": "2017-04-11 15:04:12.498920", 
+ "modified": "2017-04-11 16:04:12.498920", 
  "modified_by": "Administrator", 
  "module": "Contacts", 
  "name": "Addresses And Contacts", 
@@ -19,6 +19,9 @@
   {
    "role": "Sales User"
   }, 
+  {
+   "role": "Usuario Reducido Ventas"
+  },
   {
    "role": "Purchase User"
   }, 

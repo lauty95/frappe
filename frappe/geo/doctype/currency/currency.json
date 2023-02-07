@@ -88,7 +88,7 @@
  "idx": 1,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2022-12-14 19:47:42.545328",
+ "modified": "2022-12-15 19:47:42.545328",
  "modified_by": "Administrator",
  "module": "Geo",
  "name": "Currency",
@@ -114,6 +114,10 @@
   {
    "read": 1,
    "role": "Sales User"
+  },
+  {
+   "read": 1,
+   "role": "Usuario Reducido Ventas"
   },
   {
    "read": 1,

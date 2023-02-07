@@ -150,7 +150,7 @@
  "icon": "fa fa-map-marker",
  "idx": 5,
  "links": [],
- "modified": "2021-08-28 11:51:29.704753",
+ "modified": "2021-08-28 12:51:29.704753",
  "modified_by": "Administrator",
  "module": "Contacts",
  "name": "Address",
@@ -164,6 +164,16 @@
    "read": 1,
    "report": 1,
    "role": "Sales User",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Usuario Reducido Ventas",
    "share": 1,
    "write": 1
   },
