@@ -164,6 +164,10 @@ def get_usage_info():
         from ecommerce_integrations.base.limits import get_usage_info as get_ecommerce_integrations_usage_info
         usage_info.update(get_ecommerce_integrations_usage_info())
 
+    if 'ecommerce_compreahora' in frappe.get_installed_apps():
+        from ecommerce_compreahora.base.limits import get_usage_info as get_ecommerce_compreahora_usage_info
+        usage_info.update(get_ecommerce_compreahora_usage_info())
+
     if limits.expiry:
         usage_info['expires_on'] = formatdate(limits.expiry)
         usage_info['days_to_expiry'] = (getdate(limits.expiry) - getdate()).days

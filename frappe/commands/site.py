@@ -761,6 +761,10 @@ def _set_limits(context, site, limits):
             ecommerce_integrations_limits.extend(f'{integration_name}_publications' for integration_name in AVAILABLE_INTEGRATIONS)
             available_limits.extend(ecommerce_integrations_limits)
 
+        ecommerce_compreahora_limits = []
+        if 'ecommerce_compreahora' in frappe.get_installed_apps():
+            available_limits.extend(['Compreahora_publications'])
+
         for limit, value in limits:
             if limit not in available_limits:
                 frappe.throw(_('Invalid limit {0}').format(limit))
@@ -774,7 +778,7 @@ def _set_limits(context, site, limits):
             elif limit in ('space', 'subscription_base_price', 'upgrade_base_price'):
                 value = float(value)
 
-            elif limit in ('users', 'emails', 'email_group', 'daily_emails', 'companies', *ecommerce_integrations_limits, *usuarios_reducidos_limits):
+            elif limit in ('users', 'emails', 'email_group', 'daily_emails', 'companies', *ecommerce_integrations_limits, *ecommerce_compreahora_limits, *usuarios_reducidos_limits):
                 value = int(value)
 
             new_limits[limit] = value

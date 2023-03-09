@@ -145,4 +145,27 @@
 			{% endif %}
 		{% endfor %}
 	{% endif %}
+
+	{% if limited_ecommerce_compreahora %}
+		{% for integration_name in limited_ecommerce_compreahora %}
+			{% var publications_limit = limits[`${integration_name}_publications`]; %}
+			{% if publications_limit %}
+				{% var enabled_publications = eval(`enabled_${integration_name}_publications`); %}
+				{% var publications_percent = ((enabled_publications / publications_limit) * 100); %}
+				<div class="usage-info-section" style="margin: 30px;">
+					<h4>{{ `Publicaciones de ${integration_name}` }}</h4>
+					<div class="progress" style="margin-bottom: 0;">
+						<div class="progress-bar progress-bar-{%= (publications_percent < 75 ? "success" : "warning") %}" style="width: {{ publications_percent }}%"></div>
+					</div>
+					<p>
+						{%= enabled_publications %} de {%= publications_limit %} vinculadas
+						{% if publications_percent >= 100 %}
+							<br>
+							Ha utilizado todas las Publicaciones de {{ integration_name }} que se le han asignado. Contacte a <a href="mailto:administracion@diamo.com.ar">administración</a> para gestionar una mayor cantidad de publicaciones.
+						{% endif %}
+					</p>
+				</div>
+			{% endif %}
+		{% endfor %}
+	{% endif %}
 </div>

@@ -52,12 +52,35 @@ frappe.pages['informacion-de-uso'].on_page_load = function(wrapper) {
 				},
 			});
 
+			let limited_ecommerce_compreahora = [];
+			frappe.call({
+				async: false,
+				method: 'frappe.core.doctype.module_def.module_def.get_installed_apps',
+				callback: function (response) {
+					if (JSON.parse(response.message).indexOf("ecommerce_compreahora") === -1) {
+						return;
+					}
+					frappe.call({
+						async: false,
+						method: 'ecommerce_compreahora.base.whitelist.base.get_available_integrations_whitelisted',
+						callback: function (response) {
+							response.message.forEach(function (integration_name) {
+								if (`${integration_name}_publications` in limits) {
+									limited_ecommerce_compreahora.push(integration_name);
+								}
+							});
+						},
+					});
+				},
+			});
+
 			$(frappe.render_template("informacion_de_uso", Object.assign(usage_info, {
 				database_percent,
 				files_percent,
 				backup_percent,
 				usage_message,
 				limited_ecommerce_integrations,
+				limited_ecommerce_compreahora,
 			}))).appendTo(page.main);
 
 			var btn_text = usage_info.limits.users == 1 ? __("Ampliar") : __("Renovar / Ampliar");
