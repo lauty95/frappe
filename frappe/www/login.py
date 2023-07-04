@@ -36,8 +36,7 @@ def get_context(context):
 	context["title"] = "Login"
 	context["provider_logins"] = []
 	context["disable_signup"] = frappe.utils.cint(frappe.db.get_single_value("Website Settings", "disable_signup"))
-	context["logo"] = (frappe.db.get_single_value('Website Settings', 'app_logo') or
-		frappe.get_hooks("app_logo_url")[-1])
+	context["logo"] = (frappe.db.get_single_value('Website Settings', 'app_logo') or frappe.get_hooks("app_logo_url_light")[-1])
 	context["app_name"] = (frappe.db.get_single_value('Website Settings', 'app_name') or "DiamoERP")
 	providers = [i.name for i in frappe.get_all("Social Login Key", filters={"enable_social_login":1}, order_by="name")]
 	for provider in providers:

@@ -33,7 +33,7 @@ def get_app_logo():
 			else:
 				app_logo = frappe.get_hooks('app_logo_url_light')[-1]
 		else:
-			app_logo = frappe.get_hooks('app_logo_url')[-1]
+			app_logo = frappe.get_hooks('app_logo_url_light')[-1]
 
 	return app_logo
 
