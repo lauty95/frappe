@@ -258,7 +258,7 @@ class Exporter:
 		build_csv_response(self.get_csv_array_for_export(), _(self.doctype))
 
 	def build_xlsx_response(self):
-		build_xlsx_response(self.get_csv_array_for_export(), _(self.doctype))
+		build_xlsx_response(self.get_csv_array_for_export(), _(self.doctype), False)
 
 	def group_children_data_by_parent(self, children_data: typing.Dict[str, list]):
 		return groupby_metric(children_data, key='parent')

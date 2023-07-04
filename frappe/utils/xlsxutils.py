@@ -17,7 +17,7 @@ ILLEGAL_CHARACTERS_RE = re.compile(r'[\000-\010]|[\013-\014]|[\016-\037]')
 
 
 # return xlsx file object
-def make_xlsx(data, sheet_name, wb=None, column_widths=None):
+def make_xlsx(data, sheet_name, wb=None, column_widths=None, translate=True):
 	column_widths = column_widths or []
 	if wb is None:
 		wb = openpyxl.Workbook(write_only=True)
@@ -34,8 +34,8 @@ def make_xlsx(data, sheet_name, wb=None, column_widths=None):
 	for row in data:
 		clean_row = []
 		for item in row:
-			item = _(item)
-			if isinstance(item, str) and (sheet_name not in ['Data Import Template', 'Data Export']):
+			if isinstance(item, str) and (sheet_name not in ['Data Import Template', 'Data Export']) and translate:
+				item = _(item)
 				value = handle_html(item)
 			else:
 				value = item
@@ -113,8 +113,8 @@ def read_xls_file_from_attached_file(content):
 	return rows
 
 
-def build_xlsx_response(data, filename):
-	xlsx_file = make_xlsx(data, filename)
+def build_xlsx_response(data, filename, translate=True):
+	xlsx_file = make_xlsx(data, filename, translate=translate)
 	# write out response as a xlsx type
 	frappe.response['filename'] = filename + '.xlsx'
 	frappe.response['filecontent'] = xlsx_file.getvalue()
