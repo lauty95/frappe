@@ -47,7 +47,10 @@ def follow_document(doctype, doc_name, user):
 			"ref_docname": doc_name,
 			"user": user
 		})
-		doc.save()
+		if doctype == 'Issue':
+			doc.save(ignore_permissions=True)
+		else:
+			doc.save()
 		return doc
 
 @frappe.whitelist()
