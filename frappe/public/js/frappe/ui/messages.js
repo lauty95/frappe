@@ -248,11 +248,16 @@ frappe.msgprint = function(msg, title, is_minimizable) {
 		// msgprint should be narrower than the usual dialog
 		if (frappe.msg_dialog.wrapper.classList.contains('msgprint-dialog')) {
 			frappe.msg_dialog.wrapper.classList.remove('msgprint-dialog');
+
 		}
 	} else {
 		// msgprint should be narrower than the usual dialog
 		frappe.msg_dialog.wrapper.classList.add('msgprint-dialog');
 	}
+
+	if (data.size) {
+		frappe.msg_dialog.wrapper.classList.add('modal-' + data.size);
+	} 
 
 	if(msg_exists) {
 		frappe.msg_dialog.msg_area.append("<hr>");
