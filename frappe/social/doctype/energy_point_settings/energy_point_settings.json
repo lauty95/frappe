@@ -191,7 +191,7 @@
  "issingle": 1,
  "istable": 0,
  "max_attachments": 0,
- "modified": "2022-02-01 19:10:14.087840",
+ "modified": "2022-02-02 19:10:14.087840",
  "modified_by": "Administrator",
  "module": "Social",
  "name": "Energy Point Settings",
@@ -223,7 +223,7 @@
  "show_name_in_global_search": 0,
  "sort_field": "modified",
  "sort_order": "ASC",
- "restrict_to_domain": "HR Reclutamiento, Capacitacion y Gastos",
+ "restrict_to_domain": "HR Asistencia, Vacaciones y Rendimiento de Gastos",
  "track_changes": 1,
  "track_seen": 0,
  "track_views": 0

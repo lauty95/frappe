@@ -117,7 +117,7 @@
   }
  ],
  "links": [],
- "modified": "2021-05-12 20:01:59.476903",
+ "modified": "2021-05-12 21:01:59.476903",
  "modified_by": "Administrator",
  "module": "Social",
  "name": "Energy Point Rule",
@@ -136,7 +136,7 @@
    "write": 1
   }
  ],
- "restrict_to_domain": "HR Reclutamiento, Capacitacion y Gastos",
+ "restrict_to_domain": "HR Asistencia, Vacaciones y Rendimiento de Gastos",
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1
