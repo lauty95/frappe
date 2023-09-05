@@ -69,6 +69,10 @@ frappe.ui.form.ControlLink = frappe.ui.form.ControlData.extend({
 			this.$input_area.find(".link-btn").remove();
 		}
 	},
+	parse_validate_and_set_in_model(value, e) {
+		if (this.parse) value = this.parse(value);
+		return this.validate_and_set_in_model(value, e, true);
+	},
 	open_advanced_search: function() {
 		var doctype = this.get_options();
 		if(!doctype) return;
