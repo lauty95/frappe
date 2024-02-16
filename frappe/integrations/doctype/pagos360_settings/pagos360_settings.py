@@ -137,7 +137,20 @@ class Pagos360Settings(Document):
         response = pago360.get_next_business_day(data)
 
         if response["status"] == 200:
-            return parser.parse(response["response"]).date()
+            next_bussiness_day = parser.parse(response["response"]).date()
+            if next_bussiness_day < datetime.date.today():
+                data = {
+                    "next_business_day": {
+                        "date": datetime.date.today().strftime("%d-%m-%Y"),
+                        "days": 4,
+                    }
+                }
+                response = pago360.get_next_business_day(data)
+                if response["status"] == 200:
+                    return parser.parse(response["response"]).date()
+            else:
+                return parser.parse(response["response"]).date()
+
         return sales_invoice.posting_date + timedelta(days=4)
 
     def solicitar_debito(self, subscription, adhesion, sales_invoice, payment_request):
