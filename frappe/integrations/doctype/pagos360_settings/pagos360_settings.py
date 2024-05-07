@@ -128,12 +128,18 @@ class Pagos360Settings(Document):
         """
         Debe haber como mínimo 72hs hábiles entre hoy y la primera fecha de vencimiento.
         """
+        today = datetime.date.today()
+        date = sales_invoice.posting_date
+        if sales_invoice.posting_date < today:
+            date = today
+
         data = {
             "next_business_day": {
-                "date": sales_invoice.posting_date.strftime("%d-%m-%Y"),
+                "date": date.strftime("%d-%m-%Y"),
                 "days": 4,
             }
         }
+        
         response = pago360.get_next_business_day(data)
 
         if response["status"] == 200:
