@@ -3,9 +3,7 @@
   "scripts": {
     "build": "node rollup/build.js",
     "production": "FRAPPE_ENV=production node rollup/build.js",
-    "watch": "node rollup/watch.js",
-    "snyk-protect": "snyk protect",
-    "prepare": "yarn run snyk-protect"
+    "watch": "node rollup/watch.js"
   },
   "repository": {
     "type": "git",
@@ -48,7 +46,6 @@
     "redis": "^3.1.1",
     "rtlcss": "2.6.2",
     "showdown": "^1.9.1",
-    "snyk": "^1.518.0",
     "socket.io": "^2.4.0",
     "superagent": "^3.8.2",
     "touch": "^3.1.0",
@@ -70,6 +67,5 @@
     "rollup-plugin-vue": "4.2.0",
     "svg-sprite": "^2.0.4",
     "vue-template-compiler": "^2.6.11"
-  },
-  "snyk": true
+  }
 }
